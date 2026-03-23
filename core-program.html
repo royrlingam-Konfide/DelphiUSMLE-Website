@@ -488,6 +488,7 @@
     .h-stat-divider { display: none; }
     .pillars-grid { grid-template-columns: 1fr 1fr; }
     .diff-layout { grid-template-columns: 1fr; gap: 36px; }
+    .diff-section .container > div[style*="grid-template-columns:1fr auto 1fr"] { grid-template-columns: 1fr !important; }
   }
   @media (max-width: 768px) {
     .nav-inner { padding: 0 20px; }
@@ -771,14 +772,28 @@
 <!-- ── DELPHI DIFFERENCE ── -->
 <section class="diff-section">
   <div class="container">
-    <div class="diff-layout">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:56px;align-items:center;">
+
+      <!-- Left: text -->
       <div class="reveal">
         <div class="section-tag">Authority</div>
         <h2 class="section-title">Learn Directly from<br/><span>Dr. Roy Lingam.</span></h2>
         <p class="body-p">With over a decade of teaching and mentoring, Dr. Roy Lingam has helped students transform their approach to Step 1 by replacing overwhelm with clarity, structure, and confidence.</p>
         <p class="body-p">This is not just content delivery. This is mentorship, strategic thinking, and guided execution built for students who need a real breakthrough.</p>
       </div>
-      <div class="diff-card reveal reveal-d1">
+
+      <!-- Center: image -->
+      <div class="reveal reveal-d1" style="display:flex;justify-content:center;align-items:center;">
+        <div style="position:relative;width:220px;flex-shrink:0;">
+          <div style="position:absolute;inset:-12px;background:radial-gradient(ellipse at center,rgba(21,101,192,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+          <img src="Brand_assets/brain and heart.png"
+               alt="Brain and Heart — the Delphi Method"
+               style="width:100%;height:auto;display:block;filter:drop-shadow(0 12px 40px rgba(13,43,85,0.18));"/>
+        </div>
+      </div>
+
+      <!-- Right: diff card -->
+      <div class="diff-card reveal reveal-d2">
         <h3>What Makes Delphi Different</h3>
         <ul class="diff-list">
           <li><span class="diff-bullet"></span><span>Clear teaching that simplifies what feels overwhelming — no more confusion, just understanding</span></li>
@@ -787,6 +802,7 @@
           <li><span class="diff-bullet"></span><span>Built for students who want structure, accountability, and measurable results</span></li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
