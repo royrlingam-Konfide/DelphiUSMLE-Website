@@ -1,0 +1,2651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DelphiUSMLE — Bringing You to Excellence in Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0D2B55;
+    --blue:   #1565C0;
+    --sky:    #2196F3;
+    --gold:   #F5A623;
+    --gold-dk:#e09500;
+    --light:  #F0F4FA;
+    --white:  #FFFFFF;
+    --gray:   #6B7280;
+    --dark:   #1A1A2E;
+    --green:  #27AE60;
+    --border: #dce6f5;
+    --text:   #374151;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  #navbar {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.28);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
+  .nav-logo img {
+    height: 46px;
+    width: auto;
+    display: block;
+  }
+  .nav-logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    text-decoration: none;
+  }
+  .nav-logo-text span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+  }
+
+  .nav-links > li { position: relative; }
+
+  .nav-links > li > a,
+  .nav-links > li > button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    padding: 8px 13px;
+    border-radius: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links > li > a:hover,
+  .nav-links > li > button:hover {
+    color: var(--gold);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .chevron {
+    width: 12px; height: 12px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    fill: none;
+    transition: transform 0.22s;
+  }
+  .nav-links > li.open .chevron { transform: rotate(180deg); }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 230px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(13,43,85,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s, transform 0.2s;
+    padding: 8px 0;
+    overflow: hidden;
+  }
+  .nav-links > li.open .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .dropdown a {
+    display: block;
+    padding: 11px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border-left: 3px solid transparent;
+  }
+  .dropdown a:hover {
+    background: var(--light);
+    color: var(--blue);
+    border-left-color: var(--blue);
+  }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-cta:hover { background: var(--gold-dk); transform: translateY(-1px); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px; height: 40px;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 0 28px;
+    z-index: 199;
+    flex-direction: column;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    padding: 13px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.18s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .sub {
+    padding-left: 56px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* ── SHARED ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  section { padding: 80px 0; }
+
+  .section-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: #e8f0fe;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .section-tag.light {
+    background: rgba(255,255,255,0.12);
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .section-title span { color: var(--blue); }
+  .section-title.white { color: var(--white); }
+  .section-title.white span { color: var(--gold); }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--gray);
+    max-width: 620px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+  .section-intro.white { color: rgba(255,255,255,0.72); }
+
+  .badge-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 14px 34px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(245,166,35,0.38);
+  }
+  .btn-primary:hover { background: var(--gold-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.48); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid rgba(255,255,255,0.65);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 12px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  .btn-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-navy:hover { background: #0a2044; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #home {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--sky) 100%);
+    color: var(--white);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-bubble-1 {
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    pointer-events: none;
+  }
+  .hero-bubble-2 {
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .hero-bubble-3 {
+    position: absolute;
+    top: 40%; left: 50%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.025);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 36px 40px 70px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-content .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero h1, #home h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .hero h1 span, #home h1 span { color: var(--gold); }
+
+  .hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    opacity: 0.88;
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    opacity: 0.8;
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .hero-tp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .hero-tp-badge:hover { background: rgba(255,255,255,0.12); border-color: rgba(0,182,122,0.5); transform: translateY(-1px); }
+
+  /* Hero image side */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: -20px;
+  }
+
+  .hero-img {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    display: block;
+    mix-blend-mode: screen;
+    filter: brightness(1.08) contrast(1.05) drop-shadow(0 0 40px rgba(33,150,243,0.5));
+    animation: heroPulse 4s ease-in-out infinite;
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 88%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 88%);
+  }
+  @keyframes heroPulse {
+    0%, 100% { transform: scale(1);      filter: brightness(1.08) contrast(1.05) drop-shadow(0 0 40px rgba(33,150,243,0.5)); }
+    50%       { transform: scale(1.025); filter: brightness(1.12) contrast(1.05) drop-shadow(0 0 58px rgba(33,150,243,0.68)); }
+  }
+
+  .hero-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: -120px;
+    backdrop-filter: blur(12px);
+  }
+
+  .h-stat {
+    padding: 16px 10px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    transition: background 0.2s;
+  }
+  .h-stat:last-child { border-right: none; }
+  .h-stat:hover { background: rgba(255,255,255,0.08); }
+
+  .h-stat .num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .h-stat .lbl {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.58);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(13,43,85,0.07);
+  }
+  .stats-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    padding: 26px 44px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--blue);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── WHO WE ARE ── */
+  #who-we-are { background: var(--light); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .body-p {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  .body-p strong { color: var(--navy); font-weight: 600; }
+
+  .highlight-box {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 36px;
+  }
+  .highlight-box .big {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .highlight-box .sub-label {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+  .hl-divider { border: none; border-top: 1px solid rgba(255,255,255,0.12); margin: 20px 0; }
+  .hl-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+    font-size: 0.92rem;
+    opacity: 0.85;
+  }
+  .hl-item .icon { font-size: 1.1rem; }
+
+  /* Stats grid within section */
+  .stats-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin: 28px 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .s3-card {
+    background: var(--navy);
+    padding: 28px 20px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .s3-card:hover { background: #0a2244; }
+  .s3-card .num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .s3-card .lbl {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 4px solid var(--blue);
+    padding: 14px 22px;
+    background: rgba(21,101,192,0.06);
+    border-radius: 0 10px 10px 0;
+    margin: 24px 0;
+  }
+  .pull-quote p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* ── FOUNDER BAND ── */
+  .founder-band {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .founder-band::before {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(33,150,243,0.08);
+  }
+
+  .founder-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 72px;
+    align-items: start;
+    position: relative;
+  }
+
+  .founder-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-align: center;
+  }
+
+  .founder-avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 28px rgba(21,101,192,0.4);
+  }
+
+  .founder-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .founder-role {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .founder-body .section-tag { color: var(--gold); background: rgba(245,166,35,0.15); }
+  .founder-body .section-title { color: var(--white); }
+  .founder-body .body-p { color: rgba(255,255,255,0.7); }
+  .founder-body .body-p strong { color: rgba(255,255,255,0.9); }
+
+  /* Pillars */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .pillar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 28px;
+    position: relative;
+    transition: transform 0.22s, box-shadow 0.22s;
+  }
+  .pillar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(13,43,85,0.12);
+  }
+
+  .pillar-icon {
+    width: 50px; height: 50px;
+    background: var(--light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+  }
+
+  .pillar-num {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(21,101,192,0.06);
+    line-height: 1;
+    user-select: none;
+  }
+
+  .pillar h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .pillar p { font-size: 0.88rem; color: var(--gray); line-height: 1.75; }
+
+  /* ── STEP 1 ── */
+  #step-1-overview { background: var(--white); }
+
+  .step1-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 70px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .step1-hero::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .step1-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+
+  .step1-hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .step1-hero h2 span { color: var(--gold); }
+  .step1-hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+
+  .method-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .method-dark {
+    background: #0a2244;
+    padding: 52px;
+    position: relative;
+  }
+  .method-dark::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(245,166,35,0.4), transparent);
+  }
+  .method-light {
+    background: var(--light);
+    padding: 52px;
+  }
+
+  .method-icon {
+    width: 44px; height: 44px;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+  .method-dark .method-icon { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+
+  .method-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .method-dark .method-title { color: var(--gold); }
+  .method-light .method-title { color: var(--navy); }
+  .method-dark p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; }
+  .method-light p { color: var(--gray); font-size: 0.95rem; line-height: 1.8; }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .research-card {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s, box-shadow 0.22s;
+  }
+  .research-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(13,43,85,0.1);
+  }
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .card-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .card-uni {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .card-body { font-size: 0.88rem; color: var(--gray); line-height: 1.75; }
+
+  /* Conclusion band */
+  .conclusion-band {
+    background: var(--navy);
+    padding: 60px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 100%;
+  }
+  .conclusion-left { flex: 0 0 180px; }
+  .big-quote {
+    font-family: Georgia, serif;
+    font-size: 80px;
+    color: rgba(245,166,35,0.25);
+    line-height: 1;
+  }
+  .conclusion-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .conclusion-right { flex: 1; }
+  .conclusion-right p {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.97rem;
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .conclusion-right p strong { color: rgba(255,255,255,0.92); }
+
+  /* Flow */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    max-width: 760px;
+    margin: 36px 0;
+    box-shadow: 0 4px 20px rgba(13,43,85,0.07);
+  }
+  .flow-step {
+    flex: 1;
+    padding: 28px 24px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .flow-step:last-child { border-right: none; }
+  .step-num {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .step-content { font-size: 0.87rem; color: var(--navy); font-weight: 500; line-height: 1.5; }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    background: var(--light);
+    color: var(--blue);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* ── PROGRAMS ── */
+  #programs { background: var(--light); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .program-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 2px 12px rgba(13,43,85,0.06);
+  }
+  .program-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 48px rgba(13,43,85,0.14);
+  }
+  .program-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 4px 24px rgba(245,166,35,0.18);
+  }
+  .program-card.featured:hover {
+    box-shadow: 0 18px 48px rgba(245,166,35,0.22);
+  }
+
+  .program-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .program-top {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 32px 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .program-top::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .program-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .program-weeks {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .program-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .program-sub {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .program-body {
+    padding: 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .program-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+  .program-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+  .program-features li::before {
+    content: '✓';
+    display: inline-block;
+    width: 20px; height: 20px;
+    background: #e6f9ee;
+    color: var(--green);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .program-enroll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 25px;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 3px 12px rgba(245,166,35,0.3);
+  }
+  .program-enroll:hover { background: var(--gold-dk); transform: translateY(-1px); }
+
+  /* ── PASS GUARANTEE ── */
+  .guarantee-section { background: var(--navy); padding: 72px 0; }
+  .guarantee-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 48px 52px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .guarantee-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(245,166,35,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .guarantee-icon { font-size: 2.8rem; flex-shrink: 0; }
+  .guarantee-body { flex: 1; }
+  .guarantee-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .guarantee-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .guarantee-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    max-width: 560px;
+  }
+  .guarantee-badge { flex-shrink: 0; }
+  .guarantee-badge-inner {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    background: rgba(245,166,35,0.08);
+  }
+  @media (max-width: 760px) {
+    .guarantee-card { flex-direction: column; padding: 36px 28px; text-align: center; }
+    .guarantee-sub { max-width: 100%; }
+    .guarantee-icon { font-size: 2.2rem; }
+  }
+
+  /* ── UPCOMING COHORTS ── */
+  #upcoming-cohorts {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .cohorts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 48px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cohort-tracks {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cohort-track-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .cohort-track-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .cohort-track-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--gold);
+  }
+
+  .cohort-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 30px 26px;
+    transition: background 0.22s, transform 0.22s, border-color 0.22s;
+  }
+  .cohort-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+    border-color: rgba(245,166,35,0.4);
+  }
+
+  .cohort-status-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .cohort-program {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .cohort-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .cohort-detail-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.58);
+  }
+  .cohort-detail-row svg {
+    width: 14px; height: 14px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2;
+    flex-shrink: 0;
+  }
+
+  .cohort-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+  .cohort-badge.open {
+    background: rgba(39,174,96,0.12);
+    border: 1px solid rgba(39,174,96,0.3);
+    color: #4ade80;
+  }
+  .cohort-badge.filling {
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--gold);
+  }
+
+  .cohort-enroll {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 25px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cohort-enroll:hover { background: var(--gold-dk); transform: translateY(-1px); }
+
+  .cohorts-note {
+    text-align: center;
+    margin-top: 44px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.75;
+  }
+  .cohorts-note a { color: var(--gold); text-decoration: none; }
+  .cohorts-note a:hover { text-decoration: underline; }
+
+  /* ── TRUSTPILOT ── */
+  .tp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #f9fafb;
+    border: 1.5px solid #d1fae5;
+    border-radius: 40px;
+    padding: 10px 20px 10px 14px;
+    text-decoration: none;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .tp-badge:hover { border-color: #00b67a; box-shadow: 0 4px 16px rgba(0,182,122,0.15); transform: translateY(-1px); }
+  .tp-star-icon { width: 32px; height: 32px; border-radius: 4px; flex-shrink: 0; }
+  .tp-text { display: flex; align-items: center; gap: 8px; }
+  .tp-excellent { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; color: #111; }
+  .tp-stars { color: #00b67a; font-size: 0.95rem; letter-spacing: 1px; }
+  .tp-source { font-size: 0.78rem; color: var(--gray); }
+  .tp-source strong { color: #111; }
+  .tp-arrow { width: 18px; height: 18px; flex-shrink: 0; }
+  .tp-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #00b67a;
+    text-decoration: none;
+    border: 2px solid #00b67a;
+    padding: 11px 26px;
+    border-radius: 30px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .tp-cta-link:hover { background: #00b67a; color: #fff; transform: translateY(-1px); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--light); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 20px rgba(13,43,85,0.07);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.22s, box-shadow 0.22s;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(13,43,85,0.12);
+  }
+
+  .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.4;
+    position: absolute;
+    top: 14px; left: 20px;
+  }
+
+  .testimonial-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.97rem;
+    color: var(--navy);
+    padding-top: 18px;
+  }
+  .stars { color: var(--gold); font-size: 0.88rem; letter-spacing: 1px; }
+  .testimonial-text {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.8;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .testimonial-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .t-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--sky));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .t-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--navy);
+  }
+  .t-detail { font-size: 0.75rem; color: var(--gray); }
+  .result-badge {
+    display: inline-block;
+    background: #e6f9ee;
+    color: var(--green);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 3px;
+  }
+
+  /* ── CONNECT ── */
+  #connect-with-us { background: var(--white); }
+
+  .connect-layout {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin-top: 36px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .contact-icon {
+    width: 46px; height: 46px;
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .contact-text-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 2px;
+  }
+  .contact-text-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .contact-text-sub { font-size: 0.82rem; color: var(--gray); margin-top: 1px; }
+
+  /* Form */
+  .form-wrap {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 24px rgba(13,43,85,0.07);
+  }
+  .form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .form-sub {
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+
+  .form-group { margin-bottom: 18px; }
+  .form-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 7px;
+  }
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.92rem;
+    color: var(--dark);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+  }
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(21,101,192,0.1);
+  }
+  .form-textarea { resize: vertical; min-height: 110px; }
+  .form-select-wrap { position: relative; }
+  .form-select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 14px; top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--gray);
+    pointer-events: none;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    margin-top: 6px;
+    box-shadow: 0 4px 16px rgba(245,166,35,0.35);
+  }
+  .form-submit:hover {
+    background: var(--gold-dk);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(245,166,35,0.42);
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .cta-band h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .cta-band p {
+    font-size: 1rem;
+    opacity: 0.82;
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .cta-note {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: 14px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px 36px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 28px;
+  }
+
+  .footer-logo img {
+    height: 46px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .footer-logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .footer-logo-text span { color: var(--gold); }
+  .footer-tagline { font-size: 0.85rem; line-height: 1.75; margin-bottom: 16px; }
+  .footer-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .footer-col-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-col ul li a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.18s;
+  }
+  .footer-col ul li a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .footer-copy { font-size: 0.78rem; }
+  .footer-copy a { color: var(--gold); text-decoration: none; }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+    .method-two-col { grid-template-columns: 1fr !important; }
+    .method-two-col img { max-width: 320px !important; margin: 0 auto; }
+    .founder-layout { grid-template-columns: 1fr; gap: 48px; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+    .programs-grid { grid-template-columns: 1fr; max-width: 520px; }
+    .cohorts-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .connect-layout { grid-template-columns: 1fr; gap: 48px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .footer-links { grid-template-columns: repeat(2, 1fr); }
+    .research-grid { grid-template-columns: 1fr; }
+    .method-split { grid-template-columns: 1fr; }
+    .method-dark::after { display: none; }
+    .conclusion-band { flex-direction: column; gap: 20px; padding: 48px 24px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .stats-3 { grid-template-columns: 1fr; }
+    .hero-inner { padding: 90px 24px 70px; }
+    .container { padding: 0 24px; }
+    section { padding: 60px 0; }
+    .footer-links { grid-template-columns: 1fr; }
+    .footer-inner { padding: 48px 24px 28px; }
+    .form-row { grid-template-columns: 1fr; }
+    .stats-strip-inner { padding: 0 20px; }
+    .stat-item { padding: 20px 24px; }
+    .form-wrap { padding: 28px 20px; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); padding: 6px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-text" style="display:none;">Delphi<span>USMLE</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#who-we-are">Who We Are</a></li>
+      <li><a href="#step-1-overview">Step 1 Overview</a></li>
+      <li class="has-dropdown" id="prog-nav">
+        <button onclick="toggleDrop('prog-nav')">
+          Programs
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="core-program.html">Delphi Core Program</a>
+          <a href="acecomp.html">Delphi AceComp</a>
+        </div>
+      </li>
+      <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+      <li><a href="#connect-with-us">Connect With Us</a></li>
+    </ul>
+
+    <a href="#connect-with-us" class="nav-cta">Enroll Now</a>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#who-we-are" onclick="closeMobile()">Who We Are</a>
+  <a href="#step-1-overview" onclick="closeMobile()">Step 1 Overview</a>
+  <a href="#programs" onclick="closeMobile()">Programs</a>
+  <a href="core-program.html" class="sub" onclick="closeMobile()">↳ Delphi Core Program</a>
+  <a href="acecomp.html" class="sub" onclick="closeMobile()">↳ Delphi AceComp</a>
+  <a href="cohorts.html" onclick="closeMobile()">Upcoming Cohorts</a>
+  <a href="#connect-with-us" onclick="closeMobile()">Connect With Us</a>
+</div>
+
+
+<!-- ══ HERO ══ -->
+<section id="home">
+  <div class="hero-bubble-1"></div>
+  <div class="hero-bubble-2"></div>
+  <div class="hero-bubble-3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="badge-pill">⚡ CBSSA &amp; USMLE Step 1 Preparation</div>
+      <h1 class="reveal">Struggling to Pass?<br/><span>This Is Where Your Breakthrough Begins.</span></h1>
+      <p class="hero-subtitle reveal reveal-d1">MD-Led. Science-Backed. Personally Guided.</p>
+      <p class="hero-desc reveal reveal-d2">
+        DelphiUSMLE provides elite live online prep for CBSSA and USMLE Step 1 exams — combining proven science-backed methods with personalized mentorship to achieve outcomes that matter.
+      </p>
+      <div class="hero-btns reveal reveal-d3">
+        <a href="#programs" class="btn-primary">View Programs →</a>
+        <a href="#who-we-are" class="btn-outline">Our Story</a>
+      </div>
+
+      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="hero-tp-badge reveal reveal-d4">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:26px;border-radius:3px;flex-shrink:0;">
+          <rect width="512" height="512" fill="#00b67a"/>
+          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
+        </svg>
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;color:#fff;">Excellent</span>
+            <span style="color:#00b67a;font-size:0.9rem;letter-spacing:1px;">★★★★★</span>
+          </div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">Rated on <strong style="color:rgba(255,255,255,0.8);">Trustpilot</strong></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="hero-visual reveal reveal-d2">
+      <img
+        src="Brand_assets/brain and heart.png"
+        alt="Anatomical brain and heart illustration"
+        class="hero-img"
+      />
+      <div class="hero-stats-bar">
+        <div class="h-stat">
+          <span class="num">98%</span>
+          <span class="lbl">Pass Rate</span>
+        </div>
+        <div class="h-stat">
+          <span class="num">10+</span>
+          <span class="lbl">Yrs Teaching</span>
+        </div>
+        <div class="h-stat">
+          <span class="num">100s</span>
+          <span class="lbl">Lives Changed</span>
+        </div>
+        <div class="h-stat">
+          <span class="num">MD</span>
+          <span class="lbl">Led Classes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STATS STRIP ══ -->
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-item">
+      <span class="stat-number">98%</span>
+      <span class="stat-label">Passing Rate</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">10+</span>
+      <span class="stat-label">Years Teaching</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">MD</span>
+      <span class="stat-label">Certified Instructors</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">3</span>
+      <span class="stat-label">Specialized Programs</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">Live</span>
+      <span class="stat-label">Online Instruction</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ WHO WE ARE ══ -->
+<section id="who-we-are">
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="section-tag">Our Mission</div>
+        <h2 class="section-title">Where Every Student<br/><span>Deserves</span> a Fighting Chance</h2>
+        <p class="body-p">We truly understand the stress, anxiety, and fear of failure that surround USMLE Step 1 and CBSSA exams. These aren't just tests — they are the gateway to your life's calling.</p>
+        <p class="body-p">At DelphiUSMLE, we believe that with the right guidance, encouragement, and unwavering support, <strong>every medical student can turn their dream of becoming a physician into reality.</strong></p>
+        <p class="body-p">We pride ourselves on maintaining <strong>small teacher-to-student ratios</strong> — giving each student the personalized attention they truly deserve.</p>
+        <div class="pull-quote">
+          <p>"Delphi is more than a prep center — it's an experience committed to <em>Bringing You to Excellence in Medicine.</em>"</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d2">
+        <div class="section-tag">By the Numbers</div>
+        <h2 class="section-title">A Decade of <span>Proven</span> Results</h2>
+        <p class="body-p">Our results speak for themselves — but behind every number is a student who believed in themselves and found the support to prove it.</p>
+        <div class="stats-3">
+          <div class="s3-card">
+            <span class="num">10+</span>
+            <span class="lbl">Years Teaching</span>
+          </div>
+          <div class="s3-card">
+            <span class="num">98%</span>
+            <span class="lbl">Passing Rate</span>
+          </div>
+          <div class="s3-card">
+            <span class="num">100s</span>
+            <span class="lbl">Lives Changed</span>
+          </div>
+        </div>
+        <p class="body-p">All DelphiUSMLE instructors are <strong>M.D.s who have successfully passed all portions of the USMLE</strong>, are ECFMG certified, and have completed their residencies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOUNDER ══ -->
+<div class="founder-band">
+  <div class="founder-layout">
+    <div class="founder-card reveal">
+      <div class="founder-avatar">RL</div>
+      <div class="founder-name">Dr. Roy Lingam</div>
+      <div class="founder-role">Founder · DelphiUSMLE</div>
+      <div class="chip-list">
+        <span class="chip">USMLE Step 1</span>
+        <span class="chip">Step 2 CK</span>
+        <span class="chip">Comp Exam</span>
+        <span class="chip">CBSSA Specialist</span>
+        <span class="chip">10+ Years</span>
+        <span class="chip">ECFMG Certified</span>
+      </div>
+      <a href="#connect-with-us" class="btn-primary" style="justify-content:center;">Connect with Dr. Roy</a>
+    </div>
+
+    <div class="founder-body reveal reveal-d1">
+      <div class="section-tag light">Meet the Founder</div>
+      <h2 class="section-title white">More Than Teaching. This Is<br/><span>Mentorship That Gets You to Pass.</span></h2>
+      <p class="body-p" style="color:rgba(255,255,255,0.7)">Dr. Roy Lingam has been training medical students for USMLE Step 1 and CBSSA Comp exams for more than a decade, achieving a remarkable <strong style="color:rgba(255,255,255,0.92)">98% passing rate</strong> across his students. His teaching approach goes far beyond passive review.</p>
+      <p class="body-p" style="color:rgba(255,255,255,0.7)">What sets Dr. Roy apart is his ability to <strong style="color:rgba(255,255,255,0.92)">transform overwhelming volumes of basic science material into clear, clinically relevant frameworks</strong> that students actually retain. He teaches you how to think through questions — not just what to memorize.</p>
+      <p class="body-p" style="color:rgba(255,255,255,0.7)">Dr. Lingam is especially known for guiding students who had <strong style="color:rgba(255,255,255,0.92)">repeatedly failed the CBSSA and were on the verge of giving up</strong> — empowering them to turn their setbacks into triumphs.</p>
+      <div class="pull-quote" style="border-color:rgba(245,166,35,0.5); background:rgba(245,166,35,0.07); margin-top:24px;">
+        <p style="color:rgba(255,255,255,0.85);">"He teaches you <em>how to think</em> through questions — not just what to memorize."
+          <br/><small style="font-family:'Open Sans',sans-serif; font-size:0.78rem; font-style:normal; color:rgba(255,255,255,0.4); letter-spacing:0.5px;">— DelphiUSMLE Student</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PILLARS ══ -->
+<section style="background: var(--white); padding: 80px 0;">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto;">
+      <div class="section-tag">What Sets Us Apart</div>
+      <h2 class="section-title">The <span>Delphi</span> Difference</h2>
+      <p class="section-intro" style="margin:0 auto 0;">Three commitments that define every student's journey with us.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <span class="pillar-num">01</span>
+        <div class="pillar-icon">🎯</div>
+        <h3>Individualized Study Plans</h3>
+        <p>No two students learn the same way. Dr. Roy builds a custom roadmap for your specific weaknesses, learning style, and exam timeline — so every hour you study counts.</p>
+      </div>
+      <div class="pillar reveal reveal-d1">
+        <span class="pillar-num">02</span>
+        <div class="pillar-icon">👥</div>
+        <h3>Small Group Ratios</h3>
+        <p>We deliberately keep class sizes small so you're never just a face in a crowd. You get real attention, real feedback, and a real relationship with your instructor.</p>
+      </div>
+      <div class="pillar reveal reveal-d2">
+        <span class="pillar-num">03</span>
+        <div class="pillar-icon">🏆</div>
+        <h3>MD-Led, Clinically Grounded</h3>
+        <p>Every instructor at DelphiUSMLE is a board-certified M.D. who has passed all portions of the USMLE and completed residency. We teach from experience, not just textbooks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STEP 1 OVERVIEW ══ -->
+<section id="step-1-overview" style="padding:0;">
+  <div class="step1-hero">
+    <div class="step1-hero-inner reveal">
+      <div class="badge-pill">USMLE Step 1 Overview</div>
+      <h2>The USMLE Step 1 Just Got Tougher—<span>But So Did We.</span></h2>
+      <p>With pass rates declining nationwide, the USMLE Step 1 has become more rigorous and complex. At Delphi, we've analyzed student performance data and reimagined how Step 1 should be taught.</p>
+    </div>
+  </div>
+
+  <div class="method-split">
+    <div class="method-dark reveal">
+      <div class="method-icon">📚</div>
+      <div class="method-title">First Aid for Step 1®</div>
+      <p>Our teaching strategy emphasizes deep understanding through detailed lectures, followed immediately by concept-specific practice questions. Students master not just <em>what</em> the question is asking — but <em>why</em> the answer is correct.</p>
+    </div>
+    <div class="method-light reveal reveal-d1">
+      <div class="method-icon">❓</div>
+      <div class="method-title">UWorld Questions®</div>
+      <p>We pair every concept with targeted UWorld practice questions immediately after teaching it. This reinforces retention, builds clinical reasoning, and trains students to decode complex vignette-style questions with confidence.</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:72px; padding-bottom:72px;">
+    <div class="reveal" style="text-align:center; max-width:620px; margin:0 auto;">
+      <div class="section-tag">Evidence-Based Approach</div>
+      <h2 class="section-title">Proven Scientific Method<br/>to Study <span>USMLE</span></h2>
+      <p class="section-intro" style="margin:0 auto 0;">Research from three leading medical institutions tells us exactly what actually works.</p>
+    </div>
+
+    <div class="research-grid reveal">
+      <div class="research-card">
+        <div class="card-year">2011</div>
+        <div class="card-uni">Albert Einstein College of Medicine</div>
+        <p class="card-body">"Are questions the answer?" — Students who completed ~2,000 practice questions saw significantly improved results. It's about questions, not just study hours.</p>
+      </div>
+      <div class="research-card">
+        <div class="card-year">2014–2015</div>
+        <div class="card-uni">University of Michigan</div>
+        <p class="card-body">"Study behaviors and USMLE Step 1 Performance" — Students who completed three or more passes through First Aid combined with practice questions were significantly more successful.</p>
+      </div>
+      <div class="research-card">
+        <div class="card-year">2015</div>
+        <div class="card-uni">Washington University of St. Louis</div>
+        <p class="card-body">"Student-directed retrieval" — Practice questions are strongly associated with Step 1 performance. Anki use showed significant correlation. Wellness and mindset matter too.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion-band">
+    <div class="conclusion-left reveal">
+      <div class="big-quote">"</div>
+      <div class="conclusion-label">Conclusion</div>
+    </div>
+    <div class="conclusion-right reveal reveal-d1">
+      <p>After reviewing all three studies, the final conclusion is clear: using <strong>First Aid USMLE Step 1</strong> while consistently practicing questions is the key to success.</p>
+      <p>At Delphi, we have a proven track record of helping students move away from ineffective study methods. Our <strong>6 &amp; 8-week Step 1 live online prep</strong> teaches all First Aid concepts in a digestible, stimulating format — followed immediately by UWorld analysis strategies to score optimum results.</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:72px; padding-bottom:80px;">
+    <div class="method-two-col" style="display:grid; grid-template-columns:1fr 420px; gap:64px; align-items:center;">
+
+      <!-- Left: text + flow -->
+      <div>
+        <div class="reveal">
+          <div class="section-tag">The Delphi Method in Action</div>
+          <h3 style="font-family:'Montserrat',sans-serif; font-size:1.6rem; font-weight:800; color:var(--navy); margin-bottom:14px;">Delphi Has Put the Scientific Method to Practice</h3>
+          <p style="font-size:0.95rem; color:var(--gray); line-height:1.8; margin-bottom:28px;">Every session follows a strict cognitive cycle: <strong style="color:var(--navy)">Understand</strong> the concept deeply, <strong style="color:var(--navy)">Memorize</strong> through immediate practice questions, then <strong style="color:var(--navy)">Recall</strong> under exam conditions. This is how lasting retention is built.</p>
+        </div>
+        <div class="flow reveal reveal-d1">
+          <div class="flow-step">
+            <div class="step-num">1</div>
+            <div class="step-label">Understand</div>
+            <div class="step-content">Using First Aid, learn a concept in full depth — e.g., <strong>Sickle Cell Anemia</strong></div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="step-num">2</div>
+            <div class="step-label">Memorize</div>
+            <div class="step-content">Answer UWorld questions on that concept immediately to lock it in</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="step-num">3</div>
+            <div class="step-label">Recall</div>
+            <div class="step-content">Identify <em>what</em> is asked, <em>what</em> is correct, and <em>why</em> — under timed pressure</div>
+          </div>
+        </div>
+        <p class="reveal reveal-d2" style="font-size:0.88rem; color:var(--gray); line-height:1.8; margin-top:20px;">Students practicing questions consistently see rising scores. This is a <strong style="color:var(--navy)">proven, science-backed method</strong> — and the foundation of everything we teach at Delphi.</p>
+      </div>
+
+      <!-- Right: image -->
+      <div class="reveal reveal-d2" style="display:flex; justify-content:center;">
+        <img
+          src="Brand_assets/understandmemorizerecall.png"
+          alt="Understand, Memorize, Recall — the Delphi learning cycle"
+          style="width:100%; max-width:400px; height:auto; border-radius:20px;
+                 box-shadow: 0 8px 40px rgba(13,43,85,0.18), 0 2px 8px rgba(13,43,85,0.08);
+                 transition: transform 0.3s ease, box-shadow 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 16px 56px rgba(13,43,85,0.24), 0 4px 16px rgba(13,43,85,0.1)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 40px rgba(13,43,85,0.18), 0 2px 8px rgba(13,43,85,0.08)'"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROGRAMS ══ -->
+<section id="programs">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:580px; margin:0 auto;">
+      <div class="section-tag">Our Programs</div>
+      <h2 class="section-title">Two Programs.<br/><span>One Mission: Passing.</span></h2>
+      <p class="section-intro" style="margin:0 auto 48px;">Live, MD-led online programs designed to meet you where you are — whether you're preparing for Step 1 or the CBSSA Comp Exam.</p>
+    </div>
+
+    <div class="programs-grid">
+
+      <!-- Delphi Core Program -->
+      <div class="program-card featured reveal" id="program-core" style="position:relative;">
+        <div class="program-badge">Most Popular</div>
+        <div class="program-top">
+          <span class="program-icon">📖</span>
+          <div class="program-weeks">6 &amp; 8-Week Tracks</div>
+          <h3>Delphi Core Program</h3>
+          <p class="program-sub">Two structured paths — Core (6 weeks) and Premium (8 weeks) — both delivering live MD-led Step 1 preparation built on the Understand, Memorize, Recall framework.</p>
+        </div>
+        <div class="program-body">
+          <ul class="program-features">
+            <li>Live daily sessions with Dr. Roy Lingam, MD</li>
+            <li>Full First Aid coverage with UWorld integration</li>
+            <li>Personalized study plan from day one</li>
+            <li>Science-backed Understand → Memorize → Recall method</li>
+            <li>Delphi Premium adds 2-week Advanced Question Mastery Phase</li>
+            <li>Investment: $4,850 (Core) · $6,950 (Premium)</li>
+          </ul>
+          <a href="core-program.html" class="program-enroll">Explore Program →</a>
+        </div>
+      </div>
+
+      <!-- Delphi AceComp -->
+      <div class="program-card reveal reveal-d1" id="program-ace">
+        <div class="program-top">
+          <span class="program-icon">⚡</span>
+          <div class="program-weeks">2-Week Intensive</div>
+          <h3>Delphi AceComp</h3>
+          <p class="program-sub">A laser-focused two-week intensive for medical students who need to conquer the CBSSA Comprehensive Exam — fast, high-yield, and live with Dr. Roy.</p>
+        </div>
+        <div class="program-body">
+          <ul class="program-features">
+            <li>10 days · 4.5 hrs/day · 7AM–11:30AM live sessions</li>
+            <li>CBSSA Comp Exam targeted high-yield curriculum</li>
+            <li>Live instruction with CBSSA specialist Dr. Roy</li>
+            <li>CBSSA practice question strategies &amp; mastery</li>
+            <li>Personalized weakness-targeting approach</li>
+            <li>Investment: $1,500</li>
+          </ul>
+          <a href="acecomp.html" class="program-enroll">Explore Program →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PASS GUARANTEE ══ -->
+<section class="guarantee-section">
+  <div class="container">
+    <div class="guarantee-card reveal">
+      <div class="guarantee-icon">🛡️</div>
+      <div class="guarantee-body">
+        <div class="guarantee-label">Our Commitment</div>
+        <h2 class="guarantee-headline">We Stay With You Until You Pass.</h2>
+        <p class="guarantee-sub">Enroll once — and we guide you through both your Comp and USMLE Step 1, for as long as it takes. No re-enrollment. No extra fees. Just unwavering support until you cross the finish line.</p>
+      </div>
+      <div class="guarantee-badge">
+        <div class="guarantee-badge-inner">
+          <span style="font-size:1.5rem;">✓</span>
+          <span>Pass<br/>Guarantee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ UPCOMING COHORTS ══ -->
+<section id="upcoming-cohorts">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto;">
+      <div class="section-tag light">Enrollment Open</div>
+      <h2 class="section-title white">Upcoming <span>Cohorts</span></h2>
+      <p class="section-intro white" style="margin:0 auto 0;">Seats are limited in each cohort to preserve the small-group experience. Reserve your spot early.</p>
+    </div>
+
+    <div class="cohorts-grid">
+
+      <!-- Delphi Core Program card -->
+      <div class="cohort-card reveal">
+        <div class="cohort-status-label"><span class="dot"></span> Enrolling Now</div>
+        <div class="cohort-program">Delphi Core Program</div>
+        <div class="cohort-details">
+          <div class="cohort-detail-row">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Starts May 4, 2025
+          </div>
+          <div class="cohort-detail-row">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Daily Live Sessions · MD-Led
+          </div>
+          <div class="cohort-detail-row">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Live Online via Zoom
+          </div>
+        </div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);font-family:'Montserrat',sans-serif;font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Core &amp; Premium start together</div>
+        <div class="cohort-tracks">
+          <div class="cohort-track-row">
+            <span class="cohort-track-name">Delphi Core · 6 Weeks</span>
+            <span class="cohort-track-price">$4,850</span>
+          </div>
+          <div class="cohort-track-row">
+            <span class="cohort-track-name">Delphi Premium · 8 Weeks</span>
+            <span class="cohort-track-price">$6,950</span>
+          </div>
+        </div>
+        <div class="cohort-badge open" style="margin-top:16px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:currentColor;"></span>
+          Open for Enrollment
+        </div>
+        <a href="core-program.html" class="cohort-enroll">View Program →</a>
+      </div>
+
+      <!-- Delphi AceComp card -->
+      <div class="cohort-card reveal reveal-d1">
+        <div class="cohort-status-label"><span class="dot"></span> Enrolling Now</div>
+        <div class="cohort-program">Delphi AceComp</div>
+        <div class="cohort-details">
+          <div class="cohort-detail-row">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            April 6 – April 17, 2025
+          </div>
+          <div class="cohort-detail-row">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            10 Days · 4.5 hrs/day · 7AM–11:30AM
+          </div>
+          <div class="cohort-detail-row">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Live Online · CBSSA Focused
+          </div>
+        </div>
+        <div class="cohort-tracks" style="margin-top:14px;">
+          <div class="cohort-track-row">
+            <span class="cohort-track-name">Delphi AceComp · 2 Weeks</span>
+            <span class="cohort-track-price">$1,500</span>
+          </div>
+        </div>
+        <div class="cohort-badge open" style="margin-top:16px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:currentColor;"></span>
+          Open for Enrollment
+        </div>
+        <a href="acecomp.html" class="cohort-enroll">View Program →</a>
+      </div>
+
+    </div>
+
+    <p class="cohorts-note reveal">
+      Exact cohort start dates are sent to enrolled students and newsletter subscribers.<br/>
+      <a href="#connect-with-us">Contact us</a> to receive schedule notifications and availability updates.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto;">
+      <div class="section-tag">Student Success Stories</div>
+      <h2 class="section-title">Real Students. <span>Real Results.</span></h2>
+      <p class="section-intro" style="margin:0 auto 16px;">Don't take our word for it — hear from students whose lives Dr. Roy has transformed.</p>
+
+      <!-- Trustpilot badge -->
+      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="tp-badge">
+        <svg class="tp-star-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect width="512" height="512" rx="0" fill="#00b67a"/>
+          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
+        </svg>
+        <div class="tp-text">
+          <span class="tp-excellent">Excellent</span>
+          <span class="tp-stars">★★★★★</span>
+          <span class="tp-source">on <strong>Trustpilot</strong></span>
+        </div>
+        <svg class="tp-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 10h12M11 5l5 5-5 5" stroke="#00b67a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-headline">Structured, High-Yield &amp; Life-Changing</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Dr. Roy's course is extremely structured and high-yield, which helped me organize an overwhelming amount of material for Step 1. He broke down complex concepts into clinically relevant frameworks that directly translated into improved question strategy. I became more efficient, more intentional, and way more confident. I highly recommend Delphi to anyone who feels stuck and overwhelmed with USMLE prep.</p>
+        <div class="testimonial-footer">
+          <div class="t-avatar">🎓</div>
+          <div>
+            <div class="t-name">Medical Student</div>
+            <div class="t-detail">CBSSE &amp; USMLE Step 1 Prep</div>
+            <div class="result-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-d1">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-headline">From 52% to 94% Chance of Passing — First Try</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Dr. Roy's passion for teaching and ability to tie everything together is remarkable. He filled many knowledge gaps and gave me the confidence to overcome imposter syndrome and my fear of exams. My NBME predictions went from a 52% chance of passing to a 94% chance, and I passed the USMLE on the first try. I am forever indebted to the amazing Dr. Roy.</p>
+        <div class="testimonial-footer">
+          <div class="t-avatar">⭐</div>
+          <div>
+            <div class="t-name">Medical Student</div>
+            <div class="t-detail">USMLE Step 1</div>
+            <div class="result-badge">✓ Passed USMLE — First Attempt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-d2">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-headline">He Believed in Me When I Didn't</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">When I contacted Dr. Roy, I had failed school CBSE and didn't know what to do. He gave me the courage to restart my prep. He keeps in touch with you and guides you through each practice NBME. He tracks your progress, meets with you regularly, encourages and believes in you when you don't believe in yourself. I not only passed CBSE — I just received my Step 1 PASS. I owe my passing to Dr. Roy.</p>
+        <div class="testimonial-footer">
+          <div class="t-avatar">🏆</div>
+          <div>
+            <div class="t-name">Medical Student</div>
+            <div class="t-detail">CBSE + USMLE Step 1 Prep</div>
+            <div class="result-badge">✓ Passed CBSE &amp; Step 1</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Trustpilot CTA -->
+    <div class="reveal" style="text-align:center; margin-top:44px;">
+      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="tp-cta-link">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;flex-shrink:0;">
+          <rect width="512" height="512" rx="0" fill="#00b67a"/>
+          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
+        </svg>
+        Read all reviews on Trustpilot →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ LIVE DEMO ══ -->
+<section style="background:linear-gradient(135deg,#0a1f3d 0%,#0D2B55 60%,#0f3060 100%);padding:80px 0;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(245,166,35,0.12) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px;">
+    <div style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.25);border-radius:100px;padding:6px 16px;margin-bottom:20px;">Free · No Commitment</div>
+    <h2 class="reveal" style="font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;">Step Inside a <span style="color:var(--gold);">Delphi Session</span></h2>
+    <p class="reveal" style="font-size:1rem;color:rgba(255,255,255,0.68);line-height:1.75;margin-bottom:36px;">See exactly how Dr. Roy teaches live — before you commit to anything. Experience the method, the energy, and the clarity that has helped hundreds of students pass.</p>
+    <a href="#connect-with-us" class="reveal" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;padding:16px 36px;border-radius:50px;text-decoration:none;letter-spacing:0.01em;box-shadow:0 8px 32px rgba(245,166,35,0.35);transition:background 0.2s,transform 0.2s;">
+      🎓 Book Your Free Live Demo
+    </a>
+  </div>
+</section>
+
+<!-- ══ CONNECT WITH US ══ -->
+<section id="connect-with-us" style="background:var(--white);">
+  <div class="container">
+    <div class="connect-layout">
+      <div>
+        <div class="reveal">
+          <div class="section-tag">Get in Touch</div>
+          <h2 class="section-title">Begin Your <span>Journey</span> Today</h2>
+          <p class="body-p">Whether you're ready to enroll, want to learn more about which program is right for you, or simply have questions — we're here to help. Dr. Roy personally responds to every inquiry.</p>
+        </div>
+
+        <div class="contact-items reveal reveal-d1">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-text-label">Location</div>
+              <div class="contact-text-value">4151 McCoy Drive, Unit 141</div>
+              <div class="contact-text-value">Aurora, IL</div>
+              <div class="contact-text-sub">Serving students nationwide via live online classes</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-text-label">Email</div>
+              <div class="contact-text-value">info@delphiusmle.com</div>
+              <div class="contact-text-sub">We respond within 24 hours</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-text-label">Call Us</div>
+              <div class="contact-text-value"><a href="tel:+16308646269" style="color:inherit;text-decoration:none;">+1 (630) 864-6269</a></div>
+              <div class="contact-text-sub">Mon – Sat, 9 AM – 7 PM CT</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="contact-text-label">WhatsApp</div>
+              <div class="contact-text-value"><a href="https://wa.me/16308646269" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">+1 (630) 864-6269</a></div>
+              <div class="contact-text-sub">Message us anytime — quick replies</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💻</div>
+            <div>
+              <div class="contact-text-label">Programs Available</div>
+              <div class="contact-text-value">Live Online · Nationwide</div>
+              <div class="contact-text-sub">All programs delivered via Zoom — attend from anywhere</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d2">
+        <div class="form-wrap">
+          <div class="form-title">Send Us a Message</div>
+          <p class="form-sub">Tell us about your exam timeline and goals — we'll recommend the best program for you.</p>
+
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fname">First Name</label>
+                <input class="form-input" type="text" id="fname" placeholder="Jane" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lname">Last Name</label>
+                <input class="form-input" type="text" id="lname" placeholder="Smith" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" placeholder="jane@medschool.edu" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" placeholder="+1 (555) 000-0000"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="program">Program of Interest</label>
+              <div class="form-select-wrap">
+                <select class="form-select" id="program">
+                  <option value="">Select a program…</option>
+                  <option value="6weeks">6-Week Step 1 Live Online Prep</option>
+                  <option value="8weeks">8-Week Step 1 Live Online Prep</option>
+                  <option value="acecomp">AceComp 2-Week Exam Prep</option>
+                  <option value="unsure">Not sure — need guidance</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Your Message</label>
+              <textarea class="form-textarea" id="message" placeholder="Tell us about your exam timeline, current preparation level, and any specific challenges you're facing…"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message — We'll Respond Within 24 Hours</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA BAND ══ -->
+<div class="cta-band">
+  <div style="position:relative;">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Seats are limited. Reserve your spot in a DelphiUSMLE program today and walk into your exam prepared, focused, and confident.</p>
+    <a href="#connect-with-us" class="btn-primary" style="font-size:1.05rem; padding:16px 42px;">Contact Us to Register →</a>
+    <p class="cta-note">Questions? Reach us through the contact form above or email info@delphiusmle.com</p>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+          <div class="footer-logo-text" style="display:none;">Delphi<span>USMLE</span></div>
+        </div>
+        <p class="footer-tagline">Bringing You to Excellence in Medicine. Elite CBSSA &amp; USMLE Step 1 preparation, led by board-certified physicians who've walked the same road.</p>
+        <div class="footer-location">📍 Chicago, IL · Serving Students Nationwide</div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navigate</div>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#who-we-are">Who We Are</a></li>
+            <li><a href="#step-1-overview">Step 1 Overview</a></li>
+            <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+            <li><a href="#connect-with-us">Connect With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Programs</div>
+          <ul>
+            <li><a href="#program-6w">6-Week Step 1 Prep</a></li>
+            <li><a href="#program-8w">8-Week Step 1 Prep</a></li>
+            <li><a href="acecomp.html">AceComp 2-Week Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="mailto:info@delphiusmle.com">info@delphiusmle.com</a></li>
+            <li><a href="#connect-with-us">Send a Message</a></li>
+            <li><a href="cohorts.html">View Cohorts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 DelphiUSMLE · <a href="#connect-with-us">Contact Us</a> · <a href="#home">Home</a></p>
+      <p class="footer-copy">Built for medical students, by a physician who cares.</p>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:24px;padding-top:20px;">
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;max-width:860px;margin:0 auto;">
+        The United States Medical Licensing Examination (USMLE™) is a joint program of the Federation of State Medical Boards (FSMB®) and the National Board of Medical Examiners (NBME®). DelphiUSMLE LLC is not affiliated with, endorsed by, or sponsored by FSMB®, NBME®, or USMLE™. First Aid® is a registered trademark of McGraw-Hill Education, and UWorld® is a registered trademark of UWorld, LLC. DelphiUSMLE Inc is not affiliated with, endorsed by, or sponsored by these organizations. All trademarks are the property of their respective owners.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Dropdown
+  function toggleDrop(id) {
+    const li = document.getElementById(id);
+    const isOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) li.classList.add('open');
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) {
+      document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
+    }
+  });
+
+  // Mobile menu
+  function toggleMobile() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  }
+  function closeMobile() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Message Sent — We\'ll be in touch soon!';
+    btn.style.background = '#27AE60';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
