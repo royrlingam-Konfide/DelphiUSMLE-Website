@@ -1762,7 +1762,9 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
+    .hero-visual { display: flex; justify-content: center; margin-top: 32px; }
+    .hero-img { max-width: 280px; border-radius: 16px; }
+    .hero-stats-bar { display: none; }
     .two-col { grid-template-columns: 1fr; gap: 40px; }
     .method-two-col { grid-template-columns: 1fr !important; }
     .method-two-col img { max-width: 320px !important; margin: 0 auto; }
