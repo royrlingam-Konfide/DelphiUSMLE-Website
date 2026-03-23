@@ -812,48 +812,91 @@
   .method-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid var(--border);
   }
   .method-dark {
-    background: #0a2244;
-    padding: 52px;
+    background: linear-gradient(145deg, #061829 0%, #0a2244 50%, #0d2f5a 100%);
+    padding: 64px 52px;
     position: relative;
+    overflow: hidden;
+  }
+  .method-dark::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.1) 0%, transparent 70%);
+    pointer-events: none;
   }
   .method-dark::after {
     content: '';
     position: absolute;
-    right: 0; top: 15%; bottom: 15%;
+    right: 0; top: 10%; bottom: 10%;
     width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(245,166,35,0.4), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(245,166,35,0.5), transparent);
   }
   .method-light {
-    background: var(--light);
-    padding: 52px;
+    background: linear-gradient(145deg, #f5f8ff 0%, var(--light) 60%, #e8effa 100%);
+    padding: 64px 52px;
+    position: relative;
+    overflow: hidden;
   }
-
+  .method-light::before {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(21,101,192,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
   .method-icon {
-    width: 44px; height: 44px;
+    width: 64px; height: 64px;
     background: rgba(245,166,35,0.12);
-    border: 1px solid rgba(245,166,35,0.25);
-    border-radius: 10px;
+    border: 1px solid rgba(245,166,35,0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 18px;
+    font-size: 1.8rem;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(245,166,35,0.12);
   }
-  .method-dark .method-icon { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
-
+  .method-dark .method-icon { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+  .method-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; border-radius: 100px;
+    padding: 4px 12px; margin-bottom: 14px;
+  }
+  .method-dark .method-tag { background: rgba(245,166,35,0.12); color: var(--gold); border: 1px solid rgba(245,166,35,0.25); }
+  .method-light .method-tag { background: rgba(21,101,192,0.1); color: var(--blue); border: 1px solid rgba(21,101,192,0.2); }
   .method-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
-  .method-dark .method-title { color: var(--gold); }
+  .method-dark .method-title { color: var(--white); }
   .method-light .method-title { color: var(--navy); }
-  .method-dark p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; }
+  .method-dark p { color: rgba(255,255,255,0.68); font-size: 0.95rem; line-height: 1.8; }
   .method-light p { color: var(--gray); font-size: 0.95rem; line-height: 1.8; }
+  .method-stat {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 24px; padding: 12px 18px;
+    border-radius: 12px;
+  }
+  .method-dark .method-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+  .method-light .method-stat { background: rgba(21,101,192,0.07); border: 1px solid rgba(21,101,192,0.15); }
+  .method-stat-num { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 800; }
+  .method-dark .method-stat-num { color: var(--gold); }
+  .method-light .method-stat-num { color: var(--blue); }
+  .method-stat-lbl { font-size: 0.78rem; line-height: 1.4; }
+  .method-dark .method-stat-lbl { color: rgba(255,255,255,0.55); }
+  .method-light .method-stat-lbl { color: var(--gray); }
 
   .research-grid {
     display: grid;
@@ -2070,14 +2113,28 @@
 
   <div class="method-split">
     <div class="method-dark reveal">
+      <div class="method-tag">Core Resource</div>
       <div class="method-icon">📚</div>
       <div class="method-title">First Aid for Step 1®</div>
       <p>Our teaching strategy emphasizes deep understanding through detailed lectures, followed immediately by concept-specific practice questions. Students master not just <em>what</em> the question is asking — but <em>why</em> the answer is correct.</p>
+      <div class="method-stat">
+        <div>
+          <div class="method-stat-num">3×</div>
+          <div class="method-stat-lbl">passes through First Aid<br/>shown to improve pass rates</div>
+        </div>
+      </div>
     </div>
     <div class="method-light reveal reveal-d1">
+      <div class="method-tag">Daily Practice</div>
       <div class="method-icon">❓</div>
       <div class="method-title">UWorld Questions®</div>
       <p>We pair every concept with targeted UWorld practice questions immediately after teaching it. This reinforces retention, builds clinical reasoning, and trains students to decode complex vignette-style questions with confidence.</p>
+      <div class="method-stat">
+        <div>
+          <div class="method-stat-num">2,000+</div>
+          <div class="method-stat-lbl">practice questions<br/>linked to higher Step 1 scores</div>
+        </div>
+      </div>
     </div>
   </div>
 
