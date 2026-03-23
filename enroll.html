@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Enroll Now — DelphiUSMLE</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0D2B55;
+    --blue:   #1565C0;
+    --sky:    #2196F3;
+    --gold:   #F5A623;
+    --gold-dk:#e09500;
+    --light:  #F0F4FA;
+    --white:  #FFFFFF;
+    --gray:   #6B7280;
+    --dark:   #1A1A2E;
+    --green:  #27AE60;
+    --border: #dce6f5;
+    --text:   #374151;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Open Sans', sans-serif; color: var(--dark); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  #navbar { background: var(--navy); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 16px rgba(0,0,0,0.28); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 46px; width: auto; display: block; }
+  .nav-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--white); letter-spacing: 0.5px; text-decoration: none; }
+  .nav-logo-text span { color: var(--gold); }
+  .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a, .nav-links > li > button { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; color: rgba(255,255,255,0.78); text-decoration: none; padding: 8px 13px; border-radius: 6px; border: none; background: none; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+  .nav-links > li > a:hover, .nav-links > li > button:hover { color: var(--gold); background: rgba(255,255,255,0.07); }
+  .chevron { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.5; fill: none; transition: transform 0.22s; }
+  .nav-links > li.open .chevron { transform: rotate(180deg); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 0; min-width: 230px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 40px rgba(13,43,85,0.18); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity 0.2s, transform 0.2s; padding: 8px 0; }
+  .nav-links > li.open .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .dropdown a { display: block; padding: 11px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.77rem; font-weight: 600; color: var(--navy); text-decoration: none; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+  .dropdown a:hover { background: var(--light); color: var(--blue); border-left-color: var(--blue); }
+  .nav-cta { background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px; padding: 10px 22px; border-radius: 25px; text-decoration: none; transition: background 0.2s, transform 0.2s; white-space: nowrap; flex-shrink: 0; }
+  .nav-cta:hover { background: var(--gold-dk); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 40px; height: 40px; gap: 5px; cursor: pointer; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.85); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0 28px; z-index: 199; flex-direction: column; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { padding: 13px 40px; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.18s; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .sub { padding-left: 56px; font-size: 0.75rem; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); }
+  @media (max-width: 860px) { .nav-links, .nav-cta { display: none; } .hamburger { display: flex; } }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--sky) 100%);
+    padding: 72px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 120%, rgba(245,166,35,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .hero-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25); border-radius: 100px; padding: 6px 16px; margin-bottom: 20px; }
+  .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,4.5vw,3rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .page-hero h1 span { color: var(--gold); }
+  .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+  /* ── PROGRAM SELECTOR ── */
+  .selector-section { background: var(--light); padding: 64px 0 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .selector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+
+  .prog-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .prog-card:hover { border-color: var(--blue); box-shadow: 0 8px 32px rgba(13,43,85,0.12); transform: translateY(-2px); }
+  .prog-card.active { border-color: var(--gold); box-shadow: 0 8px 40px rgba(245,166,35,0.18); }
+  .prog-card .badge { position: absolute; top: -12px; left: 28px; background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; }
+  .prog-icon { font-size: 2rem; margin-bottom: 14px; }
+  .prog-label { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+  .prog-title { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; line-height: 1.25; }
+  .prog-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
+  .prog-price { font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--navy); }
+  .prog-price span { font-size: 0.8rem; font-weight: 500; color: var(--gray); }
+  .prog-features { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .prog-features li { font-size: 0.83rem; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
+  .prog-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .enroll-btn { display: block; text-align: center; margin-top: 24px; background: var(--navy); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 13px 24px; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+  .enroll-btn:hover { background: var(--blue); transform: translateY(-1px); }
+  .enroll-btn.gold { background: var(--gold); color: var(--navy); }
+  .enroll-btn.gold:hover { background: var(--gold-dk); }
+
+  /* ── FORM SECTION ── */
+  .form-section { background: var(--light); padding: 64px 0 80px; }
+  .form-section-inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+  .form-header { text-align: center; margin-bottom: 36px; }
+  .form-header h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem,3vw,2rem); font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .form-header p { color: var(--gray); font-size: 0.95rem; }
+  .form-box { background: var(--white); border-radius: 20px; padding: 48px; box-shadow: 0 4px 32px rgba(13,43,85,0.08); border: 1px solid var(--border); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: rgba(255,255,255,0.55); text-align: center; padding: 40px 24px; font-size: 0.82rem; }
+  .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white); margin-bottom: 12px; }
+  .footer-logo span { color: var(--gold); }
+  footer a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .selector-grid { grid-template-columns: 1fr; }
+    .form-box { padding: 28px 20px; }
+    .container, .form-section-inner { padding: 0 20px; }
+    .page-hero { padding: 56px 24px 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-text" style="display:none;">Delphi<span>USMLE</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#who-we-are">Who We Are</a></li>
+      <li class="has-dropdown" id="prog-nav">
+        <button onclick="toggleDrop('prog-nav')">
+          Programs <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="core-program.html">Delphi Core Program</a>
+          <a href="acecomp.html">Delphi AceComp</a>
+        </div>
+      </li>
+      <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+      <li><a href="index.html#connect-with-us">Connect With Us</a></li>
+    </ul>
+    <a href="enroll.html" class="nav-cta" style="background:var(--gold);">Enroll Now</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="index.html#who-we-are" onclick="closeMobile()">Who We Are</a>
+  <a href="#" onclick="closeMobile()">Programs</a>
+  <a href="core-program.html" class="sub" onclick="closeMobile()">↳ Delphi Core Program</a>
+  <a href="acecomp.html" class="sub" onclick="closeMobile()">↳ Delphi AceComp</a>
+  <a href="cohorts.html" onclick="closeMobile()">Upcoming Cohorts</a>
+  <a href="index.html#connect-with-us" onclick="closeMobile()">Connect With Us</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-tag">Enrollment Open</div>
+    <h1>Choose Your <span>Path to Passing.</span></h1>
+    <p>Select the program that fits your timeline and goals. Fill out the form below and Dr. Roy will personally reach out to confirm your spot.</p>
+  </div>
+</div>
+
+<!-- PROGRAM SELECTOR -->
+<section class="selector-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);background:#e8f0fe;padding:5px 14px;border-radius:20px;margin-bottom:14px;">Step 1 of 2</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;color:var(--navy);margin-bottom:10px;">Select Your Program</h2>
+      <p style="color:var(--gray);font-size:0.95rem;">Both programs are live online, MD-led, and backed by our pass guarantee.</p>
+    </div>
+
+    <div class="selector-grid">
+
+      <!-- Delphi Core Program -->
+      <div class="prog-card reveal" onclick="selectProgram('core')">
+        <div class="prog-icon">📖</div>
+        <div class="prog-label">Delphi Core Program</div>
+        <div class="prog-title">Step 1 Mastery.<br/>6 or 8 Weeks.</div>
+        <div class="prog-desc">The complete live online Step 1 prep experience — concept mastery, structured study, and personalized guidance until you pass.</div>
+        <div class="prog-price">$4,850 <span>/ Core · 6 Weeks</span></div>
+        <div class="prog-price" style="font-size:1.2rem;margin-top:4px;">$6,950 <span>/ Premium · 8 Weeks</span></div>
+        <ul class="prog-features">
+          <li>6–8 weeks of live MD-led instruction</li>
+          <li>High-yield Comp & Step 1 curriculum</li>
+          <li>Starts May 4, 2025</li>
+          <li>Pass guarantee — we stay until you pass</li>
+        </ul>
+        <div class="enroll-btn gold" style="margin-top:24px;">Enroll in Core Program →</div>
+      </div>
+
+      <!-- Delphi AceComp -->
+      <div class="prog-card reveal reveal-d1" onclick="selectProgram('acecomp')">
+        <div class="prog-icon">⚡</div>
+        <div class="prog-label">Delphi AceComp</div>
+        <div class="prog-title">Ace the Comp Exam.<br/>In Just 2 Weeks.</div>
+        <div class="prog-desc">A focused 2-week intensive crash course for students who need expert guidance to pass the CBSSA Comprehensive Exam — fast.</div>
+        <div class="prog-price">$1,500 <span>/ 2-Week Intensive</span></div>
+        <ul class="prog-features">
+          <li>10 days · 4.5 hrs/day · Live Online</li>
+          <li>CBSSA Comp focused curriculum</li>
+          <li>April 6 – April 17, 2025</li>
+          <li>Limited seats — enroll early</li>
+        </ul>
+        <div class="enroll-btn" style="margin-top:24px;">Enroll in AceComp →</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section" id="enroll-form">
+  <div class="form-section-inner">
+    <div class="form-header reveal">
+      <div id="form-step-label" style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);background:#e8f0fe;padding:5px 14px;border-radius:20px;margin-bottom:14px;">Step 2 of 2</div>
+      <h2 id="form-heading">Complete Your Enrollment</h2>
+      <p id="form-subheading">Fill out the form below and Dr. Roy will personally reach out to confirm your spot and next steps.</p>
+    </div>
+    <div class="form-box reveal reveal-d1">
+      <script type="text/javascript" src="https://form.jotform.com/jsform/260814540364050"></script>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Delphi<span>USMLE</span></div>
+  <p>© 2026 DelphiUSMLE &nbsp;·&nbsp; <a href="index.html#connect-with-us">Contact Us</a> &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="cohorts.html">Cohorts</a></p>
+  <p style="margin-top:8px; font-size:0.78rem;">Helping Medical Students Succeed Since 2014 · Aurora, IL</p>
+  <p style="margin-top:16px; font-size:0.7rem; color:rgba(255,255,255,0.3); max-width:640px; margin-left:auto; margin-right:auto;">DelphiUSMLE Inc is not affiliated with or endorsed by USMLE™, NBME®, FSMB®, First Aid®, or UWorld®.</p>
+</footer>
+
+<script>
+  function toggleDrop(id) {
+    const li = document.getElementById(id);
+    const wasOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) li.classList.add('open');
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+  });
+  function toggleMobile() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMobile() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  function selectProgram(type) {
+    // Highlight selected card
+    document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Update form heading
+    if (type === 'core') {
+      document.getElementById('form-heading').textContent = 'Enroll in Delphi Core Program';
+      document.getElementById('form-subheading').textContent = 'Complete the form below to reserve your spot in the Core or Premium track starting May 4, 2025.';
+    } else {
+      document.getElementById('form-heading').textContent = 'Enroll in Delphi AceComp';
+      document.getElementById('form-subheading').textContent = 'Complete the form below to reserve your spot in AceComp — April 6 to April 17, 2025.';
+    }
+
+    // Smooth scroll to form
+    document.getElementById('enroll-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
