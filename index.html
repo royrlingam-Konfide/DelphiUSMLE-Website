@@ -36,8 +36,7 @@
   /* ── NAV ── */
   #navbar {
     background: var(--navy);
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 200;
     box-shadow: 0 2px 16px rgba(0,0,0,0.28);
   }
@@ -1859,9 +1858,11 @@
 </head>
 <body>
 
+<div style="position:sticky;top:0;z-index:300;">
+
 <!-- ══ ANNOUNCEMENT BANNER ══ -->
 <div id="announce-banner" style="
-  position: relative;
+  position: static;
   z-index: 300;
   background: linear-gradient(90deg, #0a1f3d 0%, #1a3a6b 30%, #b8740a 65%, #F5A623 100%);
   background-size: 200% 100%;
@@ -1975,6 +1976,7 @@
     </button>
   </div>
 </nav>
+</div><!-- /sticky wrapper -->
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobile-menu">
