@@ -35,8 +35,7 @@
   /* ── NAV ── */
   #navbar {
     background: var(--navy);
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 200;
     box-shadow: 0 2px 16px rgba(0,0,0,0.28);
   }
@@ -726,6 +725,40 @@
 </head>
 <body>
 
+<div style="position:sticky;top:0;z-index:300;">
+
+<!-- ══ ANNOUNCEMENT BANNER ══ -->
+<div id="announce-banner" style="
+  position: static;
+  z-index: 300;
+  background: linear-gradient(90deg, #0a1f3d 0%, #1a3a6b 30%, #b8740a 65%, #F5A623 100%);
+  background-size: 200% 100%;
+  animation: bannerShift 4s ease infinite alternate;
+  padding: 0;
+  overflow: hidden;
+">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(105deg,transparent,transparent 60px,rgba(255,255,255,0.03) 60px,rgba(255,255,255,0.03) 61px);pointer-events:none;"></div>
+  <div style="max-width:1200px;margin:0 auto;padding:13px 40px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;position:relative;z-index:1;">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;">
+      <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:100px;padding:3px 12px;font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff;flex-shrink:0;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;animation:livePulse 1.4s ease infinite;"></span>
+        Enrolling Now
+      </span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:0.88rem;font-weight:700;color:#fff;letter-spacing:0.01em;text-align:center;">
+        🔥 Comp Crash Course — <span style="color:#FFD166;">April 6 – April 17</span> &nbsp;·&nbsp; Limited Seats Available &nbsp;<span style="display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;padding:2px 10px;font-size:0.7rem;letter-spacing:0.05em;">🏷️ <strong style="color:#FFD166;">$500 OFF</strong> if you sign up before Friday midnight</span>
+      </span>
+    </div>
+    <a href="enroll.html" style="display:inline-flex;align-items:center;gap:7px;background:#fff;color:#0D2B55;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;letter-spacing:0.03em;padding:8px 20px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.32)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.25)'">
+      ⚡ Secure Your Spot
+    </a>
+    <button onclick="document.getElementById('announce-banner').style.display='none'" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);font-size:1.1rem;line-height:1;padding:4px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'" aria-label="Close">✕</button>
+  </div>
+</div>
+<style>
+  @keyframes bannerShift { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+  @keyframes livePulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.7); } }
+</style>
+
 <!-- ── NAV ── -->
 <nav id="navbar">
   <div class="nav-inner">
@@ -760,6 +793,7 @@
     </button>
   </div>
 </nav>
+</div><!-- /sticky wrapper -->
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobile-menu">
