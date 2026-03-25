@@ -870,25 +870,39 @@
       <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.75;max-width:520px;margin:0 auto;">Experience Dr. Roy's teaching style firsthand — before you commit to anything.</p>
     </div>
 
-    <!-- Video player -->
-    <div class="reveal reveal-d1" style="
-      position:relative;
+    <!-- Video play card -->
+    <a href="https://us02web.zoom.us/rec/share/WdwIIFj5VsuZHstLgZFGU9o-sWNOCo2g-G7bgcpwYG8fkrwZN9VIg6Umdx4rsFNh.l0srTj9UUh85Y0pX" target="_blank" rel="noopener" class="reveal reveal-d1" style="
+      display:block;
+      max-width:580px;
+      margin:0 auto;
       border-radius:18px;
       overflow:hidden;
-      box-shadow:0 0 0 1px rgba(245,166,35,0.25), 0 24px 64px rgba(0,0,0,0.55);
-      max-width:640px;
-      margin:0 auto;
-    ">
-      <!-- Gold glow border -->
-      <div style="position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 0 0 2px rgba(245,166,35,0.3);pointer-events:none;z-index:2;"></div>
-      <video
-        src="Brand_assets/AceComp Demo .mov"
-        controls
-        playsinline
-        preload="metadata"
-        style="width:100%;display:block;border-radius:18px;background:#000;"
-      ></video>
-    </div>
+      text-decoration:none;
+      position:relative;
+      background:linear-gradient(135deg,#0a1830 0%,#0d2444 100%);
+      border:2px solid rgba(245,166,35,0.3);
+      box-shadow:0 0 40px rgba(245,166,35,0.15), 0 24px 64px rgba(0,0,0,0.55);
+      transition:transform 0.2s,box-shadow 0.2s;
+    " onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 0 60px rgba(245,166,35,0.25),0 28px 72px rgba(0,0,0,0.6)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 40px rgba(245,166,35,0.15),0 24px 64px rgba(0,0,0,0.55)'">
+      <!-- Fake video thumbnail area -->
+      <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:40px;">
+        <!-- Play button -->
+        <div style="
+          width:72px;height:72px;border-radius:50%;
+          background:var(--gold);
+          display:flex;align-items:center;justify-content:center;
+          box-shadow:0 0 0 12px rgba(245,166,35,0.15), 0 8px 32px rgba(245,166,35,0.4);
+          transition:transform 0.2s;
+        ">
+          <svg viewBox="0 0 24 24" fill="#0D2B55" width="28" height="28" style="margin-left:4px;"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;color:#fff;letter-spacing:0.02em;">Click to Watch Demo Session</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:6px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          Opens in Zoom · Free to Watch
+        </div>
+      </div>
+    </a>
 
     <div class="reveal reveal-d2" style="margin-top:28px;">
       <a href="enroll.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:0.88rem;font-weight:800;padding:13px 30px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(245,166,35,0.35);transition:background 0.2s,transform 0.2s;" onmouseover="this.style.background='#e09500';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='translateY(0)'">
