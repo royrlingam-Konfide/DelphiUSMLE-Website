@@ -2251,12 +2251,18 @@
 
 
 <!-- ══ DELPHI METHOD ══ -->
-<section style="background:linear-gradient(135deg,#060e1a 0%,#0a1929 40%,#0d2140 100%);padding:88px 0;position:relative;overflow:hidden;">
+<section style="background:#060e1a;padding:88px 0;position:relative;overflow:hidden;">
 
-    <!-- Decorative background glows -->
-    <div style="position:absolute;top:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(21,101,192,0.15) 0%,transparent 65%);pointer-events:none;"></div>
-    <div style="position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,166,35,0.1) 0%,transparent 65%);pointer-events:none;"></div>
-    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
+    <!-- Brain image background -->
+    <div style="position:absolute;inset:0;background-image:url('Brand_assets/image.png');background-size:cover;background-position:center top;background-repeat:no-repeat;opacity:0.32;pointer-events:none;"></div>
+    <!-- Deep overlay to keep text legible -->
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,14,26,0.55) 0%,rgba(6,14,26,0.3) 40%,rgba(6,14,26,0.72) 100%);pointer-events:none;"></div>
+    <!-- Side fade-outs -->
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,14,26,0.7) 0%,transparent 25%,transparent 75%,rgba(6,14,26,0.7) 100%);pointer-events:none;"></div>
+    <!-- Gold glow bottom-right echoing the image warmth -->
+    <div style="position:absolute;bottom:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,166,35,0.12) 0%,transparent 65%);pointer-events:none;"></div>
+    <!-- Blue glow top-left -->
+    <div style="position:absolute;top:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(21,101,192,0.18) 0%,transparent 65%);pointer-events:none;"></div>
 
     <div class="container" style="position:relative;z-index:1;">
 
@@ -2343,7 +2349,7 @@
     .ms-card-inner { flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-top:3px solid var(--sc);border-radius:16px 0 0 16px;padding:28px 22px;display:flex;flex-direction:column;gap:10px;transition:background 0.2s,transform 0.2s;cursor:default; }
     .ms-card-final .ms-card-inner { border-radius:0 16px 16px 16px; }
     .ms-card:first-child .ms-card-inner { border-radius:16px 0 0 16px; }
-    .ms-card-inner:hover { background:rgba(255,255,255,0.08);transform:translateY(-4px);box-shadow:0 0 0 1px var(--sc),0 8px 32px rgba(0,0,0,0.3); }
+    .ms-card-inner:hover { background:rgba(13,43,85,0.92);transform:translateY(-4px);box-shadow:0 0 0 1px var(--sc),0 8px 32px rgba(13,43,85,0.5); }
     .ms-card-num { font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:800;letter-spacing:0.18em;color:var(--sc);text-transform:uppercase; }
     .ms-card-icon { font-size:1.8rem;line-height:1; }
     .ms-card-label { font-family:'Montserrat',sans-serif;font-size:0.92rem;font-weight:800;color:#fff;line-height:1.2; }
