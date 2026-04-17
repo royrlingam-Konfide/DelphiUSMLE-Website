@@ -488,6 +488,8 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
     <button class="sb-link" id="collapseAllBtn">↕ Collapse All</button>
     <button class="sb-link" id="showMasteredBtn">⭐ Mastered Only</button>
     <button class="sb-link" id="resetProgressBtn" style="color:#c0392b;margin-top:6px;">↺ Reset Progress</button>
+    <div class="sb-label" style="margin-top:14px;">Quiz</div>
+    <button class="sb-link" id="goToQuizBtn" style="color:var(--gold);font-weight:600;">🧠 Flashcard Quiz</button>
   </nav>
 
   <!-- CONTENT -->
@@ -1871,13 +1873,22 @@ QUIZ['mastered'] = QUIZ['all']; // fallback
 // ══════════════════════════════
 //  MAIN TAB SWITCHING
 // ══════════════════════════════
+function switchToTab(name) {
+  document.querySelectorAll('.main-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  var btn = document.querySelector('.main-tab[data-tab="' + name + '"]');
+  if (btn) btn.classList.add('active');
+  var panel = document.getElementById('tab-' + name);
+  if (panel) panel.classList.add('active');
+}
+
 document.querySelectorAll('.main-tab').forEach(function(tab) {
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.main-tab').forEach(function(t){ t.classList.remove('active'); });
-    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
-    tab.classList.add('active');
-    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
-  });
+  tab.addEventListener('click', function() { switchToTab(tab.dataset.tab); });
+});
+
+document.getElementById('goToQuizBtn').addEventListener('click', function() {
+  switchToTab('quiz');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // ══════════════════════════════
