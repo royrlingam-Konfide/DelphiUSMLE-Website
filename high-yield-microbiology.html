@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High-Yield Microbiology | DelphiUSMLE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --navy: #0d1b2a; --navy-mid: #1a2e45; --gold: #c9a84c;
+  --gold-light: #e2c27d; --gold-pale: #f5e9cc; --cream: #faf7f0;
+  --white: #ffffff; --text-dark: #0d1b2a; --text-mid: #3a4f65;
+  --text-muted: #6b7f95; --border: #d4c89a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);}
+
+/* HEADER */
+header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.hdr{max-width:1400px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--navy);}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--gold);}
+.logo-sub{font-size:9px;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;}
+.hdr-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;}
+.hdr-title span{color:var(--gold);}
+.progress-pill{background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;color:var(--gold-light);display:flex;align-items:center;gap:6px;}
+.pdot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy-mid),var(--navy));border-bottom:2px solid var(--gold);padding:36px 28px;}
+.hero-inner{max-width:1400px;margin:0 auto;}
+.hero-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.hero-h{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:10px;}
+.hero-h em{color:var(--gold);font-style:italic;}
+.hero-desc{font-size:13px;color:rgba(255,255,255,.55);max-width:520px;line-height:1.6;margin-bottom:24px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold);}
+.stat-lbl{font-size:10px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;}
+
+/* CONTROLS */
+.controls{background:var(--white);border-bottom:1px solid var(--border);padding:14px 28px;position:sticky;top:67px;z-index:90;box-shadow:0 2px 12px rgba(13,27,42,.06);}
+.controls-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.search-wrap{position:relative;flex:1;min-width:180px;max-width:340px;}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:14px;}
+.search-input{width:100%;padding:8px 10px 8px 32px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-dark);background:var(--cream);outline:none;transition:border-color .2s;}
+.search-input:focus{border-color:var(--gold);background:var(--white);}
+.filter-group{display:flex;gap:5px;flex-wrap:wrap;}
+.fbtn{padding:6px 13px;border-radius:20px;border:1.5px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--text-mid);cursor:pointer;transition:all .18s;white-space:nowrap;}
+.fbtn:hover{border-color:var(--gold);color:var(--navy);}
+.fbtn.active{background:var(--navy);border-color:var(--navy);color:var(--gold);}
+.view-toggle{display:flex;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;margin-left:auto;}
+.vbtn{padding:6px 10px;background:transparent;border:none;cursor:pointer;font-size:13px;color:var(--text-muted);transition:all .2s;}
+.vbtn.active{background:var(--navy);color:var(--gold);}
+
+/* LAYOUT */
+.layout{max-width:1400px;margin:0 auto;padding:28px;display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:start;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:140px;}
+.sb-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);padding:8px 10px 4px;}
+.sb-link{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:12px;color:var(--text-mid);transition:all .18s;border:none;background:none;width:100%;text-align:left;}
+.sb-link:hover{background:rgba(201,168,76,.1);color:var(--navy);}
+.sb-link.active{background:var(--navy);color:var(--gold);font-weight:500;}
+.sb-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.sb-count{margin-left:auto;font-size:10px;font-family:'DM Mono',monospace;background:rgba(0,0,0,.06);padding:1px 5px;border-radius:6px;}
+.sb-link.active .sb-count{background:rgba(255,255,255,.15);color:rgba(255,255,255,.6);}
+
+/* CONTENT */
+.content{min-width:0;}
+.cat-section{margin-bottom:36px;scroll-margin-top:145px;}
+.cat-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid;}
+.cat-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.cat-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;flex:1;}
+.cat-badge{font-size:10px;font-weight:600;letter-spacing:.08em;padding:2px 9px;border-radius:10px;}
+
+/* MNEMONIC */
+.mnemonic{background:linear-gradient(135deg,var(--gold-pale),var(--cream));border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:12px;}
+.mn-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.mn-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--navy);}
+.mn-sub{font-size:12px;color:var(--text-mid);margin-top:3px;}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
+.card-grid.list-view{grid-template-columns:1fr;}
+
+/* ORG CARD */
+.org-card{background:var(--white);border-radius:12px;border:1.5px solid #e8e0cc;overflow:hidden;transition:all .22s;cursor:pointer;}
+.org-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(13,27,42,.12);border-color:var(--gold);}
+.org-card.expanded{border-color:var(--navy);box-shadow:0 8px 32px rgba(13,27,42,.14);}
+.org-card.mastered{border-color:#2d9e5e!important;background:linear-gradient(to bottom,#f0fff6,var(--white));}
+.card-accent{height:4px;width:100%;}
+.card-header{padding:14px 16px 10px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);line-height:1.2;}
+.card-name em{font-style:italic;}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;}
+.tag{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:4px;}
+.mastered-badge{background:rgba(45,158,94,.15);color:#2d9e5e!important;}
+.xbtn{width:26px;height:26px;border:1.5px solid var(--border);border-radius:7px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text-muted);transition:all .2s;flex-shrink:0;}
+.xbtn:hover{border-color:var(--navy);color:var(--navy);background:var(--gold-pale);}
+.org-card.expanded .xbtn{background:var(--navy);border-color:var(--navy);color:var(--gold);}
+.card-peek{padding:0 16px 12px;}
+.card-details{display:none;padding:12px 16px 16px;border-top:1px solid #f0e8d4;animation:fadeIn .2s ease;}
+.org-card.expanded .card-details{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+/* HIGHLIGHT BOX */
+.hbox{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:8px 11px;margin:6px 0;font-size:12px;line-height:1.5;}
+.hbox strong{font-weight:600;color:var(--navy);}
+.hbox.alert{background:#fef0f0;border-color:#d04040;}
+.hbox.alert strong{color:#9b2020;}
+.hbox.blue{background:#eef4fb;border-color:#2e6da4;}
+
+/* INFO ROWS */
+.irow{display:grid;grid-template-columns:95px 1fr;gap:4px 10px;margin-bottom:8px;align-items:baseline;}
+.ilbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
+.ival{font-size:12px;color:var(--text-dark);line-height:1.5;}
+
+/* DOC BADGE */
+.doc{display:inline-flex;align-items:center;gap:5px;background:var(--navy);color:var(--gold);border-radius:5px;padding:3px 9px;font-size:11px;font-weight:600;letter-spacing:.05em;margin:2px 2px 2px 0;}
+.doc::before{content:"Rx";font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;}
+
+/* BULLET LIST */
+.blist{list-style:none;padding:0;}
+.blist li{padding:2px 0 2px 12px;font-size:12px;color:var(--text-dark);line-height:1.5;position:relative;}
+.blist li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:9px;top:4px;}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+.compare-col{border-radius:8px;overflow:hidden;}
+.compare-head{padding:7px 10px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+.compare-body{padding:8px 10px;font-size:12px;line-height:1.5;}
+
+/* TABLE */
+.qtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+.qtable th{background:var(--navy);color:var(--gold);padding:7px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
+.qtable td{padding:7px 10px;border-bottom:1px solid #f0e8d4;vertical-align:top;line-height:1.4;}
+.qtable tr:nth-child(even) td{background:#faf7f0;}
+.qtable tr:hover td{background:var(--gold-pale);}
+
+/* MASTERED BTN */
+.m-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .22s;margin-top:12px;width:100%;}
+.m-btn:hover{border-color:#2d9e5e;color:#2d9e5e;background:rgba(45,158,94,.06);}
+.m-btn.on{border-color:#2d9e5e;background:#2d9e5e;color:#fff;}
+.m-btn.on:hover{background:#c0392b;border-color:#c0392b;}
+
+/* EMPTY */
+.empty{text-align:center;padding:60px 20px;color:var(--text-muted);}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;margin-top:48px;text-align:center;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.footer-sub{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;}
+
+/* RESPONSIVE */
+@media(max-width:880px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{display:none}.hero-h{font-size:28px}.controls{top:58px}.hdr-title{display:none}}
+@media(max-width:560px){.card-grid{grid-template-columns:1fr}.compare{grid-template-columns:1fr}}
+
+/* HIDDEN */
+.hidden{display:none!important;}
+
+/* ═══ MAIN TAB BAR ═══ */
+.main-tabs{background:var(--navy);border-bottom:2px solid var(--gold);padding:0 28px;display:flex;gap:0;position:sticky;top:67px;z-index:90;}
+.main-tab{padding:14px 22px;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.main-tab:hover{color:rgba(255,255,255,.75);}
+.main-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-icon{font-size:16px;}
+.tab-count{background:rgba(201,168,76,.25);color:var(--gold);font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px;}
+.main-tab.active .tab-count{background:var(--gold);color:var(--navy);}
+
+/* TAB PANELS */
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ═══ QUIZ TAB PANEL ═══ */
+.quiz-panel{max-width:760px;margin:0 auto;padding:36px 28px;}
+.qp-header{text-align:center;margin-bottom:32px;}
+.qp-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.qp-title span{color:var(--gold);font-style:italic;}
+.qp-sub{font-size:13px;color:var(--text-muted);}
+.qp-divider{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px 0;}
+
+/* Category selector */
+.qcat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:28px;}
+.qcat-btn{padding:14px 10px;border-radius:12px;border:2px solid var(--border);background:var(--white);cursor:pointer;text-align:center;transition:all .22s;font-family:'DM Sans',sans-serif;}
+.qcat-btn:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 16px rgba(13,27,42,.1);}
+.qcat-btn.selected{border-color:var(--navy);background:var(--navy);}
+.qcat-icon{font-size:20px;margin-bottom:5px;}
+.qcat-name{font-size:12px;font-weight:600;color:var(--text-mid);display:block;}
+.qcat-btn.selected .qcat-name{color:var(--gold);}
+.qcat-cnt{font-size:10px;color:var(--text-muted);font-family:'DM Mono',monospace;display:block;margin-top:2px;}
+.qcat-btn.selected .qcat-cnt{color:rgba(255,255,255,.45);}
+.qcat-all{grid-column:1/-1;border-color:var(--gold);background:var(--navy);}
+.qcat-all .qcat-name{color:var(--gold);font-size:13px;}
+.qcat-all .qcat-cnt{color:rgba(255,255,255,.4);}
+.qcat-all:hover{background:var(--navy-mid);}
+
+/* Start bar */
+.qstart-bar{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:36px;flex-wrap:wrap;}
+.qstart-btn{padding:13px 36px;border-radius:11px;border:2px solid var(--gold);background:var(--gold);color:var(--navy);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.qstart-btn:hover{background:var(--navy);color:var(--gold);}
+.qstart-btn:disabled{opacity:.4;cursor:not-allowed;}
+.shuffle-lbl{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-muted);cursor:pointer;}
+.shuffle-lbl input{accent-color:var(--gold);width:14px;height:14px;}
+
+/* Quiz active area */
+.qselect-section{display:block;}
+.qselect-section.hide{display:none;}
+.qactive-section{display:none;}
+.qactive-section.show{display:block;}
+
+/* Progress bar */
+.qprogress-wrap{background:rgba(13,27,42,.08);border-radius:6px;height:6px;margin-bottom:8px;overflow:hidden;}
+.qprogress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:6px;transition:width .4s ease;width:0%;}
+.qprog-row{display:flex;justify-content:space-between;margin-bottom:22px;}
+.qprog-txt{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace;}
+.qscore-txt{font-size:12px;font-weight:700;color:var(--navy);font-family:'DM Mono',monospace;}
+
+/* Flip card */
+.card-scene{perspective:1100px;margin-bottom:14px;}
+.flip-card{min-height:250px;border-radius:16px;position:relative;transform-style:preserve-3d;transition:transform .5s;cursor:pointer;}
+.flip-card.flipped{transform:rotateY(180deg);}
+.card-face{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:32px 28px;text-align:center;}
+.card-front{background:var(--navy);border:2px solid rgba(201,168,76,.25);box-shadow:0 10px 36px rgba(13,27,42,.18);}
+.card-back{background:var(--white);border:2px solid var(--gold);box-shadow:0 10px 36px rgba(13,27,42,.15);transform:rotateY(180deg);text-align:left;align-items:flex-start;}
+.card-q-cat{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.card-q{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px;}
+.card-hint-txt{font-size:11px;color:rgba(255,255,255,.35);font-style:italic;}
+.card-tap{margin-top:18px;font-size:11px;color:rgba(255,255,255,.25);display:flex;align-items:center;gap:5px;}
+.card-a-lbl{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.card-a-txt{font-size:13px;color:var(--text-dark);line-height:1.65;width:100%;}
+
+/* Grade buttons */
+.grade-row{display:none;margin-bottom:12px;}
+.grade-row.show{display:block;}
+.grade-lbl{text-align:center;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:9px;}
+.grade-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.gbtn{padding:11px;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;border:2px solid;}
+.gbtn-wrong{border-color:#c0392b;background:rgba(192,57,43,.07);color:#c0392b;}
+.gbtn-wrong:hover{background:#c0392b;color:#fff;}
+.gbtn-almost{border-color:#e67e22;background:rgba(230,126,34,.07);color:#e67e22;}
+.gbtn-almost:hover{background:#e67e22;color:#fff;}
+.gbtn-got{border-color:#2d9e5e;background:rgba(45,158,94,.07);color:#2d9e5e;}
+.gbtn-got:hover{background:#2d9e5e;color:#fff;}
+
+/* Nav row */
+.nav-row{display:flex;gap:8px;justify-content:center;margin-bottom:8px;}
+.nav-row.hide{display:none;}
+.nbtn{padding:8px 18px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .18s;border:1.5px solid;}
+.nbtn-prev{border-color:var(--border);background:transparent;color:var(--text-mid);}
+.nbtn-prev:hover{border-color:var(--gold);color:var(--navy);}
+.nbtn-flip{border-color:var(--gold);background:var(--gold);color:var(--navy);font-weight:600;}
+.nbtn-skip{border-color:var(--border);background:transparent;color:var(--text-mid);}
+.nbtn-skip:hover{border-color:var(--gold);color:var(--navy);}
+.kbd-hint{text-align:center;font-size:10px;color:var(--text-muted);margin-top:4px;}
+
+/* Results */
+.qresults{display:none;text-align:center;padding:16px 0;}
+.qresults.show{display:block;}
+.qresults-emoji{font-size:46px;margin-bottom:10px;}
+.qresults-h{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--navy);margin-bottom:5px;}
+.qresults-sub{font-size:13px;color:var(--text-muted);margin-bottom:24px;}
+.qresults-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px;}
+.res-box{border-radius:10px;padding:16px;border:1.5px solid;}
+.res-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;}
+.res-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-top:2px;}
+.missed-box{background:var(--gold-pale);border:1.5px solid var(--border);border-radius:9px;padding:14px;margin-bottom:18px;display:none;text-align:left;}
+.missed-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.missed-items{font-size:12px;color:var(--text-mid);line-height:1.8;white-space:pre-line;}
+.qresults-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.ra-btn{padding:10px 22px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:2px solid;transition:all .2s;}
+.ra-restart{border-color:var(--gold);background:var(--gold);color:var(--navy);}
+.ra-restart:hover{background:var(--navy);color:var(--gold);}
+.ra-retry{border-color:#c0392b;background:transparent;color:#c0392b;display:none;}
+.ra-retry:hover{background:#c0392b;color:#fff;}
+.ra-back{border-color:var(--border);background:transparent;color:var(--text-mid);}
+.ra-back:hover{border-color:var(--navy);color:var(--navy);}
+
+/* RESPONSIVE */
+@media(max-width:880px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{display:none}.hero-h{font-size:28px}.main-tabs{padding:0 16px}.main-tab{padding:12px 14px;font-size:12px}}
+@media(max-width:560px){.card-grid{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.qcat-grid{grid-template-columns:1fr 1fr}.qresults-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <div class="logo-mark">D</div>
+      <div>
+        <div class="logo-name">DelphiUSMLE</div>
+        <div class="logo-sub">Bringing You to Excellence in Medicine</div>
+      </div>
+    </a>
+    <div class="hdr-title">High-Yield <span>Microbiology</span> Notes</div>
+    <div class="progress-pill">
+      <div class="pdot"></div>
+      <span id="masteredCount">0</span> / 38 Mastered
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Step 1 Micro · High-Yield Series</div>
+    <h1 class="hero-h">Master Micro in <em>One Place</em></h1>
+    <p class="hero-desc">Comprehensive, searchable notes covering every testable organism — organized the way Step 1 asks questions.</p>
+    <div class="hero-stats">
+      <div><div class="stat-num">38</div><div class="stat-lbl">Organisms</div></div>
+      <div><div class="stat-num">8</div><div class="stat-lbl">Categories</div></div>
+      <div><div class="stat-num">60+</div><div class="stat-lbl">Quiz Questions</div></div>
+      <div><div class="stat-num">Step 1</div><div class="stat-lbl">Focused</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN TABS -->
+<div class="main-tabs">
+  <button class="main-tab active" data-tab="notes">
+    <span class="tab-icon">📖</span> Study Notes <span class="tab-count">38</span>
+  </button>
+  <button class="main-tab" data-tab="quiz">
+    <span class="tab-icon">🧠</span> Flashcard Quiz <span class="tab-count">60+</span>
+  </button>
+</div>
+
+<!-- ═══════ TAB: STUDY NOTES ═══════ -->
+<div class="tab-panel active" id="tab-notes">
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="controls-inner">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search organism, disease, drug…">
+      </div>
+      <div class="filter-group">
+        <button class="fbtn active" data-cat="all">All</button>
+        <button class="fbtn" data-cat="gram-pos">Gram (+)</button>
+        <button class="fbtn" data-cat="gram-neg">Gram (−)</button>
+        <button class="fbtn" data-cat="mycobact">Mycobacteria</button>
+        <button class="fbtn" data-cat="virus">Viruses</button>
+        <button class="fbtn" data-cat="fungi">Fungi</button>
+        <button class="fbtn" data-cat="parasite">Parasites</button>
+        <button class="fbtn" data-cat="antibiotics">Antibiotics</button>
+      </div>
+      <div class="view-toggle">
+        <button class="vbtn active" id="vGrid">⊞</button>
+        <button class="vbtn" id="vList">☰</button>
+      </div>
+    </div>
+  </div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sb-label">Navigate</div>
+    <button class="sb-link" data-scroll="s-gram-pos"><span class="sb-dot" style="background:#c9a84c"></span>Gram (+)<span class="sb-count">8</span></button>
+    <button class="sb-link" data-scroll="s-gram-neg"><span class="sb-dot" style="background:#2e6da4"></span>Gram (−)<span class="sb-count">12</span></button>
+    <button class="sb-link" data-scroll="s-mycobact"><span class="sb-dot" style="background:#7b5e3a"></span>Mycobacteria<span class="sb-count">3</span></button>
+    <button class="sb-link" data-scroll="s-special"><span class="sb-dot" style="background:#6b3a8b"></span>Special<span class="sb-count">4</span></button>
+    <button class="sb-link" data-scroll="s-virus"><span class="sb-dot" style="background:#8b3a8b"></span>Viruses<span class="sb-count">8</span></button>
+    <button class="sb-link" data-scroll="s-fungi"><span class="sb-dot" style="background:#3a8b5e"></span>Fungi<span class="sb-count">5</span></button>
+    <button class="sb-link" data-scroll="s-parasite"><span class="sb-dot" style="background:#8b3a3a"></span>Parasites<span class="sb-count">4</span></button>
+    <button class="sb-link" data-scroll="s-antibiotics"><span class="sb-dot" style="background:#3a6b8b"></span>Antibiotics<span class="sb-count">6</span></button>
+    <div class="sb-label" style="margin-top:14px;">Tools</div>
+    <button class="sb-link" id="expandAllBtn">↕ Expand All</button>
+    <button class="sb-link" id="collapseAllBtn">↕ Collapse All</button>
+    <button class="sb-link" id="showMasteredBtn">⭐ Mastered Only</button>
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="content" id="contentArea">
+
+    <!-- ═══ GRAM POSITIVE ═══ -->
+    <section class="cat-section" id="s-gram-pos" data-cat="gram-pos">
+      <div class="cat-header" style="border-color:#c9a84c">
+        <div class="cat-icon" style="background:rgba(201,168,76,.12);color:#c9a84c">🔴</div>
+        <div class="cat-title" style="color:#c9a84c">Gram-Positive Bacteria</div>
+        <span class="cat-badge" style="background:rgba(201,168,76,.12);color:#c9a84c">Stains Violet</span>
+      </div>
+      <div class="mnemonic">
+        <div class="mn-label">💡 Key Rule</div>
+        <div class="mn-text">Catalase ⊕ → Staph &nbsp;|&nbsp; Catalase ∅ → Strep</div>
+        <div class="mn-sub">Coagulase ⊕ = S. aureus &nbsp;·&nbsp; Optochin sensitive = S. pneumo &nbsp;·&nbsp; Novobiocin resistant = S. saprophyticus</div>
+      </div>
+      <div class="card-grid">
+
+        <div class="org-card" data-cat="gram-pos" data-search="staphylococcus aureus MRSA coagulase TSST toxic shock scalded skin osteomyelitis endocarditis nafcillin vancomycin">
+          <div class="card-accent" style="background:linear-gradient(90deg,#c9a84c,#e2c27d)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>S. aureus</em></div>
+            <div class="card-tags"><span class="tag" style="background:rgba(201,168,76,.15);color:#8b6b20">Coagulase ⊕</span><span class="tag" style="background:#fff3cd;color:#8b6b20">β-hemolytic</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>MCC:</strong> Osteomyelitis · Acute endocarditis · Post-influenza pneumonia · Toxic Shock</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Reservoir</div><div class="ival">Nasal mucosa & skin</div></div>
+            <div class="irow"><div class="ilbl">Virulence</div><div class="ival">Protein A (blocks opsonization) · TSST-1 (superantigen) · Coagulase · Exfoliatins · Enterotoxins (heat-stable)</div></div>
+            <div class="irow"><div class="ilbl">Diseases</div><div class="ival"><ul class="blist"><li><strong>Scalded Skin</strong> — exfoliatins destroy stratum granulosum</li><li><strong>Toxic Shock</strong> — fever, hypotension, scarlatiniform rash (palms/soles)</li><li><strong>Gastroenteritis</strong> — preformed toxin, 2–6 hr (custard, potato salad)</li><li><strong>Post-influenza pneumonia</strong> — rapid 2–3 day necrosis</li><li><strong>IVDA Endocarditis</strong> — tricuspid regurgitation</li></ul></div></div>
+            <div style="margin-top:8px"><span class="doc">Nafcillin/Oxacillin</span><span class="doc">Vancomycin (MRSA)</span><span class="doc">Linezolid (VRSA)</span></div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="staphylococcus epidermidis prosthetic valve endocarditis biofilm vancomycin coagulase negative novobiocin sensitive">
+          <div class="card-accent" style="background:linear-gradient(90deg,#a0855a,#c9a070)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>S. epidermidis</em></div>
+            <div class="card-tags"><span class="tag" style="background:#f0e8d4;color:#6b5030">Coagulase ∅</span><span class="tag" style="background:#f0e8d4;color:#6b5030">Novobiocin Sensitive</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>MCC endocarditis — prosthetic valves.</strong> Biofilm on IV catheters & implants. Must remove infected implant.</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Normal flora</div><div class="ival">Skin</div></div>
+            <div class="irow"><div class="ilbl">Key feature</div><div class="ival">Biofilm makes antibiotics ineffective</div></div>
+            <div style="margin-top:8px"><span class="doc">Vancomycin + Aminoglycoside</span></div>
+            <div class="hbox alert" style="margin-top:8px"><strong>⚠</strong> Must remove or replace infected implant</div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="staphylococcus saprophyticus UTI honeymoon cystitis novobiocin resistant young females TMP SMX">
+          <div class="card-accent" style="background:linear-gradient(90deg,#7a9e7e,#a0c4a4)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>S. saprophyticus</em></div>
+            <div class="card-tags"><span class="tag" style="background:#e8f4e8;color:#2d6b30">Novobiocin Resistant</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>2nd MCC UTI</strong> in sexually active females age 17–27. "Honeymoon cystitis."</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Normal flora</div><div class="ival">Female genital tract</div></div>
+            <div class="irow"><div class="ilbl">Virulence</div><div class="ival">Adhesins → adhere to urothelium</div></div>
+            <div style="margin-top:8px"><span class="doc">TMP-SMX or Quinolones</span></div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="streptococcus pyogenes group A strep rheumatic fever glomerulonephritis scarlet fever impetigo necrotizing fasciitis M protein penicillin ASO">
+          <div class="card-accent" style="background:linear-gradient(90deg,#c95050,#e07070)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>S. pyogenes</em> (Group A)</div>
+            <div class="card-tags"><span class="tag" style="background:#ffe8e8;color:#8b2020">β-hemolytic</span><span class="tag" style="background:#ffe8e8;color:#8b2020">Bacitracin Sensitive</span><span class="tag" style="background:#ffe8e8;color:#8b2020">PYR ⊕</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>Jones criteria for RF:</strong> Joints · ♥ Carditis · Nodules · Erythema marginatum · Sydenham Chorea</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Virulence</div><div class="ival">M protein (antiphagocytic) · Streptolysin O (→ ASO titer) · Exotoxins A–C (scarlet fever superantigens)</div></div>
+            <div class="irow"><div class="ilbl">Diseases</div><div class="ival"><ul class="blist"><li><strong>Scarlet fever</strong> — sandpaper rash, strawberry tongue, circumoral pallor</li><li><strong>Rheumatic fever</strong> — Type II HS, 2 weeks post-pharyngitis</li><li><strong>AGN</strong> — M12 serotype, Type III HS, smoky urine</li><li><strong>Necrotizing fasciitis</strong> — rapid, high mortality</li></ul></div></div>
+            <div style="margin-top:8px"><span class="doc">Penicillin G/V</span></div>
+            <div class="hbox blue" style="margin-top:6px"><strong>ASO titer >200</strong> = significant for Rheumatic Fever. Prophylaxis × 5 years post-acute RF.</div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="streptococcus pneumoniae MOPS meningitis otitis media pneumonia sinusitis optochin quellung lancet shaped ceftriaxone sickle cell asplenia">
+          <div class="card-accent" style="background:linear-gradient(90deg,#4a7ec9,#6a9ee9)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>S. pneumoniae</em></div>
+            <div class="card-tags"><span class="tag" style="background:#e8f0ff;color:#2040a0">α-hemolytic</span><span class="tag" style="background:#e8f0ff;color:#2040a0">Optochin Sensitive</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>MOPS:</strong> Meningitis (MCC adults) · Otitis media (MCC children) · Pneumonia (MCC typical — rusty sputum) · Sinusitis</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Morphology</div><div class="ival">Lancet-shaped diplococci · Quellung reaction ⊕ (capsule swelling)</div></div>
+            <div class="irow"><div class="ilbl">Predisposed</div><div class="ival">Asplenia, Sickle cell (MCC death = septicemia), COPD, Alcoholism, HIV</div></div>
+            <div class="irow"><div class="ilbl">Virulence</div><div class="ival">Polysaccharide capsule (major) · IgA protease · Pneumolysin O (rusty sputum)</div></div>
+            <div style="margin-top:8px"><span class="doc">Pneumonia: Macrolides</span><span class="doc">Meningitis: Ceftriaxone</span></div>
+            <div class="hbox" style="margin-top:6px"><strong>Vaccine:</strong> PCV13 (pediatric) · PPSV23 (>65 yr, asplenia, AIDS, sickle cell)</div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="streptococcus agalactiae group B strep neonatal meningitis septicemia CAMP test bacitracin resistant ampicillin intrapartum">
+          <div class="card-accent" style="background:linear-gradient(90deg,#8b5e9e,#b07ec4)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>S. agalactiae</em> (Group B)</div>
+            <div class="card-tags"><span class="tag" style="background:#f0e8ff;color:#5030a0">CAMP Test ⊕</span><span class="tag" style="background:#f0e8ff;color:#5030a0">Bacitracin Resistant</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>MCC neonatal meningitis & septicemia.</strong> Top 3: #1 GBS · #2 E. coli (K1) · #3 Listeria</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Reservoir</div><div class="ival">Vagina (25% of women), GI tract</div></div>
+            <div class="irow"><div class="ilbl">Risk</div><div class="ival">Prolonged labor after rupture of membranes</div></div>
+            <div style="margin-top:8px"><span class="doc">Ampicillin + Aminoglycoside</span><span class="doc">IV Ampicillin (intrapartum prophylaxis)</span></div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="viridans streptococcus sanguis mutans subacute endocarditis dental caries optochin resistant dextran penicillin damaged valve">
+          <div class="card-accent" style="background:linear-gradient(90deg,#5e8b5e,#7eb07e)"></div>
+          <div class="card-header">
+            <div><div class="card-name">Viridans <em>Streptococci</em></div>
+            <div class="card-tags"><span class="tag" style="background:#e8f4e8;color:#205020">α-hemolytic</span><span class="tag" style="background:#e8f4e8;color:#205020">Optochin Resistant</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>MCC Subacute Infective Endocarditis (overall).</strong> S. sanguis on damaged valves. S. mutans → dental caries via dextran biofilm.</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Pearl</div><div class="ival">Give prophylactic antibiotics before dental work if patient has damaged heart valve</div></div>
+            <div style="margin-top:8px"><span class="doc">Penicillin G + Aminoglycosides</span></div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+        <div class="org-card" data-cat="gram-pos" data-search="enterococcus faecalis faecium endocarditis UTI biliary tract GI GU procedures VRE vancomycin resistant strep bovis colon cancer">
+          <div class="card-accent" style="background:linear-gradient(90deg,#8b7e3a,#b0a050)"></div>
+          <div class="card-header">
+            <div><div class="card-name"><em>Enterococcus</em></div>
+            <div class="card-tags"><span class="tag" style="background:#f8f0d4;color:#6b5010">PYR ⊕</span><span class="tag" style="background:#f8f0d4;color:#6b5010">6.5% NaCl tolerant</span></div></div>
+            <button class="xbtn">+</button>
+          </div>
+          <div class="card-peek"><div class="hbox"><strong>Subacute endocarditis</strong> in elderly during GI/GU procedures. Strep bovis endocarditis → always rule out colon cancer!</div></div>
+          <div class="card-details">
+            <div class="irow"><div class="ilbl">Diseases</div><div class="ival">UTI, biliary tract infections, subacute endocarditis</div></div>
+            <div class="irow"><div class="ilbl">Resistance</div><div class="ival">Intrinsic resistance; VRE strains = D-ala D-lac mutation (no vancomycin binding)</div></div>
+            <div style="margin-top:8px"><span class="doc">Penicillin + Gentamicin (prophylaxis)</span></div>
+            <button class="m-btn" onclick="toggleMastered(this)">☆ Mark as Mastered</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ GRAM NEGATIVE ═══ -->
+    <section class="cat-section" id="s-gram-neg" data-cat="gram-neg">
+      <div class="cat-header" style="border-color:#2e6da4">
+        <div class="cat-icon" style="background:rgba(46,109,164,.12);color:#2e6da4">🔵</div>
+        <div class="cat-title" style="color:#2e6da4">Gram-Negative Bacteria</div>
+        <span class="cat-badge" style="background:rgba(46,109,164,.12);color:#2e6da4">Stains Pink</span>
+      </div>
+      <div class="mnemonic">
+        <div class="mn-label">💡 ShYPS — Non-Lactose Fermenters</div>
+        <div class="mn-text">Shigella · Yersinia · Proteus · Salmonella</div>
+        <div class="mn-sub">Lactose fermenters turn PINK on MacConkey · Oxidase ⊕ = Pseudomonas, Neisseria, Campylobacter, Vibrio, Legionella</div>
+      </div>
+      <div class="card-grid" id="gram-neg-grid">
+        <!-- Gram negative cards will be added here -->
+        <div class="empty" style="grid-column:1/-1;padding:40px 20px;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text-muted);">More cards coming soon — paste the remaining HTML to complete this section.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+</div><!-- /layout -->
+</div><!-- /tab-notes -->
+
+<!-- ═══════ TAB: QUIZ ═══════ -->
+<div class="tab-panel" id="tab-quiz">
+  <div class="quiz-panel">
+    <div class="qp-header">
+      <div class="qp-title">Flashcard <span>Quiz</span></div>
+      <div class="qp-sub">Test your knowledge across all categories</div>
+    </div>
+    <div class="qp-divider"></div>
+    <div class="qselect-section" id="qSelectSection">
+      <div class="qcat-grid" id="qCatGrid">
+        <button class="qcat-btn qcat-all selected" data-cat="all">
+          <div class="qcat-icon">⚡</div>
+          <span class="qcat-name">All Categories</span>
+          <span class="qcat-cnt">60+ questions</span>
+        </button>
+        <button class="qcat-btn" data-cat="gram-pos">
+          <div class="qcat-icon">🔴</div>
+          <span class="qcat-name">Gram (+)</span>
+          <span class="qcat-cnt">~16 q</span>
+        </button>
+        <button class="qcat-btn" data-cat="gram-neg">
+          <div class="qcat-icon">🔵</div>
+          <span class="qcat-name">Gram (−)</span>
+          <span class="qcat-cnt">~24 q</span>
+        </button>
+        <button class="qcat-btn" data-cat="mycobact">
+          <div class="qcat-icon">🟤</div>
+          <span class="qcat-name">Mycobacteria</span>
+          <span class="qcat-cnt">~6 q</span>
+        </button>
+        <button class="qcat-btn" data-cat="virus">
+          <div class="qcat-icon">🟣</div>
+          <span class="qcat-name">Viruses</span>
+          <span class="qcat-cnt">~16 q</span>
+        </button>
+        <button class="qcat-btn" data-cat="fungi">
+          <div class="qcat-icon">🟢</div>
+          <span class="qcat-name">Fungi</span>
+          <span class="qcat-cnt">~10 q</span>
+        </button>
+        <button class="qcat-btn" data-cat="parasite">
+          <div class="qcat-icon">🔶</div>
+          <span class="qcat-name">Parasites</span>
+          <span class="qcat-cnt">~8 q</span>
+        </button>
+      </div>
+      <div class="qstart-bar">
+        <button class="qstart-btn" id="startQuizBtn">▶ Start Quiz</button>
+        <label class="shuffle-lbl"><input type="checkbox" id="shuffleCheck" checked> Shuffle cards</label>
+      </div>
+    </div>
+    <div class="qactive-section" id="qActiveSection">
+      <div class="qprogress-wrap"><div class="qprogress-bar" id="qProgressBar"></div></div>
+      <div class="qprog-row">
+        <span class="qprog-txt" id="qProgTxt">Card 1 of 1</span>
+        <span class="qscore-txt" id="qScoreTxt">✓ 0 &nbsp;✗ 0</span>
+      </div>
+      <div class="card-scene">
+        <div class="flip-card" id="flipCard" onclick="flipCard()">
+          <div class="card-face card-front">
+            <div class="card-q-cat" id="qCardCat">Category</div>
+            <div class="card-q" id="qCardQ">Question</div>
+            <div class="card-hint-txt" id="qCardHint"></div>
+            <div class="card-tap">👆 Tap to reveal answer</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-a-lbl">Answer</div>
+            <div class="card-a-txt" id="qCardA">Answer text</div>
+          </div>
+        </div>
+      </div>
+      <div class="grade-row" id="gradeRow">
+        <div class="grade-lbl">How did you do?</div>
+        <div class="grade-btns">
+          <button class="gbtn gbtn-wrong" onclick="gradeCard('wrong')">✗ Missed</button>
+          <button class="gbtn gbtn-almost" onclick="gradeCard('almost')">~ Almost</button>
+          <button class="gbtn gbtn-got" onclick="gradeCard('got')">✓ Got It</button>
+        </div>
+      </div>
+      <div class="nav-row" id="navRow">
+        <button class="nbtn nbtn-prev" onclick="prevCard()">← Prev</button>
+        <button class="nbtn nbtn-flip" onclick="flipCard()">Flip Card</button>
+        <button class="nbtn nbtn-skip" onclick="gradeCard('skip')">Skip →</button>
+      </div>
+      <div class="kbd-hint">Keyboard: Space = flip · ← → = navigate · 1/2/3 = grade</div>
+    </div>
+    <div class="qresults" id="qResults">
+      <div class="qresults-emoji" id="resEmoji">🎉</div>
+      <div class="qresults-h" id="resH">Quiz Complete!</div>
+      <div class="qresults-sub" id="resSub">Here's how you did</div>
+      <div class="qresults-grid">
+        <div class="res-box" style="border-color:#2d9e5e;background:rgba(45,158,94,.05)">
+          <div class="res-num" style="color:#2d9e5e" id="resGot">0</div>
+          <div class="res-lbl">Got It</div>
+        </div>
+        <div class="res-box" style="border-color:#e67e22;background:rgba(230,126,34,.05)">
+          <div class="res-num" style="color:#e67e22" id="resAlmost">0</div>
+          <div class="res-lbl">Almost</div>
+        </div>
+        <div class="res-box" style="border-color:#c0392b;background:rgba(192,57,43,.05)">
+          <div class="res-num" style="color:#c0392b" id="resMissed">0</div>
+          <div class="res-lbl">Missed</div>
+        </div>
+      </div>
+      <div class="missed-box" id="missedBox">
+        <div class="missed-title">Review These:</div>
+        <div class="missed-items" id="missedItems"></div>
+      </div>
+      <div class="qresults-actions">
+        <button class="ra-btn ra-restart" onclick="restartQuiz()">↺ New Quiz</button>
+        <button class="ra-btn ra-retry" id="retryBtn" onclick="retryMissed()">↺ Retry Missed</button>
+        <button class="ra-btn ra-back" onclick="backToSelect()">← Categories</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">DelphiUSMLE</div>
+  <div class="footer-sub">High-Yield Microbiology · Step 1 Series</div>
+</footer>
+
+<script>
+// ══ CARD EXPAND/COLLAPSE ══
+document.querySelectorAll('.org-card').forEach(card => {
+  const xbtn = card.querySelector('.xbtn');
+  xbtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = card.classList.contains('expanded');
+    card.classList.toggle('expanded', !isOpen);
+    xbtn.textContent = isOpen ? '+' : '−';
+  });
+  card.addEventListener('click', () => {
+    const isOpen = card.classList.contains('expanded');
+    if (!isOpen) {
+      card.classList.add('expanded');
+      xbtn.textContent = '−';
+    }
+  });
+});
+
+// ══ MASTERED ══
+let masteredIds = JSON.parse(localStorage.getItem('delphi-mastered') || '[]');
+function toggleMastered(btn) {
+  const card = btn.closest('.org-card');
+  const id = card.dataset.search.slice(0,20);
+  if (masteredIds.includes(id)) {
+    masteredIds = masteredIds.filter(x => x !== id);
+    card.classList.remove('mastered');
+    const tags = card.querySelector('.card-tags');
+    tags.querySelector('.mastered-badge')?.remove();
+    btn.textContent = '☆ Mark as Mastered';
+    btn.classList.remove('on');
+  } else {
+    masteredIds.push(id);
+    card.classList.add('mastered');
+    const tags = card.querySelector('.card-tags');
+    if (!tags.querySelector('.mastered-badge')) {
+      const b = document.createElement('span');
+      b.className = 'tag mastered-badge';
+      b.textContent = '⭐ Mastered';
+      tags.appendChild(b);
+    }
+    btn.textContent = '✓ Mastered — Click to Unmark';
+    btn.classList.add('on');
+  }
+  localStorage.setItem('delphi-mastered', JSON.stringify(masteredIds));
+  updateMasteredCount();
+}
+function updateMasteredCount() {
+  document.getElementById('masteredCount').textContent = masteredIds.length;
+}
+updateMasteredCount();
+
+// ══ SEARCH & FILTER ══
+const searchInput = document.getElementById('searchInput');
+const filterBtns = document.querySelectorAll('.fbtn[data-cat]');
+let activeCat = 'all';
+let searchTerm = '';
+
+function applyFilters() {
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    const secCat = sec.dataset.cat;
+    let secVisible = false;
+    sec.querySelectorAll('.org-card').forEach(card => {
+      const cardCat = card.dataset.cat;
+      const cardSearch = (card.dataset.search || '').toLowerCase();
+      const catMatch = activeCat === 'all' || cardCat === activeCat;
+      const searchMatch = !searchTerm || cardSearch.includes(searchTerm) || card.querySelector('.card-name').textContent.toLowerCase().includes(searchTerm);
+      const show = catMatch && searchMatch;
+      card.classList.toggle('hidden', !show);
+      if (show) secVisible = true;
+    });
+    const catMatch2 = activeCat === 'all' || secCat === activeCat;
+    sec.classList.toggle('hidden', !catMatch2 && activeCat !== 'all' ? true : !secVisible && searchTerm !== '');
+  });
+}
+
+searchInput.addEventListener('input', e => { searchTerm = e.target.value.toLowerCase().trim(); applyFilters(); });
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    applyFilters();
+  });
+});
+
+// ══ VIEW TOGGLE ══
+document.getElementById('vGrid').addEventListener('click', () => {
+  document.querySelectorAll('.card-grid').forEach(g => g.classList.remove('list-view'));
+  document.getElementById('vGrid').classList.add('active');
+  document.getElementById('vList').classList.remove('active');
+});
+document.getElementById('vList').addEventListener('click', () => {
+  document.querySelectorAll('.card-grid').forEach(g => g.classList.add('list-view'));
+  document.getElementById('vList').classList.add('active');
+  document.getElementById('vGrid').classList.remove('active');
+});
+
+// ══ SIDEBAR NAV ══
+document.querySelectorAll('.sb-link[data-scroll]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.scroll);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.sb-link').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+document.getElementById('expandAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.org-card').forEach(c => { c.classList.add('expanded'); c.querySelector('.xbtn').textContent = '−'; });
+});
+document.getElementById('collapseAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.org-card').forEach(c => { c.classList.remove('expanded'); c.querySelector('.xbtn').textContent = '+'; });
+});
+document.getElementById('showMasteredBtn').addEventListener('click', () => {
+  filterBtns.forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.org-card').forEach(c => {
+    c.classList.toggle('hidden', !c.classList.contains('mastered'));
+  });
+});
+
+// ══ TABS ══
+document.querySelectorAll('.main-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ══ QUIZ DATA ══
+const quizData = [
+  { cat:'Gram (+)', q:'What enzyme distinguishes Staph from Strep?', a:'Catalase — Staph is catalase ⊕, Strep is catalase ∅' },
+  { cat:'Gram (+)', q:'S. aureus: What toxin causes Toxic Shock Syndrome?', a:'TSST-1 — a superantigen that bypasses normal antigen presentation, causing massive cytokine release' },
+  { cat:'Gram (+)', q:'Scalded Skin Syndrome: organism & mechanism?', a:'S. aureus exfoliatins A & B — cleave desmoglein-1 in stratum granulosum → superficial blistering' },
+  { cat:'Gram (+)', q:'S. epidermidis: most feared complication?', a:'Prosthetic valve endocarditis (MCC) — biofilm on implants renders antibiotics ineffective; must remove device' },
+  { cat:'Gram (+)', q:'2nd MCC UTI in young sexually active females?', a:'S. saprophyticus — novobiocin resistant; "honeymoon cystitis"; treat with TMP-SMX' },
+  { cat:'Gram (+)', q:'Jones criteria for Rheumatic Fever (5 major)?', a:'Joints (migratory polyarthritis) · ♥ Carditis · Nodules (subcutaneous) · Erythema marginatum · Sydenham Chorea' },
+  { cat:'Gram (+)', q:'MCC typical CAP in adults with rusty sputum?', a:'S. pneumoniae — IgA protease, polysaccharide capsule; Quellung reaction ⊕; lancet-shaped diplococci' },
+  { cat:'Gram (+)', q:'MCC neonatal meningitis — top 3 organisms?', a:'#1 GBS (S. agalactiae) · #2 E. coli K1 · #3 Listeria monocytogenes' },
+  { cat:'Gram (+)', q:'MCC subacute infective endocarditis overall?', a:'Viridans streptococci (S. sanguis) — after dental procedures; optochin resistant; dextran biofilm' },
+  { cat:'Gram (+)', q:'Enterococcus: classic clinical scenario?', a:'Elderly patient with subacute endocarditis after GI/GU procedure. Strep bovis endocarditis → rule out colon cancer!' },
+  { cat:'Gram (−)', q:'Petechial rash + DIC + adrenal hemorrhage?', a:'N. meningitidis (Waterhouse-Friderichsen) — C5-C9 deficiency predisposes; ferments glucose AND maltose' },
+  { cat:'Gram (−)', q:'N. gonorrhoeae: what does Fitz-Hugh-Curtis mean?', a:'Perihepatitis (violin-string adhesions, RUQ pain) — spread of gonorrhea/chlamydia to liver capsule' },
+  { cat:'Gram (−)', q:'Blue-green pus + grape odor + CF patient?', a:'Pseudomonas aeruginosa — Exotoxin A (ADP-ribosylates eEF-2); biofilm in CF; treat with pip-tazo + aminoglycoside' },
+  { cat:'Gram (−)', q:'EHEC O157:H7: why NO antibiotics?', a:'Antibiotics lyse bacteria → massive verotoxin release → worsens HUS (microangiopathic hemolytic anemia, thrombocytopenia, renal failure)' },
+  { cat:'Gram (−)', q:'MCC osteomyelitis in sickle cell patients?', a:'Salmonella (vs. S. aureus which is MCC overall) — non-lactose fermenter, H2S producer; NO antibiotics for gastroenteritis' },
+  { cat:'Gram (−)', q:'Shigella: minimum infectious dose & why no septicemia?', a:'Only 10–100 organisms needed (very acid-resistant). Stays in mucosa → shallow ulcers, no blood vessel invasion → no septicemia' },
+];
+
+// ══ QUIZ ENGINE ══
+let qDeck = [], qIdx = 0, qGot = 0, qAlmost = 0, qWrong = 0, qMissed = [];
+
+document.querySelectorAll('.qcat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.qcat-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  });
+});
+
+document.getElementById('startQuizBtn').addEventListener('click', () => {
+  const selCat = document.querySelector('.qcat-btn.selected')?.dataset.cat || 'all';
+  qDeck = quizData.filter(q => selCat === 'all' || q.cat.toLowerCase().includes(selCat.replace('-','')));
+  if (document.getElementById('shuffleCheck').checked) qDeck = qDeck.sort(() => Math.random() - 0.5);
+  qIdx = 0; qGot = 0; qAlmost = 0; qWrong = 0; qMissed = [];
+  document.getElementById('qSelectSection').classList.add('hide');
+  document.getElementById('qActiveSection').classList.add('show');
+  document.getElementById('qResults').classList.remove('show');
+  loadCard();
+});
+
+function loadCard() {
+  if (qIdx >= qDeck.length) { showResults(); return; }
+  const q = qDeck[qIdx];
+  document.getElementById('qCardCat').textContent = q.cat;
+  document.getElementById('qCardQ').textContent = q.q;
+  document.getElementById('qCardA').innerHTML = q.a;
+  document.getElementById('flipCard').classList.remove('flipped');
+  document.getElementById('gradeRow').classList.remove('show');
+  updateProgress();
+}
+
+function flipCard() {
+  document.getElementById('flipCard').classList.toggle('flipped');
+  document.getElementById('gradeRow').classList.add('show');
+}
+
+function gradeCard(grade) {
+  if (grade === 'got') qGot++;
+  else if (grade === 'almost') { qAlmost++; qMissed.push(qDeck[qIdx].q); }
+  else if (grade === 'wrong') { qWrong++; qMissed.push(qDeck[qIdx].q); }
+  qIdx++;
+  document.getElementById('qScoreTxt').textContent = `✓ ${qGot}  ✗ ${qWrong}`;
+  loadCard();
+}
+
+function updateProgress() {
+  const pct = qDeck.length ? (qIdx / qDeck.length) * 100 : 0;
+  document.getElementById('qProgressBar').style.width = pct + '%';
+  document.getElementById('qProgTxt').textContent = `Card ${Math.min(qIdx+1, qDeck.length)} of ${qDeck.length}`;
+}
+
+function prevCard() { if (qIdx > 0) { qIdx--; loadCard(); } }
+
+function showResults() {
+  document.getElementById('qActiveSection').classList.remove('show');
+  const r = document.getElementById('qResults');
+  r.classList.add('show');
+  document.getElementById('resGot').textContent = qGot;
+  document.getElementById('resAlmost').textContent = qAlmost;
+  document.getElementById('resMissed').textContent = qWrong;
+  const pct = qDeck.length ? Math.round((qGot/qDeck.length)*100) : 0;
+  document.getElementById('resH').textContent = pct >= 80 ? 'Excellent Work!' : pct >= 60 ? 'Good Progress!' : 'Keep Studying!';
+  document.getElementById('resEmoji').textContent = pct >= 80 ? '🎉' : pct >= 60 ? '📚' : '💪';
+  if (qMissed.length) {
+    document.getElementById('missedBox').style.display = 'block';
+    document.getElementById('missedItems').textContent = qMissed.map((q,i) => `${i+1}. ${q}`).join('\n');
+    document.getElementById('retryBtn').style.display = 'inline-flex';
+  }
+}
+
+function restartQuiz() {
+  document.getElementById('qResults').classList.remove('show');
+  document.getElementById('qSelectSection').classList.remove('hide');
+}
+
+function retryMissed() {
+  qDeck = qDeck.filter(q => qMissed.includes(q.q));
+  qIdx = 0; qGot = 0; qAlmost = 0; qWrong = 0; qMissed = [];
+  document.getElementById('qResults').classList.remove('show');
+  document.getElementById('qActiveSection').classList.add('show');
+  document.getElementById('missedBox').style.display = 'none';
+  loadCard();
+}
+
+function backToSelect() {
+  document.getElementById('qResults').classList.remove('show');
+  document.getElementById('qActiveSection').classList.remove('show');
+  document.getElementById('qSelectSection').classList.remove('hide');
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('qActiveSection').classList.contains('show')) return;
+  if (e.code === 'Space') { e.preventDefault(); flipCard(); }
+  else if (e.key === 'ArrowLeft') prevCard();
+  else if (e.key === 'ArrowRight') gradeCard('skip');
+  else if (e.key === '1') gradeCard('wrong');
+  else if (e.key === '2') gradeCard('almost');
+  else if (e.key === '3') gradeCard('got');
+});
+</script>
+</body>
+</html>

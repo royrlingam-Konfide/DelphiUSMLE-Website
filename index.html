@@ -136,7 +136,8 @@
     pointer-events: auto;
     transform: translateY(0);
   }
-  #who-nav:hover .dropdown {
+  #who-nav:hover .dropdown,
+  #hub-nav:hover .dropdown {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
@@ -1907,6 +1908,15 @@
           <a href="#meet-founder">Meet Dr. Roy Lingam</a>
         </div>
       </li>
+      <li class="has-dropdown" id="hub-nav">
+        <button onclick="toggleDrop('hub-nav')" style="cursor:default;" onmousedown="event.preventDefault()">
+          High-Yield Hub
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="high-yield-microbiology.html">High-Yield Microbiology Cards</a>
+        </div>
+      </li>
       <li><a href="#step-1-overview">Pass Step 1</a></li>
       <li class="has-dropdown" id="prog-nav">
         <button onclick="toggleDrop('prog-nav')">
@@ -1938,6 +1948,8 @@
   <span class="mobile-menu-label">Who We Are</span>
   <a href="#who-we-are" class="sub" onclick="closeMobile()">↳ Our Mission</a>
   <a href="#meet-founder" class="sub" onclick="closeMobile()">↳ Meet Dr. Roy Lingam</a>
+  <span class="mobile-menu-label">High-Yield Hub</span>
+  <a href="high-yield-microbiology.html" class="sub" onclick="closeMobile()">↳ High-Yield Microbiology Cards</a>
   <a href="#step-1-overview" onclick="closeMobile()">Pass Step 1</a>
   <a href="#programs" onclick="closeMobile()">Programs</a>
   <a href="core-program.html" class="sub" onclick="closeMobile()">↳ Delphi Core Program</a>
