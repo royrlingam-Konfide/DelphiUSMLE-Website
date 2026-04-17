@@ -487,6 +487,7 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
     <button class="sb-link" id="expandAllBtn">↕ Expand All</button>
     <button class="sb-link" id="collapseAllBtn">↕ Collapse All</button>
     <button class="sb-link" id="showMasteredBtn">⭐ Mastered Only</button>
+    <button class="sb-link" id="resetProgressBtn" style="color:#c0392b;margin-top:6px;">↺ Reset Progress</button>
   </nav>
 
   <!-- CONTENT -->
@@ -1768,6 +1769,21 @@ document.getElementById('showMasteredBtn').addEventListener('click', function() 
   } else {
     document.querySelectorAll('.org-card, .cat-section').forEach(function(el){ el.classList.remove('hidden'); });
     document.getElementById('emptyState').classList.add('hidden');
+  }
+});
+
+document.getElementById('resetProgressBtn').addEventListener('click', function() {
+  if (!confirm('Reset all progress? This will clear all mastered cards.')) return;
+  masteredCards.clear();
+  localStorage.removeItem('delphi_mastered');
+  document.querySelectorAll('.org-card').forEach(function(c){ applyMastered(c, false); });
+  document.getElementById('masteredCount').textContent = '0';
+  // If mastered-only filter is active, turn it off
+  if (showingMastered) {
+    showingMastered = false;
+    document.getElementById('showMasteredBtn').classList.remove('active');
+    document.getElementById('showMasteredBtn').textContent = '⭐ Mastered Only';
+    document.querySelectorAll('.org-card, .cat-section').forEach(function(el){ el.classList.remove('hidden'); });
   }
 });
 
