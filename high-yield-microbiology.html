@@ -93,7 +93,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 /* SIDEBAR */
 .sidebar{position:sticky;top:140px;}
 .sb-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);padding:8px 10px 4px;}
-.sb-link{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:12px;color:var(--text-mid);transition:all .18s;border:none;background:none;width:100%;text-align:left;}
+.sb-link{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:14px;color:var(--text-mid);transition:all .18s;border:none;background:none;width:100%;text-align:left;}
 .sb-link:hover{background:rgba(201,168,76,.1);color:var(--navy);}
 .sb-link.active{background:var(--navy);color:var(--gold);font-weight:500;}
 .sb-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
@@ -112,7 +112,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .mnemonic{background:linear-gradient(135deg,var(--gold-pale),var(--cream));border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:12px;}
 .mn-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
 .mn-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--navy);}
-.mn-sub{font-size:12px;color:var(--text-mid);margin-top:3px;}
+.mn-sub{font-size:14px;color:var(--text-mid);margin-top:3px;}
 
 /* CARD GRID */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
@@ -139,7 +139,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 
 /* HIGHLIGHT BOX */
-.hbox{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:8px 11px;margin:6px 0;font-size:12px;line-height:1.5;}
+.hbox{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:8px 11px;margin:6px 0;font-size:14px;line-height:1.5;}
 .hbox strong{font-weight:600;color:var(--navy);}
 .hbox.alert{background:#fef0f0;border-color:#d04040;}
 .hbox.alert strong{color:#9b2020;}
@@ -148,7 +148,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 /* INFO ROWS */
 .irow{display:grid;grid-template-columns:95px 1fr;gap:4px 10px;margin-bottom:8px;align-items:baseline;}
 .ilbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
-.ival{font-size:12px;color:var(--text-dark);line-height:1.5;}
+.ival{font-size:14px;color:var(--text-dark);line-height:1.5;}
 
 /* DOC BADGE */
 .doc{display:inline-flex;align-items:center;gap:5px;background:var(--navy);color:var(--gold);border-radius:5px;padding:3px 9px;font-size:11px;font-weight:600;letter-spacing:.05em;margin:2px 2px 2px 0;}
@@ -156,18 +156,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
 /* BULLET LIST */
 .blist{list-style:none;padding:0;}
-.blist li{padding:2px 0 2px 12px;font-size:12px;color:var(--text-dark);line-height:1.5;position:relative;}
+.blist li{padding:2px 0 2px 12px;font-size:14px;color:var(--text-dark);line-height:1.5;position:relative;}
 .blist li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:9px;top:4px;}
 
 /* COMPARE */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
 .compare-col{border-radius:8px;overflow:hidden;}
 .compare-head{padding:7px 10px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
-.compare-body{padding:8px 10px;font-size:12px;line-height:1.5;}
+.compare-body{padding:8px 10px;font-size:14px;line-height:1.5;}
 
 /* TABLE */
-.qtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
-.qtable th{background:var(--navy);color:var(--gold);padding:7px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
+.qtable{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px;}
+.qtable th{background:var(--navy);color:var(--gold);padding:7px 10px;text-align:left;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
 .qtable td{padding:7px 10px;border-bottom:1px solid #f0e8d4;vertical-align:top;line-height:1.4;}
 .qtable tr:nth-child(even) td{background:#faf7f0;}
 .qtable tr:hover td{background:var(--gold-pale);}
@@ -229,7 +229,7 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
 /* SIDEBAR */
 .sidebar{position:sticky;top:175px;}
 .sb-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);padding:8px 10px 4px;}
-.sb-link{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:12px;color:var(--text-mid);transition:all .18s;border:none;background:none;width:100%;text-align:left;}
+.sb-link{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:14px;color:var(--text-mid);transition:all .18s;border:none;background:none;width:100%;text-align:left;}
 .sb-link:hover{background:rgba(201,168,76,.1);color:var(--navy);}
 .sb-link.active{background:var(--navy);color:var(--gold);font-weight:500;}
 .sb-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
@@ -292,7 +292,7 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
 .card-hint-txt{font-size:11px;color:rgba(255,255,255,.35);font-style:italic;}
 .card-tap{margin-top:18px;font-size:11px;color:rgba(255,255,255,.25);display:flex;align-items:center;gap:5px;}
 .card-a-lbl{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-.card-a-txt{font-size:13px;color:var(--text-dark);line-height:1.65;width:100%;}
+.card-a-txt{font-size:15px;color:var(--text-dark);line-height:1.65;width:100%;}
 
 /* Grade buttons */
 .grade-row{display:none;margin-bottom:12px;}
@@ -872,8 +872,8 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
           </div>
           <div class="card-peek">
             <div class="compare">
-              <div class="compare-col"><div class="compare-head" style="background:var(--navy);color:var(--gold)">Tuberculoid (TH1)</div><div class="compare-body" style="background:var(--gold-pale);font-size:11px">Lepromin ⊕ · Few lesions (macular) · Nerve granulomas · Strong CMI</div></div>
-              <div class="compare-col"><div class="compare-head" style="background:#6b2a6b;color:#f0c0f0">Lepromatous (TH2)</div><div class="compare-body" style="background:#fce8fc;font-size:11px">Lepromin ∅ · Numerous nodular lesions · Leonine facies · Saddle nose · Foam cells · Weak CMI</div></div>
+              <div class="compare-col"><div class="compare-head" style="background:var(--navy);color:var(--gold)">Tuberculoid (TH1)</div><div class="compare-body" style="background:var(--gold-pale);font-size:14px">Lepromin ⊕ · Few lesions (macular) · Nerve granulomas · Strong CMI</div></div>
+              <div class="compare-col"><div class="compare-head" style="background:#6b2a6b;color:#f0c0f0">Lepromatous (TH2)</div><div class="compare-body" style="background:#fce8fc;font-size:14px">Lepromin ∅ · Numerous nodular lesions · Leonine facies · Saddle nose · Foam cells · Weak CMI</div></div>
             </div>
           </div>
           <div class="card-details">
@@ -966,7 +966,7 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
             <div class="card-tags"><span class="tag" style="background:#f8f0e0;color:#6b4010">Cannot Culture</span><span class="tag" style="background:#f8f0e0;color:#6b4010">Darkfield Microscopy</span></div></div>
             <button class="xbtn">+</button>
           </div>
-          <div class="card-peek"><div class="hbox" style="font-size:11px"><strong>1°</strong> Painless indurated chancre → <strong>2°</strong> Copper rash on palms/soles + condyloma lata → <strong>3°</strong> Gummas + tabes dorsalis + "tree bark" aortic aneurysm</div></div>
+          <div class="card-peek"><div class="hbox" style="font-size:14px"><strong>1°</strong> Painless indurated chancre → <strong>2°</strong> Copper rash on palms/soles + condyloma lata → <strong>3°</strong> Gummas + tabes dorsalis + "tree bark" aortic aneurysm</div></div>
           <div class="card-details">
             <div class="irow"><div class="ilbl">Serology</div><div class="ival">VDRL/RPR (screening, nontreponemal) → FTA-ABS (confirmatory, remains ⊕ for life)</div></div>
             <div class="irow"><div class="ilbl">False + VDRL</div><div class="ival">Viruses · Drugs · Rheumatic fever · Lupus/Leprosy</div></div>
@@ -1002,8 +1002,8 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
           </div>
           <div class="card-peek">
             <div class="compare">
-              <div class="compare-col"><div class="compare-head" style="background:var(--navy);color:var(--gold)">HSV-1 (Trigeminal ganglia)</div><div class="compare-body" style="background:var(--gold-pale);font-size:11px">Cold sores · Keratoconjunctivitis (dendritic ulcers) · MCC sporadic encephalitis US (temporal lobe) · Herpetic whitlow</div></div>
-              <div class="compare-col"><div class="compare-head" style="background:#6b1a6b;color:#f0c0f0">HSV-2 (Sacral ganglia)</div><div class="compare-body" style="background:#fce8fc;font-size:11px">Painful genital vesicles · Neonatal herpes at birth (encephalitis)</div></div>
+              <div class="compare-col"><div class="compare-head" style="background:var(--navy);color:var(--gold)">HSV-1 (Trigeminal ganglia)</div><div class="compare-body" style="background:var(--gold-pale);font-size:14px">Cold sores · Keratoconjunctivitis (dendritic ulcers) · MCC sporadic encephalitis US (temporal lobe) · Herpetic whitlow</div></div>
+              <div class="compare-col"><div class="compare-head" style="background:#6b1a6b;color:#f0c0f0">HSV-2 (Sacral ganglia)</div><div class="compare-body" style="background:#fce8fc;font-size:14px">Painful genital vesicles · Neonatal herpes at birth (encephalitis)</div></div>
             </div>
           </div>
           <div class="card-details">
@@ -1204,7 +1204,7 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
             <div class="card-tags"><span class="tag" style="background:#e8ffe8;color:#105010">Septate 45° Hyphae</span><span class="tag" style="background:#e8ffe8;color:#105010">Monomorphic Mold</span></div></div>
             <button class="xbtn">+</button>
           </div>
-          <div class="card-peek"><div class="hbox" style="font-size:11px"><strong>ABPA</strong> (Asthma/CF; Type I HS; eosinophilia) · <strong>Fungus ball</strong> (pre-formed cavities; cough; surgical) · <strong>Invasive</strong> (severe neutropenia; tissue infarcts)</div></div>
+          <div class="card-peek"><div class="hbox" style="font-size:14px"><strong>ABPA</strong> (Asthma/CF; Type I HS; eosinophilia) · <strong>Fungus ball</strong> (pre-formed cavities; cough; surgical) · <strong>Invasive</strong> (severe neutropenia; tissue infarcts)</div></div>
           <div class="card-details">
             <div class="irow"><div class="ilbl">Aflatoxins</div><div class="ival">Some Aspergillus species → hepatocellular carcinoma</div></div>
             <div style="margin-top:8px"><span class="doc">ABPA: Itraconazole</span><span class="doc">Invasive: Voriconazole ± Caspofungin</span></div>
@@ -1943,35 +1943,6 @@ document.getElementById('collapseAllBtn').addEventListener('click', function() {
   });
 });
 
-var showingMastered = false;
-document.getElementById('showMasteredBtn').addEventListener('click', function() {
-  showingMastered = !showingMastered;
-  this.classList.toggle('active', showingMastered);
-  this.textContent = showingMastered ? '\u2b50 Show All Topics' : '\u2b50 Mastered Only';
-  if (showingMastered) {
-    document.querySelectorAll('.org-card').forEach(function(c){
-      c.classList.toggle('hidden', !masteredCards.has(c.dataset.idx));
-    });
-    document.querySelectorAll('.cat-section').forEach(function(s){
-      s.classList.toggle('hidden', s.querySelectorAll('.org-card:not(.hidden)').length === 0);
-    });
-  } else {
-    document.querySelectorAll('.org-card, .cat-section').forEach(function(el){ el.classList.remove('hidden'); });
-    document.getElementById('emptyState').classList.add('hidden');
-  }
-});
-
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      var id = entry.target.id;
-      document.querySelectorAll('.sb-link[data-scroll]').forEach(function(l) {
-        l.classList.toggle('active', l.dataset.scroll === id);
-      });
-    }
-  });
-}, { threshold: 0.15, rootMargin: '-140px 0px 0px 0px' });
-document.querySelectorAll('.cat-section').forEach(function(s){ observer.observe(s); });
 
 // ══════════════════════════════
 //  QUIZ ENGINE
