@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – DelphiUSMLE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0b1a2e;
+    --midnight:#0f2240;
+    --gold:    #c9913a;
+    --gold-lt: #e8b96a;
+    --cream:   #f5f0e8;
+    --white:   #ffffff;
+    --text:    #1e2f45;
+    --muted:   #5a6a7e;
+    --line:    rgba(201,145,58,.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    position: relative;
+    background: var(--navy);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 80% 50%, rgba(201,145,58,.12) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 60% at 10% 20%, rgba(201,145,58,.07) 0%, transparent 55%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,145,58,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,145,58,.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 36px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,.72);
+    max-width: 520px;
+  }
+
+  .hero-badge {
+    background: rgba(201,145,58,.15);
+    border: 1px solid rgba(201,145,58,.35);
+    border-radius: 4px;
+    padding: 28px 30px;
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .hero-badge .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--gold-lt);
+    line-height: 1;
+  }
+
+  .hero-badge .stat-label {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,.6);
+    margin-top: 6px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 90px 40px;
+  }
+
+  /* ── GOLD DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 70%);
+    margin: 0 0 70px;
+  }
+
+  /* ── MISSION BLOCK ── */
+  .mission-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .section-tag {
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  h2 em { font-style: italic; color: var(--gold); }
+
+  .body-text {
+    font-size: .97rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .body-text strong { color: var(--text); font-weight: 500; }
+
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 16px 24px;
+    margin: 30px 0;
+    background: rgba(201,145,58,.06);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--navy);
+  }
+
+  /* ── STATS ROW ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 10px;
+  }
+
+  .stat-card {
+    background: var(--navy);
+    padding: 34px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform .3s ease;
+    transform-origin: left;
+  }
+
+  .stat-card:hover::after { transform: scaleX(1); }
+
+  .stat-card .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold-lt);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-card .lbl {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,.55);
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* ── FOUNDER SECTION ── */
+  .founder-section {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-section::before {
+    content: '';
+    position: absolute;
+    right: -150px; top: -150px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,145,58,.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .founder-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 90px 40px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+  }
+
+  .founder-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(201,145,58,.2);
+    border-radius: 4px;
+    padding: 40px 36px;
+  }
+
+  .founder-avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .founder-title {
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 8px 0 28px;
+  }
+
+  .tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag-list li {
+    background: rgba(201,145,58,.12);
+    border: 1px solid rgba(201,145,58,.25);
+    color: rgba(245,240,232,.7);
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  .founder-body .section-tag { margin-bottom: 12px; }
+
+  .founder-body h2 {
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .founder-body .body-text {
+    color: rgba(245,240,232,.65);
+  }
+
+  .founder-body .body-text strong {
+    color: rgba(245,240,232,.9);
+  }
+
+  /* ── PILLARS ── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .pillar {
+    background: var(--white);
+    padding: 44px 36px;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(11,26,46,.1);
+  }
+
+  .pillar-icon {
+    width: 48px; height: 48px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    border-radius: 2px;
+  }
+
+  .pillar-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 1.8; }
+
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .pillar p {
+    font-size: .9rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .pillar-num {
+    position: absolute;
+    top: 24px; right: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: rgba(11,26,46,.05);
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ── CLOSING BANNER ── */
+  .closing {
+    background: var(--navy);
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,145,58,.1) 0%, transparent 65%);
+  }
+
+  .closing-inner { position: relative; }
+
+  .closing h2 {
+    color: var(--white);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    max-width: 700px;
+    margin: 0 auto 20px;
+  }
+
+  .closing p {
+    font-size: 1rem;
+    color: rgba(245,240,232,.6);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.75;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: .85rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 2px;
+    transition: background .2s ease, transform .2s ease;
+  }
+
+  .cta-btn:hover {
+    background: var(--gold-lt);
+    transform: translateY(-2px);
+  }
+
+  /* ── LOCATION CHIP ── */
+  .location-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(201,145,58,.1);
+    border: 1px solid rgba(201,145,58,.25);
+    color: rgba(245,240,232,.6);
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 100px;
+    margin-top: 24px;
+  }
+
+  .location-chip svg { width: 13px; height: 13px; fill: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .hero-inner         { grid-template-columns: 1fr; }
+    .hero-badge         { display: none; }
+    .mission-layout     { grid-template-columns: 1fr; gap: 50px; }
+    .stats-grid         { grid-template-columns: 1fr 1fr; }
+    .founder-inner      { grid-template-columns: 1fr; gap: 48px; }
+    .pillars-grid        { grid-template-columns: 1fr; }
+    .section            { padding: 60px 24px; }
+  }
+
+  /* ── FADE-IN ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Who We Are</p>
+      <h1>Built for Students Who<br/><em>Refuse to Give Up.</em></h1>
+      <p class="hero-sub">DelphiUSMLE was founded on a single conviction: every medical student deserves personalized, expert guidance that transforms hard work into genuine results.</p>
+      <div class="location-chip">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Chicago, IL
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Passing Rate</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MISSION ══ -->
+<div class="section">
+  <div class="divider"></div>
+  <div class="mission-layout reveal">
+    <div>
+      <p class="section-tag">Our Mission</p>
+      <h2>Where Every Student <em>Deserves</em> a Fighting Chance</h2>
+      <p class="body-text">
+        We truly understand the stress, anxiety, and fear of failure that surround USMLE Step 1 and Step 2 exams. These aren't just tests — they are the gateway to your life's calling. At DelphiUSMLE, we believe that with the right guidance, encouragement, and unwavering support, <strong>every medical student can turn their dream of becoming a physician into reality.</strong>
+      </p>
+      <p class="body-text">
+        Our mission is driven by a passion for teaching, a deep love for medicine, and a genuine commitment to student success. We know how easy it is to feel invisible in large classroom settings, which is why we pride ourselves on maintaining <strong>small teacher-to-student ratios</strong> — giving each student the personalized attention they truly deserve.
+      </p>
+      <div class="pull-quote">
+        <p>"Delphi is more than a prep center — it's an experience committed to <em>Bringing You to Excellence in Medicine.</em>"</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-tag">By the Numbers</p>
+      <h2>A Decade of <em>Proven</em> Results</h2>
+      <p class="body-text">
+        Our results speak for themselves — but behind every number is a student who believed in themselves and found the support to prove it.
+      </p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="num">10+</span>
+          <span class="lbl">Years Teaching</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">98%</span>
+          <span class="lbl">Passing Rate</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">100s</span>
+          <span class="lbl">Lives Changed</span>
+        </div>
+      </div>
+      <p class="body-text" style="margin-top:28px;">
+        All DelphiUSMLE instructors are <strong>M.D.s who have successfully passed all portions of the USMLE</strong>, are ECFMG certified, and have completed their residencies. You learn from professionals who have walked the same road.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ FOUNDER ══ -->
+<section class="founder-section">
+  <div class="founder-inner reveal">
+    <div class="founder-card">
+      <div class="founder-avatar">RL</div>
+      <div class="founder-name">Dr. Roy Lingam</div>
+      <div class="founder-title">Founder · DelphiUSMLE</div>
+      <ul class="tag-list">
+        <li>USMLE Step 1</li>
+        <li>Step 2 CK</li>
+        <li>Comp Exam</li>
+        <li>CBSSA Specialist</li>
+        <li>10+ Years</li>
+        <li>ECFMG Certified</li>
+      </ul>
+    </div>
+
+    <div class="founder-body">
+      <p class="section-tag">Meet the Founder</p>
+      <h2>The Mentor Who <em>Changes</em> Trajectories</h2>
+      <p class="body-text">
+        Dr. Roy Lingam has been training medical students for USMLE Step 1 and Step 2 CK for more than a decade, achieving a remarkable <strong>98% passing rate</strong> across his students. His teaching approach goes far beyond passive review — Dr. Roy works directly with each student to build a tailored, individualized study plan that addresses their specific weaknesses and maximizes their strengths.
+      </p>
+      <p class="body-text">
+        What sets Dr. Roy apart is his ability to <strong>transform overwhelming volumes of basic science material into clear, clinically relevant frameworks</strong> that students actually retain. He doesn't just teach you what to know — he teaches you how to think through questions. His students consistently describe breakthroughs in both understanding and exam confidence.
+      </p>
+      <p class="body-text">
+        Dr. Lingam is especially known for guiding students who had <strong>repeatedly failed the CBSSA and were on the verge of giving up their medical careers</strong> — empowering them to turn their setbacks into triumphs. If you've been told the door is closing, Dr. Roy is the person who helps you open it again.
+      </p>
+      <div class="pull-quote" style="border-color:rgba(201,145,58,.4);">
+        <p style="color:rgba(245,240,232,.85);">"He teaches you <em>how to think</em> through questions — not just what to memorize."<br/><small style="font-family:'DM Sans',sans-serif; font-size:.8rem; font-style:normal; color:rgba(245,240,232,.45); letter-spacing:.06em;">— DelphiUSMLE Student</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PILLARS ══ -->
+<div class="section">
+  <div class="divider"></div>
+  <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 0;">
+    <p class="section-tag" style="justify-content:center;">What Sets Us Apart</p>
+    <h2>The <em>Delphi</em> Difference</h2>
+    <p class="body-text">Three commitments that define every student's journey with us.</p>
+  </div>
+  <div class="pillars-grid reveal">
+    <div class="pillar">
+      <span class="pillar-num">01</span>
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22z"/></svg>
+      </div>
+      <h3>Individualized Study Plans</h3>
+      <p>No two students learn the same way. Dr. Roy builds a custom roadmap for your specific weaknesses, learning style, and exam timeline — so every hour you study counts.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pillar-num">02</span>
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+      </div>
+      <h3>Small Group Ratios</h3>
+      <p>We deliberately keep class sizes small so you're never just a face in a crowd. You get real attention, real feedback, and a real relationship with your instructor.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pillar-num">03</span>
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <h3>MD-Led, Clinically Grounded</h3>
+      <p>Every instructor at DelphiUSMLE is a board-certified M.D. who has passed all portions of the USMLE and completed residency. We teach from experience, not just textbooks.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ CLOSING CTA ══ -->
+<section class="closing">
+  <div class="closing-inner reveal">
+    <p class="section-tag" style="justify-content:center; color:var(--gold-lt);">Based in Chicago, IL · Serving Students Nationwide</p>
+    <h2>Your Dream of Becoming a Physician <em>Is Within Reach.</em></h2>
+    <p>DelphiUSMLE offers comprehensive Step 1 preparatory courses, one-on-one tutoring, and focused testing support. Wherever you are in your journey, we're here to meet you — and take you further.</p>
+    <a href="#" class="cta-btn">Start Your Journey Today</a>
+  </div>
+</section>
+
+
+<script>
+  // Intersection Observer for reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

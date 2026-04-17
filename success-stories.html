@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Success Stories — CBSSA & USMLE Step 1 Preparation | DelphiUSMLE</title>
+<link rel="icon" type="image/jpeg" href="Brand_assets/915E7D88-A4E8-4BB7-931B-3BDB21D03D9E_1_105_c.jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0D2B55;
+    --blue:   #1565C0;
+    --sky:    #2196F3;
+    --gold:   #F5A623;
+    --gold-dk:#e09500;
+    --light:  #F0F4FA;
+    --white:  #FFFFFF;
+    --gray:   #6B7280;
+    --dark:   #1A1A2E;
+    --green:  #27AE60;
+    --border: #dce6f5;
+    --text:   #374151;
+    --tp:     #00b67a;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Open Sans', sans-serif; color: var(--dark); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  #navbar { background: var(--navy); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 16px rgba(0,0,0,0.28); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 70px; display: flex; align-items: center; gap: 16px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; flex-shrink: 0; }
+  .nav-logo img { height: 40px; width: auto; display: block; }
+  .nav-logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+  .nav-logo-text span { color: var(--gold); }
+  .nav-links { display: flex; list-style: none; gap: 2px; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; padding: 7px 10px; border-radius: 8px; transition: background 0.18s, color 0.18s; white-space: nowrap; }
+  .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .nav-links a.active { background: rgba(255,255,255,0.1); color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 800; padding: 9px 18px; border-radius: 100px; text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; flex-shrink: 0; transition: background 0.18s, transform 0.18s; }
+  .nav-cta:hover { background: var(--gold-dk); transform: translateY(-1px); }
+  .has-dropdown { position: relative; list-style: none; }
+  .has-dropdown button { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.82); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; padding: 7px 10px; border-radius: 8px; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: background 0.18s, color 0.18s; }
+  .has-dropdown button:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .chevron { width: 13px; height: 13px; stroke: currentColor; stroke-width: 2.5; fill: none; transition: transform 0.2s; }
+  .has-dropdown.open .chevron { transform: rotate(180deg); }
+  .dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--white); border-radius: 12px; box-shadow: 0 8px 32px rgba(13,43,85,0.18); min-width: 210px; overflow: hidden; border: 1px solid var(--border); z-index: 300; }
+  .has-dropdown.open .dropdown { display: block; }
+  .dropdown a { display: block; padding: 12px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--navy); text-decoration: none; transition: background 0.15s; }
+  .dropdown a:hover { background: var(--light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-left: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--navy); z-index: 190; padding: 16px 0 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; padding: 12px 32px; color: rgba(255,255,255,0.85); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 600; }
+  .mobile-menu a.sub { padding-left: 48px; font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+  .mobile-menu a:hover { background: rgba(255,255,255,0.07); color: #fff; }
+  @media(max-width:960px){ .nav-links, .nav-cta { display: none; } .hamburger { display: flex; } }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media(max-width:600px){ .container { padding: 0 20px; } }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.09s; }
+  .reveal-d2 { transition-delay: 0.18s; }
+  .reveal-d3 { transition-delay: 0.27s; }
+
+  /* ── HERO ── */
+  .ss-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0f3060 60%, #162444 100%);
+    padding: 80px 0 72px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .ss-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .ss-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(33,150,243,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .ss-hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; border-radius: 100px;
+    padding: 5px 16px; margin-bottom: 18px;
+    background: rgba(245,166,35,0.12); color: var(--gold);
+    border: 1px solid rgba(245,166,35,0.28);
+  }
+  .ss-hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .ss-hero h1 span { color: var(--gold); }
+  .ss-hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+
+  /* Trustpilot badge in hero */
+  .tp-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(0,182,122,0.35);
+    border-radius: 100px;
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.18s, border-color 0.18s, transform 0.18s;
+  }
+  .tp-hero-badge:hover { background: rgba(255,255,255,0.12); border-color: rgba(0,182,122,0.6); transform: translateY(-2px); }
+  .tp-logo { width: 24px; height: 24px; border-radius: 3px; flex-shrink: 0; }
+  .tp-hero-badge .tp-text { text-align: left; }
+  .tp-hero-badge .tp-excellent { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; color: #fff; display: block; }
+  .tp-hero-badge .tp-stars { color: var(--tp); font-size: 0.78rem; letter-spacing: 1px; }
+  .tp-hero-badge .tp-count { font-size: 0.72rem; color: rgba(255,255,255,0.5); font-family: 'Montserrat', sans-serif; }
+
+  /* Stats strip */
+  .stats-strip {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem; font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* ── FEATURED CALLOUT ── */
+  .featured-callout {
+    background: linear-gradient(135deg, var(--navy) 0%, #0f3060 100%);
+    border-radius: 20px;
+    padding: 40px 48px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 16px 56px rgba(13,43,85,0.22), 0 2px 8px rgba(13,43,85,0.1);
+    margin: 60px auto;
+    max-width: 820px;
+  }
+  .featured-callout::before { content:''; position:absolute; top:-40px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(245,166,35,0.15) 0%,transparent 70%);pointer-events:none; }
+  .featured-callout::after  { content:''; position:absolute; bottom:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(33,150,243,0.12) 0%,transparent 70%);pointer-events:none; }
+  .callout-tag { display:inline-block; font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);border-radius:100px;padding:5px 16px;margin-bottom:20px; }
+  .callout-quote { font-family:'Montserrat',sans-serif;font-size:clamp(1.2rem,2.8vw,1.85rem);font-weight:800;color:#fff;line-height:1.3;letter-spacing:-0.02em;margin-bottom:22px;position:relative;z-index:1; }
+  .callout-attribution { display:flex;align-items:center;justify-content:center;gap:12px;position:relative;z-index:1; }
+  .callout-avatar { width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0; }
+  .callout-name { font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;text-align:left; }
+  .callout-sub { font-size:0.72rem;color:rgba(255,255,255,0.5);text-align:left; }
+  .callout-stars { margin-left:10px;color:var(--gold);font-size:0.9rem;letter-spacing:2px; }
+
+  /* ── FILTERS ── */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .filter-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.04em;
+  }
+  .filter-btn:hover { border-color: var(--blue); color: var(--blue); background: rgba(21,101,192,0.05); }
+  .filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* ── REVIEWS GRID ── */
+  .reviews-section { background: var(--light); padding: 72px 0 80px; }
+  .reviews-grid {
+    columns: 3;
+    column-gap: 24px;
+  }
+  @media(max-width:900px){ .reviews-grid { columns: 2; } }
+  @media(max-width:560px){ .reviews-grid { columns: 1; } }
+
+  .review-card {
+    break-inside: avoid;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 26px;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s, box-shadow 0.22s;
+    display: inline-block;
+    width: 100%;
+  }
+  .review-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+    border-radius: 18px 18px 0 0;
+  }
+  .review-card.featured-card::before { background: linear-gradient(90deg, var(--gold), var(--gold-dk)); }
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,43,85,0.12); }
+
+  .review-quote-mark {
+    font-family: Georgia, serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 0.7;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .review-stars { color: #f59e0b; font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 8px; }
+  .review-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .review-body {
+    font-size: 0.875rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .review-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .review-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .review-name { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--navy); }
+  .review-date { font-size: 0.7rem; color: var(--gray); }
+  .review-badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--green);
+    background: rgba(39,174,96,0.1);
+    border: 1px solid rgba(39,174,96,0.25);
+    border-radius: 100px;
+    padding: 2px 10px;
+    margin-top: 4px;
+  }
+  .review-badge.cbssa { color: var(--blue); background: rgba(21,101,192,0.08); border-color: rgba(21,101,192,0.2); }
+
+  /* Trustpilot logo in card */
+  .tp-card-logo {
+    position: absolute;
+    top: 18px; right: 18px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.35;
+  }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    background: var(--navy);
+    padding: 64px 0;
+    text-align: center;
+  }
+  .bottom-cta h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .bottom-cta p { font-size: 0.97rem; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 480px; margin: 0 auto 32px; }
+  .cta-group { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:800;padding:14px 28px;border-radius:100px;text-decoration:none;letter-spacing:0.02em;transition:background 0.18s,transform 0.18s; }
+  .btn-primary:hover { background:var(--gold-dk);transform:translateY(-2px); }
+  .btn-tp { display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:700;padding:13px 24px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(0,182,122,0.5);transition:border-color 0.18s,background 0.18s,transform 0.18s; }
+  .btn-tp:hover { border-color:var(--tp);background:rgba(0,182,122,0.08);transform:translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 40px 40px; }
+  .footer-top { display: flex; gap: 60px; flex-wrap: wrap; margin-bottom: 40px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer-logo img { height: 38px; width: auto; }
+  .footer-logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; color: #fff; }
+  .footer-logo-text span { color: var(--gold); }
+  .footer-tagline { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 280px; margin-bottom: 10px; }
+  .footer-location { font-size: 0.78rem; color: rgba(255,255,255,0.4); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+  .footer-links { display: flex; gap: 48px; flex: 1; flex-wrap: wrap; }
+  .footer-col-title { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.83rem; transition: color 0.15s; }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+  .footer-copy a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-copy a:hover { color: #fff; }
+  @media(max-width:600px){ .footer-top { flex-direction: column; gap: 32px; } .footer-links { gap: 28px; } }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-text" style="display:none;">Delphi<span>USMLE</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#who-we-are">Who We Are</a></li>
+      <li><a href="index.html#step-1-overview">Pass Step 1</a></li>
+      <li class="has-dropdown" id="prog-nav">
+        <button onclick="toggleDrop('prog-nav')">
+          Programs
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="core-program.html">Delphi Core Program</a>
+          <a href="acecomp.html">Delphi AceComp</a>
+        </div>
+      </li>
+      <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+      <li><a href="success-stories.html" class="active">Success Stories</a></li>
+      <li><a href="index.html#connect-with-us">Connect With Us</a></li>
+    </ul>
+
+    <a href="https://us02web.zoom.us/rec/share/WdwIIFj5VsuZHstLgZFGU9o-sWNOCo2g-G7bgcpwYG8fkrwZN9VIg6Umdx4rsFNh.l0srTj9UUh85Y0pX" target="_blank" class="nav-cta">Watch Free Demo</a>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="index.html#who-we-are" onclick="closeMobile()">Who We Are</a>
+  <a href="index.html#step-1-overview" onclick="closeMobile()">Pass Step 1</a>
+  <a href="index.html#programs" onclick="closeMobile()">Programs</a>
+  <a href="core-program.html" class="sub" onclick="closeMobile()">↳ Delphi Core Program</a>
+  <a href="acecomp.html" class="sub" onclick="closeMobile()">↳ Delphi AceComp</a>
+  <a href="cohorts.html" onclick="closeMobile()">Upcoming Cohorts</a>
+  <a href="success-stories.html" onclick="closeMobile()">Success Stories</a>
+  <a href="index.html#connect-with-us" onclick="closeMobile()">Connect With Us</a>
+</div>
+
+
+<!-- ══ HERO ══ -->
+<section class="ss-hero">
+  <div class="ss-hero-inner">
+    <div class="section-tag reveal">Student Reviews</div>
+    <h1 class="reveal reveal-d1">Real Students.<br/><span>Real Results.</span></h1>
+    <p class="reveal reveal-d2">Every review below is from a real DelphiUSMLE student. These are their words, unedited — the outcomes they achieved and the moments that changed their path.</p>
+
+    <div class="reveal reveal-d3">
+      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="tp-hero-badge">
+        <svg class="tp-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect width="512" height="512" fill="#00b67a"/>
+          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
+        </svg>
+        <div class="tp-text">
+          <span class="tp-excellent">Excellent on Trustpilot</span>
+          <span class="tp-stars">★★★★★ 4.8 / 5</span>
+        </div>
+        <span class="tp-count" style="margin-left:6px;">53+ reviews →</span>
+      </a>
+    </div>
+
+    <div class="stats-strip reveal reveal-d3">
+      <div class="stat-item">
+        <div class="stat-num">4.8</div>
+        <div class="stat-lbl">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">53+</div>
+        <div class="stat-lbl">Verified Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-lbl">Pass Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-lbl">Years Teaching</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FEATURED CALLOUT ══ -->
+<div class="container">
+  <div class="featured-callout reveal">
+    <div style="position:relative;z-index:1;">
+      <div class="callout-tag">Standout Result</div>
+      <div class="callout-quote">
+        "My NBME predictions went from a <span style="color:var(--gold);">52%</span> chance of passing to a <span style="color:#4ade80;">94% chance</span> — and I passed on the <span style="color:var(--gold);">very first try.</span>"
+      </div>
+      <div class="callout-attribution">
+        <div class="callout-avatar">🎓</div>
+        <div>
+          <div class="callout-name">Sydney Reed</div>
+          <div class="callout-sub">USMLE Step 1 · Verified Trustpilot Review</div>
+        </div>
+        <div class="callout-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ REVIEWS ══ -->
+<section class="reviews-section">
+  <div class="container">
+
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--navy);letter-spacing:-0.02em;margin-bottom:8px;">What Our Students Are Saying</h2>
+      <p style="font-size:0.95rem;color:var(--gray);line-height:1.7;">All reviews sourced directly from <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" style="color:var(--tp);font-weight:600;text-decoration:none;">Trustpilot</a></p>
+    </div>
+
+    <div class="reviews-grid">
+
+      <!-- 1. Nina Bracciano -->
+      <div class="review-card featured-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">The ONLY Step 1 Prep Course You Need</div>
+        <p class="review-body">I cannot say enough positive things about Delphi USMLE and Dr. Roy. He played an instrumental role in guiding and shaping my studies as I prepared for — and ultimately passed — Step 1. His structured scheduling, clear and focused review, and unwavering support made all the difference.</p>
+        <div class="review-footer">
+          <div class="review-avatar">NB</div>
+          <div>
+            <div class="review-name">Nina Bracciano</div>
+            <div class="review-date">February 2026</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Sydney Reed -->
+      <div class="review-card featured-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Dr. Roy: A Passionate Teacher Who Guarantees Success</div>
+        <p class="review-body">Dr. Roy's passion for teaching and ability to tie everything together is remarkable. He filled many knowledge gaps and gave me the confidence to overcome imposter syndrome and my fear of exams. My NBME predictions went from a 52% chance of passing to a 94% chance, and I passed the USMLE on the first try. I am forever indebted to the amazing Dr. Roy.</p>
+        <div class="review-footer">
+          <div class="review-avatar">SR</div>
+          <div>
+            <div class="review-name">Sydney Reed</div>
+            <div class="review-date">October 2024</div>
+            <div class="review-badge">✓ Passed USMLE — First Attempt</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Huestina Bista -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Changed My Life</div>
+        <p class="review-body">When I contacted Dr. Roy, I had failed school CBSE and didn't have an idea of what to do next. He gave me the courage to restart my prep. He keeps in touch with you and guides you through each practice NBME. He tracks your progress, meets with you regularly, encourages and believes in you when you don't believe in yourself. I not only passed CBSE — I just received my Step 1 PASS. I owe my passing to Dr. Roy.</p>
+        <div class="review-footer">
+          <div class="review-avatar">HB</div>
+          <div>
+            <div class="review-name">Huestina Bista</div>
+            <div class="review-date">March 2024</div>
+            <div class="review-badge">✓ Passed CBSSE &amp; Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. SB -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">The Delphi USMLE Course Made a Significant Difference</div>
+        <p class="review-body">The Delphi USMLE course made a significant difference in how I approached my CBSE and Step preparation. Dr. Roy focused on understanding mechanisms rather than memorizing isolated facts — which completely changed how I studied and how I performed under exam pressure.</p>
+        <div class="review-footer">
+          <div class="review-avatar">SB</div>
+          <div>
+            <div class="review-name">SB</div>
+            <div class="review-date">February 2026</div>
+            <div class="review-badge cbssa">✓ CBSSE &amp; Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Bansari Patel -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">A Gem and Worth Every Penny — 10/10</div>
+        <p class="review-body">I did the Step 1 course in October 2023 with Dr. Roy. Truly it's a gem and worth the money. The timetable will keep you on track and sane. Dr. Roy is incredibly dedicated and the structure of the program is something I've never experienced anywhere else. I recommend it 10/10.</p>
+        <div class="review-footer">
+          <div class="review-avatar">BP</div>
+          <div>
+            <div class="review-name">Bansari Patel</div>
+            <div class="review-date">August 2024</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. RWehbe -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">1000% Recommend Delphi</div>
+        <p class="review-body">I could not thank Dr. Roy and Delphi enough for my success on Step 1. After multiple failed attempts elsewhere, following Dr. Roy's course and method I passed Step 1 on the first attempt. His approach is unlike anything else out there.</p>
+        <div class="review-footer">
+          <div class="review-avatar">RW</div>
+          <div>
+            <div class="review-name">RWehbe</div>
+            <div class="review-date">February 2024</div>
+            <div class="review-badge">✓ Passed Step 1 — First Attempt</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Aarya M -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">My USMLE Journey With Delphi</div>
+        <p class="review-body">I started my journey with the Delphi program and Dr. Roy for Comp and Step 1 in January 2023. It was one of my best decisions. The program structure balanced rigorous learning with self-care, and Dr. Roy gave me genuinely personalized attention throughout. I never felt like just another student.</p>
+        <div class="review-footer">
+          <div class="review-avatar">AM</div>
+          <div>
+            <div class="review-name">Aarya M</div>
+            <div class="review-date">March 2024</div>
+            <div class="review-badge cbssa">✓ CBSSA &amp; Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Madiha Fathima -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Dr. Roy Is Not Just an Amazing Teacher — He's a Mentor</div>
+        <p class="review-body">When I moved to the US as an IMG, studying for Step 1 was BRUTAL. Six years had passed since I studied basic sciences. Dr. Roy didn't just teach me the material — he rebuilt my confidence from the ground up. His mentorship was transformative in a way I can't fully put into words.</p>
+        <div class="review-footer">
+          <div class="review-avatar">MF</div>
+          <div>
+            <div class="review-name">Madiha Fathima</div>
+            <div class="review-date">December 2022</div>
+            <div class="review-badge">✓ IMG · Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Caroline Apreku -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">OMG!! This Class Is a True Blessing!</div>
+        <p class="review-body">OMG!!! I just received my results today and I passed! Thank GOD for Dr. Roy! His ability to explain complex concepts in a way that actually sticks is unreal. This class is a true blessing for anyone preparing for Step 1.</p>
+        <div class="review-footer">
+          <div class="review-avatar">CA</div>
+          <div>
+            <div class="review-name">Caroline Apreku</div>
+            <div class="review-date">January 2023</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Bianca G -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">USMLE Step 1 Review Course</div>
+        <p class="review-body">Dr. Roy is a phenomenal teacher! He literally goes through the entire First Aid and makes sure that the class has a good understanding of the complex and high-yield topics. He integrates UWorld questions throughout, which is exactly how you need to study. Patient, thorough, and genuinely invested in your success.</p>
+        <div class="review-footer">
+          <div class="review-avatar">BG</div>
+          <div>
+            <div class="review-name">Bianca G</div>
+            <div class="review-date">September 2021</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Mabel Arthur -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Very Very Helpful Course</div>
+        <p class="review-body">The discussions from class were highly relevant to the STEP 1. The in-depth knowledge of the content would surely help with the bulk of the questions. Dr. Roy's non-judgmental teaching style and constant encouragement during the most difficult moments set this program apart.</p>
+        <div class="review-footer">
+          <div class="review-avatar">MA</div>
+          <div>
+            <div class="review-name">Mabel Arthur</div>
+            <div class="review-date">March 2024</div>
+            <div class="review-badge cbssa">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Moyinoluwa Femi-Gege -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">The Right Way to Learn for Step 1</div>
+        <p class="review-body">I had a great time with Dr. Roy and all my fellow colleagues preparing for Step 1. His emphasis on understanding questions — not just memorizing answers — is the critical skill you need for Step 1 success. Would absolutely recommend.</p>
+        <div class="review-footer">
+          <div class="review-avatar">MG</div>
+          <div>
+            <div class="review-name">Moyinoluwa Femi-Gege</div>
+            <div class="review-date">December 2022</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Ricky Singh -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">True Mentorship From Day One to Exam Day</div>
+        <p class="review-body">Dr. Roy is great. He explains the material very well and really prepares you to pass — but you have to put in the work. He provided mentorship from day one all the way through exam day, and that continuity of support is something you just can't find elsewhere.</p>
+        <div class="review-footer">
+          <div class="review-avatar">RS</div>
+          <div>
+            <div class="review-name">Ricky Singh</div>
+            <div class="review-date">December 2022</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Caitlin -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Useful Course for Getting a Strong USMLE Base</div>
+        <p class="review-body">I did the Step 1 prep starting in August 2021 and a year later I can comfortably say I passed Step 1 and got a good Step 2 score. The course refreshed material I had forgotten and reinforced the emphasis on understanding over memorization — which made all the difference.</p>
+        <div class="review-footer">
+          <div class="review-avatar">CA</div>
+          <div>
+            <div class="review-name">Caitlin</div>
+            <div class="review-date">December 2022</div>
+            <div class="review-badge">✓ Passed Step 1 &amp; Step 2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. Nelson Okobia -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Scores Increased 89% — I Recommend to Family</div>
+        <p class="review-body">Attending Dr. Roy's classes was a great experience for me. After the course I saw my scores increase by 89%. The quality of teaching is so high that I have already recommended the program to family members who are preparing for their own Step 1 exams.</p>
+        <div class="review-footer">
+          <div class="review-avatar">NO</div>
+          <div>
+            <div class="review-name">Nelson Okobia</div>
+            <div class="review-date">July 2021</div>
+            <div class="review-badge">✓ 89% Score Improvement</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. M. Hanna -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Must Take if You Can!</div>
+        <p class="review-body">Dr. Roy is very knowledgeable and makes learning difficult concepts easy. What sets him apart is his genuine availability and personalized approach to each student. He engages with you where you are — not where he expects you to be. Highly recommend.</p>
+        <div class="review-footer">
+          <div class="review-avatar">MH</div>
+          <div>
+            <div class="review-name">M. Hanna</div>
+            <div class="review-date">August 2020</div>
+            <div class="review-badge cbssa">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 17. Melina -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Still Learning and Growing With Delphi</div>
+        <p class="review-body">I learnt a lot from Dr. Roy and am still learning. I am so glad I found Delphi for my Step 1 preparation. The knowledge and the method he uses sticks with you long after the course ends.</p>
+        <div class="review-footer">
+          <div class="review-avatar">ME</div>
+          <div>
+            <div class="review-name">Melina</div>
+            <div class="review-date">August 2020</div>
+            <div class="review-badge cbssa">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 18. Anudeep Dharkar -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Excellent!!</div>
+        <p class="review-body">Excellent program. Dr. Roy's teaching is top-notch and the results speak for themselves. Highly recommend to anyone serious about passing USMLE Step 1.</p>
+        <div class="review-footer">
+          <div class="review-avatar">AD</div>
+          <div>
+            <div class="review-name">Anudeep Dharkar</div>
+            <div class="review-date">August 2020</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 19. Richard Boakye -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Excellent Step 1 Program!</div>
+        <p class="review-body">Dr. Roy's program features a unique system effective regardless of medical knowledge level. Complex topics that might take weeks to cover elsewhere are completed in days — with genuine, lasting understanding. One of the best teachers I've encountered. Highly recommended for visible results.</p>
+        <div class="review-footer">
+          <div class="review-avatar">RB</div>
+          <div>
+            <div class="review-name">Richard Boakye</div>
+            <div class="review-date">July 2020</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 20. Amara Cheema -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Thank You — Significant Score Improvements</div>
+        <p class="review-body">Dr. Roy's skill in explaining complex subjects simply, integrating questions after each concept, and consistently motivating students is unmatched. I saw significant score improvements after this course and would highly recommend it for anyone preparing for Step 1.</p>
+        <div class="review-footer">
+          <div class="review-avatar">AC</div>
+          <div>
+            <div class="review-name">Amara Cheema</div>
+            <div class="review-date">June 2020</div>
+            <div class="review-badge">✓ Score Improvement</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 21. Steffi Nainan -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Best USMLE Program — Far Exceeded Expectations</div>
+        <p class="review-body">As a Caribbean medical graduate I was initially skeptical, but this program far exceeded my expectations. Dr. Roy addressed wrongful medical reasoning, emphasized conceptual understanding over memorization, and taught systematic question-breakdown strategies. He guided me through exam day and beyond. Best USMLE Tutor, period.</p>
+        <div class="review-footer">
+          <div class="review-avatar">SN</div>
+          <div>
+            <div class="review-name">Steffi Nainan</div>
+            <div class="review-date">March 2020</div>
+            <div class="review-badge">✓ Caribbean IMG · Passed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 22. Gurpinder Dhillon -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Hands-Down the Best USMLE Prep Course</div>
+        <p class="review-body">Hands-down the best prep course available. Dr. Roy helps you connect all the systems and subjects together in a way that makes the material genuinely enjoyable. The small class size allows him to recognize your specific weaknesses and build targeted improvement strategies for you.</p>
+        <div class="review-footer">
+          <div class="review-avatar">GD</div>
+          <div>
+            <div class="review-name">Gurpinder Dhillon</div>
+            <div class="review-date">March 2020</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 23. Manveer Singh -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">I'm Very Grateful for Delphi USMLE</div>
+        <p class="review-body">The program gave me the necessary tools and confidence to pass on my first attempt. Dr. Roy emphasized concept understanding — enabling me to anticipate questions rather than guess. The daily exercises enforced true material mastery. Challenging cases prepared me for exactly what I'd see on exam day.</p>
+        <div class="review-footer">
+          <div class="review-avatar">MS</div>
+          <div>
+            <div class="review-name">Manveer Singh</div>
+            <div class="review-date">February 2020</div>
+            <div class="review-badge">✓ Passed — First Attempt</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 24. Ndilon -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Delphi Has Been the Best Thing for My USMLE Journey</div>
+        <p class="review-body">As an IMG student, Delphi has been transformative for my USMLE journey — giving me confidence and reassurance when I needed it most. Dr. Roy is a true guiding force. The program also created a supportive community of fellow students and friendships I'll carry beyond exam day.</p>
+        <div class="review-footer">
+          <div class="review-avatar">ND</div>
+          <div>
+            <div class="review-name">Ndilon</div>
+            <div class="review-date">February 2020</div>
+            <div class="review-badge">✓ IMG · Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 25. Gabriela Sokolowska -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Great Course for Medical Students</div>
+        <p class="review-body">Dr. Roy is very dedicated and helpful. He ensured I understood the material rather than just memorizing it. I actually started enjoying subjects I used to dread — that speaks volumes about his ability as a teacher. Great course for any medical student.</p>
+        <div class="review-footer">
+          <div class="review-avatar">GS</div>
+          <div>
+            <div class="review-name">Gabriela Sokolowska</div>
+            <div class="review-date">June 2020</div>
+            <div class="review-badge cbssa">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 26. Gurchetan Singh -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Concept Understanding and Personal Attention</div>
+        <p class="review-body">I recommend this course for anyone needing to build real concept understanding and see how systems connect. The small class size means every question gets answered. One-on-one time with Dr. Roy helps identify exactly where you need to improve — and he's always easy to reach for follow-up.</p>
+        <div class="review-footer">
+          <div class="review-avatar">GS</div>
+          <div>
+            <div class="review-name">Gurchetan Singh</div>
+            <div class="review-date">March 2020</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 27. Martin Twumampofo -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">The Best USMLE Prep Course!!!</div>
+        <p class="review-body">The course is tailored to the needs of medical students with detailed material presentation that equips you for UWorld questions. The small class size means no student falls through the cracks — Dr. Roy identifies individual gaps and addresses them directly. Highly recommended for all Step exams.</p>
+        <div class="review-footer">
+          <div class="review-avatar">MT</div>
+          <div>
+            <div class="review-name">Martin Twumampofo</div>
+            <div class="review-date">February 2020</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 28. Chicago -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Quality Learning, Not Unnecessary Quantity</div>
+        <p class="review-body">Dr. Roy's approach is all about quality learning rather than unnecessary quantity. Individual weakness analysis combined with high-yield principle reviews and practice questions gives you both the knowledge and the motivation to keep pushing through your prep.</p>
+        <div class="review-footer">
+          <div class="review-avatar">CH</div>
+          <div>
+            <div class="review-name">Chicago</div>
+            <div class="review-date">June 2020</div>
+            <div class="review-badge cbssa">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 29. Cheryl F -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Dr. Roy Will Have You Falling in Love With Medicine</div>
+        <p class="review-body">Great USMLE Step 1 review class. Definitely worth it. Dr. Roy will have you falling in love with medicine all over again — that's not something you hear often about a board prep course, but it's true.</p>
+        <div class="review-footer">
+          <div class="review-avatar">CF</div>
+          <div>
+            <div class="review-name">Cheryl F</div>
+            <div class="review-date">June 2020</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 30. John (IMG) -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">As an IMG Student — Exactly What I Needed</div>
+        <p class="review-body">As an IMG student, I needed the structure and accountability that live review provides. The small class size allows Dr. Roy to monitor individual progress and provide personalized coaching based on your specific needs — something you simply cannot get from self-study alone.</p>
+        <div class="review-footer">
+          <div class="review-avatar">JO</div>
+          <div>
+            <div class="review-name">John</div>
+            <div class="review-date">June 2020</div>
+            <div class="review-badge">✓ IMG · Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 31. Gustavo Dela Sancha -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Excellent Prep Course — Great Structure</div>
+        <p class="review-body">As a student from a foreign medical school, I found the course structure, small class size, and instructor quality to be exceptional. The program offers both group and individual learning opportunities that accommodate every learning style.</p>
+        <div class="review-footer">
+          <div class="review-avatar">GD</div>
+          <div>
+            <div class="review-name">Gustavo Dela Sancha</div>
+            <div class="review-date">February 2020</div>
+            <div class="review-badge">✓ IMG · Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 32. Edward Richardson -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">The Best USMLE Experience</div>
+        <p class="review-body">Incredibly grateful for this Step 1 preparation experience. I went into exam day with high confidence — a feeling I didn't expect to have before such a high-stakes test. Already planning to return for Step 2 courses.</p>
+        <div class="review-footer">
+          <div class="review-avatar">ER</div>
+          <div>
+            <div class="review-name">Edward Richardson</div>
+            <div class="review-date">February 2020</div>
+            <div class="review-badge">✓ Passed Step 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 33. Harini Lingamgunta -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Highly Recommend Delphi USMLE Step 2 CK Review!</div>
+        <p class="review-body">The structured approach combining lectures with detailed UWorld question reviews was exactly what I needed. Dr. Roy guided me through exam day with a level of care and dedication I've never experienced in any other prep program. Cannot recommend enough.</p>
+        <div class="review-footer">
+          <div class="review-avatar">HL</div>
+          <div>
+            <div class="review-name">Harini Lingamgunta</div>
+            <div class="review-date">January 2020</div>
+            <div class="review-badge cbssa">✓ Step 2 CK Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 34. Gabriela Naronowicz -->
+      <div class="review-card reveal">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Exceptional Teacher Who Builds Real Confidence</div>
+        <p class="review-body">Dr. Roy is an exceptional teacher whose clear explanations build student confidence in a way that memorization-based studying never could. His genuine investment in every student's success comes through in every session.</p>
+        <div class="review-footer">
+          <div class="review-avatar">GN</div>
+          <div>
+            <div class="review-name">Gabriela Naronowicz</div>
+            <div class="review-date">January 2020</div>
+            <div class="review-badge">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 35. Clemea Donaldson -->
+      <div class="review-card reveal reveal-d1">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">A Teaching Style That Simplifies Everything</div>
+        <p class="review-body">Dr. Roy has a unique teaching style that simplifies complex material and provides professional development skills that go beyond just medical knowledge. The lessons I learned here extended well past the exam room.</p>
+        <div class="review-footer">
+          <div class="review-avatar">CD</div>
+          <div>
+            <div class="review-name">Clemea Donaldson</div>
+            <div class="review-date">January 2020</div>
+            <div class="review-badge cbssa">✓ Step 1 Prep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 36. Dmitry -->
+      <div class="review-card reveal reveal-d2">
+        <div class="tp-card-logo">
+          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
+        </div>
+        <span class="review-quote-mark">"</span>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Great Classes — Quality That Justifies the Investment</div>
+        <p class="review-body">The seven-week course was invaluable — Dr. Roy's dedication to student success shows in every session. Detailed concepts explained memorably without just repeating the textbook. Daily UWorld strategies strengthened my understanding week by week. The quality absolutely justifies the investment.</p>
+        <div class="review-footer">
+          <div class="review-avatar">DM</div>
+          <div>
+            <div class="review-name">Dmitry</div>
+            <div class="review-date">February 2020</div>
+            <div class="review-badge">✓ Step 2 CK Prep</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BOTTOM CTA ══ -->
+<section class="bottom-cta">
+  <div class="container">
+    <div class="reveal">
+      <h2>See 53+ More Reviews on Trustpilot</h2>
+      <p>These are just a sample. Dozens more students have shared their journeys on Trustpilot — read every review and see why DelphiUSMLE has a 4.8-star rating.</p>
+      <div class="cta-group">
+        <a href="enroll.html" class="btn-primary">Start Your Journey →</a>
+        <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="btn-tp">
+          <svg width="18" height="18" viewBox="0 0 512 512" style="flex-shrink:0;border-radius:3px;"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
+          Read All Reviews on Trustpilot →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+          <div class="footer-logo-text" style="display:none;">Delphi<span>USMLE</span></div>
+        </div>
+        <p class="footer-tagline">Bringing You to Excellence in Medicine. Elite CBSSA &amp; USMLE Step 1 preparation, led by physicians who've walked the same road.</p>
+        <div class="footer-location">📍 Chicago, IL · Serving Students Nationwide</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navigate</div>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#who-we-are">Who We Are</a></li>
+            <li><a href="index.html#step-1-overview">Pass Step 1</a></li>
+            <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+            <li><a href="success-stories.html">Success Stories</a></li>
+            <li><a href="index.html#connect-with-us">Connect With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Programs</div>
+          <ul>
+            <li><a href="core-program.html">6-Week Step 1 Prep</a></li>
+            <li><a href="core-program.html">8-Week Step 1 Prep</a></li>
+            <li><a href="acecomp.html">AceComp 2-Week Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="mailto:info@delphiusmle.com">info@delphiusmle.com</a></li>
+            <li><a href="index.html#connect-with-us">Send a Message</a></li>
+            <li><a href="cohorts.html">View Cohorts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 DelphiUSMLE · <a href="index.html#connect-with-us">Contact Us</a> · <a href="index.html">Home</a></p>
+      <p class="footer-copy">Built for medical students, by a physician who cares.</p>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:24px;padding-top:20px;">
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;max-width:860px;margin:0 auto;">
+        The United States Medical Licensing Examination (USMLE™) is a joint program of the Federation of State Medical Boards (FSMB®) and the National Board of Medical Examiners (NBME®). DelphiUSMLE LLC is not affiliated with, endorsed by, or sponsored by FSMB®, NBME®, or USMLE™. First Aid® is a registered trademark of McGraw-Hill Education, and UWorld® is a registered trademark of UWorld, LLC. All trademarks are the property of their respective owners.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  function toggleDrop(id) {
+    const li = document.getElementById(id);
+    const isOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) li.classList.add('open');
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) {
+      document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
+    }
+  });
+  function toggleMobile() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  }
+  function closeMobile() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

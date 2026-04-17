@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Enroll Now — CBSSA & USMLE Step 1 Preparation | DelphiUSMLE</title>
+<link rel="icon" type="image/jpeg" href="Brand_assets/915E7D88-A4E8-4BB7-931B-3BDB21D03D9E_1_105_c.jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0D2B55;
+    --blue:   #1565C0;
+    --sky:    #2196F3;
+    --gold:   #F5A623;
+    --gold-dk:#e09500;
+    --light:  #F0F4FA;
+    --white:  #FFFFFF;
+    --gray:   #6B7280;
+    --dark:   #1A1A2E;
+    --green:  #27AE60;
+    --border: #dce6f5;
+    --text:   #374151;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Open Sans', sans-serif; color: var(--dark); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  #navbar { background: var(--navy); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 16px rgba(0,0,0,0.28); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 46px; width: auto; display: block; }
+  .nav-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--white); letter-spacing: 0.5px; text-decoration: none; }
+  .nav-logo-text span { color: var(--gold); }
+  .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a, .nav-links > li > button { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; color: rgba(255,255,255,0.78); text-decoration: none; padding: 8px 13px; border-radius: 6px; border: none; background: none; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+  .nav-links > li > a:hover, .nav-links > li > button:hover { color: var(--gold); background: rgba(255,255,255,0.07); }
+  .chevron { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.5; fill: none; transition: transform 0.22s; }
+  .nav-links > li.open .chevron { transform: rotate(180deg); }
+  .dropdown { position: absolute; top: calc(100% + 8px); left: 0; min-width: 230px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 40px rgba(13,43,85,0.18); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity 0.2s, transform 0.2s; padding: 8px 0; }
+  .nav-links > li.open .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .dropdown a { display: block; padding: 11px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.77rem; font-weight: 600; color: var(--navy); text-decoration: none; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+  .dropdown a:hover { background: var(--light); color: var(--blue); border-left-color: var(--blue); }
+  .nav-cta { background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px; padding: 10px 22px; border-radius: 25px; text-decoration: none; transition: background 0.2s, transform 0.2s; white-space: nowrap; flex-shrink: 0; }
+  .nav-cta:hover { background: var(--gold-dk); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 40px; height: 40px; gap: 5px; cursor: pointer; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.85); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0 28px; z-index: 199; flex-direction: column; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { padding: 13px 40px; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.18s; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .sub { padding-left: 56px; font-size: 0.75rem; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); }
+  @media (max-width: 860px) { .nav-links { display: none; } .nav-cta { font-size: 0.72rem; padding: 8px 16px; } .hamburger { display: flex; } }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--sky) 100%);
+    padding: 72px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 120%, rgba(245,166,35,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .hero-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25); border-radius: 100px; padding: 6px 16px; margin-bottom: 20px; }
+  .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,4.5vw,3rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .page-hero h1 span { color: var(--gold); }
+  .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+  /* ── PROGRAM SELECTOR ── */
+  .selector-section { background: var(--light); padding: 64px 0 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .selector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+
+  .prog-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .prog-card:hover { border-color: var(--blue); box-shadow: 0 8px 32px rgba(13,43,85,0.12); transform: translateY(-2px); }
+  .prog-card.active { border-color: var(--gold); box-shadow: 0 8px 40px rgba(245,166,35,0.18); }
+  .prog-card .badge { position: absolute; top: -12px; left: 28px; background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; }
+  .prog-icon { font-size: 2rem; margin-bottom: 14px; }
+  .prog-label { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+  .prog-title { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; line-height: 1.25; }
+  .prog-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
+  .prog-price { font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--navy); }
+  .prog-price span { font-size: 0.8rem; font-weight: 500; color: var(--gray); }
+  .prog-features { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .prog-features li { font-size: 0.83rem; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
+  .prog-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .enroll-btn { display: block; text-align: center; margin-top: 24px; background: var(--navy); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 13px 24px; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+  .enroll-btn:hover { background: var(--blue); transform: translateY(-1px); }
+  .enroll-btn.gold { background: var(--gold); color: var(--navy); }
+  .enroll-btn.gold:hover { background: var(--gold-dk); }
+
+  /* ── FORM SECTION ── */
+  .form-section { background: var(--light); padding: 64px 0 80px; }
+  .form-section-inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+  .form-header { text-align: center; margin-bottom: 36px; }
+  .form-header h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem,3vw,2rem); font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .form-header p { color: var(--gray); font-size: 0.95rem; }
+  .form-box { background: var(--white); border-radius: 20px; padding: 48px; box-shadow: 0 4px 32px rgba(13,43,85,0.08); border: 1px solid var(--border); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: rgba(255,255,255,0.55); text-align: center; padding: 40px 24px; font-size: 0.82rem; }
+  .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white); margin-bottom: 12px; }
+  .footer-logo span { color: var(--gold); }
+  footer a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .selector-grid { grid-template-columns: 1fr; }
+    .form-box { padding: 28px 20px; }
+    .container, .form-section-inner { padding: 0 20px; }
+    .page-hero { padding: 56px 24px 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-text" style="display:none;">Delphi<span>USMLE</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#who-we-are">Who We Are</a></li>
+      <li class="has-dropdown" id="prog-nav">
+        <button onclick="toggleDrop('prog-nav')">
+          Programs <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="core-program.html">Delphi Core Program</a>
+          <a href="acecomp.html">Delphi AceComp</a>
+        </div>
+      </li>
+      <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+      <li><a href="success-stories.html">Success Stories</a></li>
+      <li><a href="index.html#connect-with-us">Connect With Us</a></li>
+    </ul>
+    <a href="enroll.html" class="nav-cta" style="background:var(--gold);">Enroll Now</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="index.html#who-we-are" onclick="closeMobile()">Who We Are</a>
+  <a href="#" onclick="closeMobile()">Programs</a>
+  <a href="core-program.html" class="sub" onclick="closeMobile()">↳ Delphi Core Program</a>
+  <a href="acecomp.html" class="sub" onclick="closeMobile()">↳ Delphi AceComp</a>
+  <a href="cohorts.html" onclick="closeMobile()">Upcoming Cohorts</a>
+  <a href="success-stories.html" onclick="closeMobile()">Success Stories</a>
+  <a href="index.html#connect-with-us" onclick="closeMobile()">Connect With Us</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-tag">Enrollment Open</div>
+    <h1>Pass Comp <span>on Your First Try.</span></h1>
+    <p>Fill out the form below and Dr. Roy will personally reach out to confirm your spot and next steps.</p>
+  </div>
+</div>
+
+<!-- ── GUARANTEE ── -->
+<section style="background:#f7f9fc;padding:56px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(21,101,192,0.05) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(245,166,35,0.05) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal" style="max-width:820px;margin:0 auto;">
+      <div style="display:flex;gap:40px;align-items:center;background:#fff;border:1px solid rgba(245,166,35,0.25);border-radius:24px;padding:40px 48px;box-shadow:0 4px 32px rgba(13,43,85,0.08);">
+
+        <!-- Shield icon -->
+        <div style="flex-shrink:0;width:72px;height:72px;background:linear-gradient(135deg,rgba(245,166,35,0.15),rgba(245,166,35,0.05));border:1px solid rgba(245,166,35,0.3);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;">🛡️</div>
+
+        <!-- Text -->
+        <div style="flex:1;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px;">Our Promise to You</div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.2rem,2.5vw,1.65rem);font-weight:800;color:var(--navy);line-height:1.2;letter-spacing:-0.02em;margin-bottom:12px;">We Stand By You Until You Pass Step 1.</h2>
+          <p style="font-size:0.95rem;color:var(--gray);line-height:1.8;margin:0;">If for any reason you don't pass the exam, your AceComp tuition can be <strong style="color:var(--navy);font-weight:700;">credited toward the Delphi Core or Premium program</strong> — no questions asked. Our goal is to stand by every student until they cross the finish line.</p>
+        </div>
+
+      </div>
+
+      <!-- Reassurance pills -->
+      <div class="reveal reveal-d1" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(13,43,85,0.1);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(13,43,85,0.05);">
+          <span style="color:var(--gold-dk);font-size:0.85rem;">✓</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--navy);">Tuition Credit Guarantee</span>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(13,43,85,0.1);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(13,43,85,0.05);">
+          <span style="color:var(--gold-dk);font-size:0.85rem;">✓</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--navy);">No Questions Asked</span>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(13,43,85,0.1);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(13,43,85,0.05);">
+          <span style="color:var(--gold-dk);font-size:0.85rem;">✓</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--navy);">MD-Led Support Every Step</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section" id="enroll-form">
+  <div class="form-section-inner">
+    <div class="form-header reveal">
+      <div style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);background:#e8f0fe;padding:5px 14px;border-radius:20px;margin-bottom:14px;">Step 1 of 2</div>
+      <h2>Complete Your Registration</h2>
+      <p>Fill out the form below — Dr. Roy will personally reach out within 24–48 hours to confirm your spot and walk you through next steps.</p>
+    </div>
+    <div class="form-box reveal reveal-d1">
+      <script type="text/javascript" src="https://form.jotform.com/jsform/260814540364050"></script>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section style="background:var(--navy);padding:72px 0;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,0.1) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px;">
+    <div style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.25);border-radius:100px;padding:5px 16px;margin-bottom:20px;">Step 2 of 2</div>
+    <div style="font-size:2.8rem;margin-bottom:16px;">🎓</div>
+    <h2 class="reveal" style="font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;color:var(--white);line-height:1.2;letter-spacing:-0.02em;margin-bottom:16px;">What Happens <span style="color:var(--gold);">After You Submit</span></h2>
+    <p class="reveal" style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:40px;">Dr. Roy Lingam or a member of the Delphi team will personally reach out to you within <strong style="color:var(--white);">24 to 48 hours</strong> to confirm your enrollment, answer any questions, and walk you through your next steps.</p>
+    <div class="reveal" style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 28px;text-align:center;min-width:150px;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">📧</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Email</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">info@delphiusmle.com</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 28px;text-align:center;min-width:150px;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">📞</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Call or WhatsApp</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">+1 (630) 864-6269</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 28px;text-align:center;min-width:150px;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">⏱️</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Response Time</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">Within 24–48 Hours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Delphi<span>USMLE</span></div>
+  <p>© 2026 DelphiUSMLE &nbsp;·&nbsp; <a href="index.html#connect-with-us">Contact Us</a> &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="cohorts.html">Cohorts</a></p>
+  <p style="margin-top:8px; font-size:0.78rem;">Helping Medical Students Succeed Since 2014 · Aurora, IL</p>
+  <p style="margin-top:16px; font-size:0.7rem; color:rgba(255,255,255,0.3); max-width:640px; margin-left:auto; margin-right:auto;">DelphiUSMLE Inc is not affiliated with or endorsed by USMLE™, NBME®, FSMB®, First Aid®, or UWorld®.</p>
+</footer>
+
+<script>
+  function toggleDrop(id) {
+    const li = document.getElementById(id);
+    const wasOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) li.classList.add('open');
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+  });
+  function toggleMobile() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMobile() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  function selectProgram(type) {
+    // Highlight selected card
+    document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Update form heading
+    if (type === 'core') {
+      document.getElementById('form-heading').textContent = 'Enroll in Delphi Core Program';
+      document.getElementById('form-subheading').textContent = 'Complete the form below to reserve your spot in the Core or Premium track starting May 4, 2025.';
+    } else {
+      document.getElementById('form-heading').textContent = 'Enroll in Delphi AceComp';
+      document.getElementById('form-subheading').textContent = 'Complete the form below to reserve your spot in AceComp — April 6 to April 17, 2025.';
+    }
+
+    // Smooth scroll to form
+    document.getElementById('enroll-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+</script>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a href="https://wa.me/16308646269" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="
+  position: fixed;
+  right: 20px;
+  bottom: 28px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.55),0 2px 12px rgba(0,0,0,0.22)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45),0 2px 8px rgba(0,0,0,0.18)'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" fill="#fff">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.648 4.8 1.778 6.823L2 30l7.38-1.752A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.607l-.422-.25-4.38 1.04 1.073-4.27-.276-.44A11.56 11.56 0 0 1 4.4 16C4.4 9.593 9.593 4.4 16 4.4S27.6 9.593 27.6 16 22.407 27.6 16 27.6zm6.343-8.67c-.347-.174-2.055-1.014-2.374-1.13-.32-.115-.552-.173-.784.174-.232.347-.9 1.13-1.103 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.72-1.03-.918-1.725-2.052-1.928-2.399-.203-.347-.022-.535.153-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.434-.029-.608-.087-.174-.784-1.89-1.074-2.588-.283-.68-.57-.587-.784-.598l-.667-.012c-.232 0-.608.087-.926.434-.32.347-1.218 1.19-1.218 2.9 0 1.71 1.247 3.362 1.42 3.594.174.232 2.453 3.745 5.944 5.252.831.358 1.48.572 1.985.733.834.265 1.594.228 2.194.138.669-.1 2.055-.84 2.346-1.652.29-.81.29-1.505.203-1.65-.086-.145-.318-.232-.665-.405z"/>
+  </svg>
+</a>
+
+</body>
+</html>
