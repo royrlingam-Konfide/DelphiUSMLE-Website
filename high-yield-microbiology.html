@@ -17,17 +17,42 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);}
 
-/* HEADER */
-header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
-.hdr{max-width:1400px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.logo{display:flex;align-items:center;gap:12px;}
-.logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--navy);}
-.logo-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--gold);}
-.logo-sub{font-size:9px;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;}
-.hdr-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;}
-.hdr-title span{color:var(--gold);}
-.progress-pill{background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;color:var(--gold-light);display:flex;align-items:center;gap:6px;}
-.pdot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+/* ── SITE NAV ── */
+#navbar{background:#0D2B55;position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,0.28);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:46px;width:auto;display:block;}
+.nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#fff;letter-spacing:0.5px;text-decoration:none;}
+.nav-logo-text span{color:#F5A623;}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-links>li{position:relative;}
+.nav-links>li>a,.nav-links>li>button{font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;color:rgba(255,255,255,0.78);text-decoration:none;padding:8px 13px;border-radius:6px;border:none;background:none;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
+.nav-links>li>a:hover,.nav-links>li>button:hover{color:#F5A623;background:rgba(255,255,255,0.07);}
+.nav-chevron{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;transition:transform 0.22s;}
+.nav-links>li.open .nav-chevron{transform:rotate(180deg);}
+.nav-dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid #dce6f5;border-radius:12px;box-shadow:0 12px 40px rgba(13,43,85,0.18);opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity 0.2s,transform 0.2s;padding:8px 0;overflow:hidden;}
+.nav-links>li.open .nav-dropdown,.nav-links>li:hover .nav-dropdown{opacity:1;pointer-events:auto;transform:translateY(0);}
+.nav-dropdown a{display:block;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:0.77rem;font-weight:600;color:#0D2B55;text-decoration:none;transition:background 0.15s,color 0.15s;border-left:3px solid transparent;}
+.nav-dropdown a:hover{background:#F0F4FA;color:#1565C0;border-left-color:#1565C0;}
+.nav-dropdown a.active-page{background:#F0F4FA;color:#1565C0;border-left-color:#F5A623;}
+.nav-cta{background:#F5A623;color:#0D2B55;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.5px;padding:10px 22px;border-radius:25px;text-decoration:none;transition:background 0.2s,transform 0.2s;white-space:nowrap;flex-shrink:0;}
+.nav-cta:hover{background:#e09500;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;gap:5px;cursor:pointer;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.85);border-radius:2px;transition:transform 0.25s,opacity 0.25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.site-mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:#0D2B55;border-top:1px solid rgba(255,255,255,0.08);padding:16px 0 28px;z-index:199;flex-direction:column;}
+.site-mobile-menu.open{display:flex;}
+.site-mobile-menu a{padding:13px 40px;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.18s;}
+.site-mobile-menu a:hover{color:#F5A623;}
+.site-mobile-menu .sub{padding-left:56px;font-size:0.75rem;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.03);}
+.site-mobile-label{padding:13px 40px;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.06);display:block;text-transform:uppercase;letter-spacing:0.5px;cursor:default;user-select:none;}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
+
+/* PROGRESS PILL (kept for mastered counter in hero) */
+.progress-pill{background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;color:#e2c27d;display:flex;align-items:center;gap:6px;}
+.pdot{width:7px;height:7px;background:#c9a84c;border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* HERO */
@@ -316,23 +341,71 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="hdr">
-    <a href="index.html" class="logo" style="text-decoration:none;">
-      <div class="logo-mark">D</div>
-      <div>
-        <div class="logo-name">DelphiUSMLE</div>
-        <div class="logo-sub">Bringing You to Excellence in Medicine</div>
-      </div>
+<!-- SITE NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-logo">
+      <img src="Brand_assets/DELPHI USMLE LOGO FIN1B TRANS.png" alt="DelphiUSMLE"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-text" style="display:none;">Delphi<span>USMLE</span></span>
     </a>
-    <div class="hdr-title">High-Yield <span>Microbiology</span> Notes</div>
-    <div class="progress-pill">
-      <div class="pdot"></div>
-      <span id="masteredCount">0</span> / 38 Mastered
-    </div>
+    <ul class="nav-links">
+      <li class="has-dropdown" id="who-nav">
+        <button onclick="toggleNavDrop('who-nav')" style="cursor:default;" onmousedown="event.preventDefault()">
+          Who We Are
+          <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown">
+          <a href="index.html#who-we-are">Our Mission</a>
+          <a href="index.html#meet-founder">Meet Dr. Roy Lingam</a>
+        </div>
+      </li>
+      <li class="has-dropdown" id="hub-nav">
+        <button onclick="toggleNavDrop('hub-nav')" style="cursor:default;" onmousedown="event.preventDefault()">
+          High-Yield Hub
+          <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown">
+          <a href="high-yield-microbiology.html" class="active-page">High-Yield Microbiology Cards</a>
+        </div>
+      </li>
+      <li><a href="index.html#step-1-overview">Pass Step 1</a></li>
+      <li class="has-dropdown" id="prog-nav">
+        <button onclick="toggleNavDrop('prog-nav')">
+          Programs
+          <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown">
+          <a href="core-program.html">Delphi Core Program</a>
+          <a href="acecomp.html">Delphi AceComp</a>
+        </div>
+      </li>
+      <li><a href="cohorts.html">Upcoming Cohorts</a></li>
+      <li><a href="success-stories.html">Success Stories</a></li>
+      <li><a href="index.html#connect-with-us">Connect With Us</a></li>
+    </ul>
+    <a href="https://us02web.zoom.us/rec/share/WdwIIFj5VsuZHstLgZFGU9o-sWNOCo2g-G7bgcpwYG8fkrwZN9VIg6Umdx4rsFNh.l0srTj9UUh85Y0pX" target="_blank" class="nav-cta">Watch Free Demo</a>
+    <button class="hamburger" id="hamburger" onclick="toggleSiteMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</header>
+</nav>
+
+<div class="site-mobile-menu" id="site-mobile-menu">
+  <a href="index.html#home" onclick="closeSiteMobile()">Home</a>
+  <span class="site-mobile-label">Who We Are</span>
+  <a href="index.html#who-we-are" class="sub" onclick="closeSiteMobile()">↳ Our Mission</a>
+  <a href="index.html#meet-founder" class="sub" onclick="closeSiteMobile()">↳ Meet Dr. Roy Lingam</a>
+  <span class="site-mobile-label">High-Yield Hub</span>
+  <a href="high-yield-microbiology.html" class="sub active-page" onclick="closeSiteMobile()">↳ High-Yield Microbiology Cards</a>
+  <a href="index.html#step-1-overview" onclick="closeSiteMobile()">Pass Step 1</a>
+  <a href="index.html#programs" onclick="closeSiteMobile()">Programs</a>
+  <a href="core-program.html" class="sub" onclick="closeSiteMobile()">↳ Delphi Core Program</a>
+  <a href="acecomp.html" class="sub" onclick="closeSiteMobile()">↳ Delphi AceComp</a>
+  <a href="cohorts.html" onclick="closeSiteMobile()">Upcoming Cohorts</a>
+  <a href="success-stories.html" onclick="closeSiteMobile()">Success Stories</a>
+  <a href="index.html#connect-with-us" onclick="closeSiteMobile()">Connect With Us</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -1509,6 +1582,29 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
 </footer>
 
 <script>
+// ══ SITE NAV ══
+function toggleNavDrop(id) {
+  const li = document.getElementById(id);
+  const isOpen = li.classList.contains('open');
+  document.querySelectorAll('.nav-links .has-dropdown.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) li.classList.add('open');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.has-dropdown')) {
+    document.querySelectorAll('.nav-links .has-dropdown.open').forEach(el => el.classList.remove('open'));
+  }
+});
+function toggleSiteMobile() {
+  const menu = document.getElementById('site-mobile-menu');
+  const btn = document.getElementById('hamburger');
+  const open = menu.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+function closeSiteMobile() {
+  document.getElementById('site-mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
 // ══════════════════════════════
 //  STATE
 // ══════════════════════════════
