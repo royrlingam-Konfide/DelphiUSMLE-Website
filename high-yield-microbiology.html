@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>High-Yield Microbiology | DelphiUSMLE</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="Brand_assets/915E7D88-A4E8-4BB7-931B-3BDB21D03D9E_1_105_c.jpeg"/>
 <style>
 
 :root {
@@ -56,15 +57,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--navy-mid),var(--navy));border-bottom:2px solid var(--gold);padding:36px 28px;}
-.hero-inner{max-width:1400px;margin:0 auto;}
-.hero-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-.hero-h{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:10px;}
-.hero-h em{color:var(--gold);font-style:italic;}
-.hero-desc{font-size:13px;color:rgba(255,255,255,.55);max-width:520px;line-height:1.6;margin-bottom:24px;}
-.hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold);}
-.stat-lbl{font-size:10px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;}
+.hero{background:linear-gradient(135deg,#0D2B55 0%,#1565C0 60%,#2196F3 100%);color:#fff;padding:60px 40px;position:relative;overflow:hidden;}
+.hero::before,.hero::after{content:'';position:absolute;border-radius:50%;pointer-events:none;}
+.hero::before{top:-80px;right:-80px;width:420px;height:420px;background:rgba(255,255,255,0.05);}
+.hero::after{bottom:-100px;left:-60px;width:360px;height:360px;background:rgba(255,255,255,0.04);}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;}
+.hero-label{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#F5A623;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.hero-h{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:10px;letter-spacing:-0.02em;}
+.hero-h em{color:#F5A623;font-style:normal;}
+.hero-desc{font-family:'Open Sans',sans-serif;font-size:1rem;color:rgba(255,255,255,0.8);max-width:560px;line-height:1.8;margin-bottom:32px;}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800;color:#F5A623;line-height:1;}
+.stat-lbl{font-family:'Open Sans',sans-serif;font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.55);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;}
+.hero-mastered{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:30px;padding:8px 18px;font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.85);margin-top:28px;}
+.hero-mastered .pdot{background:#F5A623;}
 
 /* CONTROLS */
 .controls{background:var(--white);border-bottom:1px solid var(--border);padding:14px 28px;position:sticky;top:67px;z-index:90;box-shadow:0 2px 12px rgba(13,27,42,.06);}
@@ -410,14 +416,18 @@ footer{background:var(--navy);border-top:2px solid var(--gold);padding:24px;marg
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Step 1 Micro · High-Yield Series</div>
-    <h1 class="hero-h">Master Micro in <em>One Place</em></h1>
+    <div class="hero-label">⚡ Step 1 Micro · High-Yield Series</div>
+    <h1 class="hero-h">High-Yield <em>Microbiology</em> Cards</h1>
     <p class="hero-desc">Comprehensive, searchable notes covering every testable organism — organized the way Step 1 asks questions.</p>
     <div class="hero-stats">
       <div><div class="stat-num">38</div><div class="stat-lbl">Organisms</div></div>
       <div><div class="stat-num">8</div><div class="stat-lbl">Categories</div></div>
       <div><div class="stat-num">60+</div><div class="stat-lbl">Quiz Questions</div></div>
       <div><div class="stat-num">Step 1</div><div class="stat-lbl">Focused</div></div>
+    </div>
+    <div class="hero-mastered">
+      <div class="pdot"></div>
+      <span id="masteredCount">0</span> / 38 Mastered
     </div>
   </div>
 </div>
