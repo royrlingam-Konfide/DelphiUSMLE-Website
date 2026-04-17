@@ -115,6 +115,8 @@
   }
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .sub { padding-left: 56px; font-size: 0.75rem; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); }
+  .mobile-menu-label { padding: 13px 40px; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.4); border-bottom: 1px solid rgba(255,255,255,0.06); display: block; text-transform: uppercase; letter-spacing: 0.5px; cursor: default; user-select: none; }
+  .nav-links > li.open .dropdown, #who-nav:hover .dropdown, #hub-nav:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
   /* ── SHARED ── */
   .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -519,9 +521,17 @@
       <span class="nav-logo-text" style="display:none;">Delphi<span>USMLE</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#who-we-are">Who We Are</a></li>
-      <li><a href="index.html#step-1-overview">Step 1 Overview</a></li>
+      <li class="has-dropdown" id="who-nav">
+        <button onclick="toggleDrop('who-nav')" style="cursor:default;" onmousedown="event.preventDefault()">
+          Who We Are
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="index.html#who-we-are">Our Mission</a>
+          <a href="index.html#meet-founder">Meet Dr. Roy Lingam</a>
+        </div>
+      </li>
+      <li><a href="index.html#step-1-overview">Pass Step 1</a></li>
       <li class="has-dropdown" id="prog-nav">
         <button onclick="toggleDrop('prog-nav')">
           Programs
@@ -534,6 +544,15 @@
       </li>
       <li><a href="cohorts.html">Upcoming Cohorts</a></li>
       <li><a href="success-stories.html">Success Stories</a></li>
+      <li class="has-dropdown" id="hub-nav">
+        <button onclick="toggleDrop('hub-nav')" style="cursor:default;" onmousedown="event.preventDefault()">
+          High-Yield Hub
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dropdown">
+          <a href="high-yield-microbiology.html">High-Yield Microbiology Cards</a>
+        </div>
+      </li>
       <li><a href="index.html#connect-with-us">Connect With Us</a></li>
     </ul>
     <a href="https://us02web.zoom.us/rec/share/WdwIIFj5VsuZHstLgZFGU9o-sWNOCo2g-G7bgcpwYG8fkrwZN9VIg6Umdx4rsFNh.l0srTj9UUh85Y0pX" target="_blank" class="nav-cta">Watch Free Demo</a>
@@ -545,13 +564,17 @@
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html#home" onclick="closeMobile()">Home</a>
-  <a href="index.html#who-we-are" onclick="closeMobile()">Who We Are</a>
-  <a href="index.html#step-1-overview" onclick="closeMobile()">Step 1 Overview</a>
+  <span class="mobile-menu-label">Who We Are</span>
+  <a href="index.html#who-we-are" class="sub" onclick="closeMobile()">↳ Our Mission</a>
+  <a href="index.html#meet-founder" class="sub" onclick="closeMobile()">↳ Meet Dr. Roy Lingam</a>
+  <a href="index.html#step-1-overview" onclick="closeMobile()">Pass Step 1</a>
   <a href="index.html#programs" onclick="closeMobile()">Programs</a>
   <a href="core-program.html" class="sub" onclick="closeMobile()">↳ Delphi Core Program</a>
   <a href="acecomp.html" class="sub" onclick="closeMobile()">↳ Delphi AceComp</a>
   <a href="cohorts.html" onclick="closeMobile()">Upcoming Cohorts</a>
   <a href="success-stories.html" onclick="closeMobile()">Success Stories</a>
+  <span class="mobile-menu-label">High-Yield Hub</span>
+  <a href="high-yield-microbiology.html" class="sub" onclick="closeMobile()">↳ High-Yield Microbiology Cards</a>
   <a href="index.html#connect-with-us" onclick="closeMobile()">Connect With Us</a>
 </div>
 
