@@ -131,24 +131,6 @@
     margin: 0 auto 36px;
   }
 
-  /* Trustpilot badge in hero */
-  .tp-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(0,182,122,0.35);
-    border-radius: 100px;
-    padding: 10px 22px;
-    text-decoration: none;
-    transition: background 0.18s, border-color 0.18s, transform 0.18s;
-  }
-  .tp-hero-badge:hover { background: rgba(255,255,255,0.12); border-color: rgba(0,182,122,0.6); transform: translateY(-2px); }
-  .tp-logo { width: 24px; height: 24px; border-radius: 3px; flex-shrink: 0; }
-  .tp-hero-badge .tp-text { text-align: left; }
-  .tp-hero-badge .tp-excellent { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; color: #fff; display: block; }
-  .tp-hero-badge .tp-stars { color: var(--tp); font-size: 0.78rem; letter-spacing: 1px; }
-  .tp-hero-badge .tp-count { font-size: 0.72rem; color: rgba(255,255,255,0.5); font-family: 'Montserrat', sans-serif; }
 
   /* Stats strip */
   .stats-strip {
@@ -310,15 +292,6 @@
   }
   .review-badge.cbssa { color: var(--blue); background: rgba(21,101,192,0.08); border-color: rgba(21,101,192,0.2); }
 
-  /* Trustpilot logo in card */
-  .tp-card-logo {
-    position: absolute;
-    top: 18px; right: 18px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    opacity: 0.35;
-  }
 
   /* ── BOTTOM CTA ── */
   .bottom-cta {
@@ -355,6 +328,7 @@
   .footer-copy a:hover { color: #fff; }
   @media(max-width:600px){ .footer-top { flex-direction: column; gap: 32px; } .footer-links { gap: 28px; } }
 </style>
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </head>
 <body>
 
@@ -436,17 +410,11 @@
     <p class="reveal reveal-d2">Every review below is from a real DelphiUSMLE student. These are their words, unedited — the outcomes they achieved and the moments that changed their path.</p>
 
     <div class="reveal reveal-d3">
-      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="tp-hero-badge">
-        <svg class="tp-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-          <rect width="512" height="512" fill="#00b67a"/>
-          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
-        </svg>
-        <div class="tp-text">
-          <span class="tp-excellent">Excellent on Trustpilot</span>
-          <span class="tp-stars">★★★★★ 4.8 / 5</span>
-        </div>
-        <span class="tp-count" style="margin-left:6px;">53+ reviews →</span>
-      </a>
+      <!-- TrustBox widget - Micro Combo -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6ffb0d04a076446a9af" data-businessunit-id="5e2fabc40f7e88000156dc9f" data-style-height="20px" data-style-width="100%" data-token="154b899d-4db2-4993-95e4-16ce21056f4f" data-theme="dark">
+        <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
     </div>
 
     <div class="stats-strip reveal reveal-d3">
@@ -483,7 +451,7 @@
         <div class="callout-avatar">🎓</div>
         <div>
           <div class="callout-name">Sydney Reed</div>
-          <div class="callout-sub">USMLE Step 1 · Verified Trustpilot Review</div>
+          <div class="callout-sub">USMLE Step 1 · Verified Review</div>
         </div>
         <div class="callout-stars">★★★★★</div>
       </div>
@@ -498,17 +466,17 @@
 
     <div style="text-align:center;margin-bottom:40px;" class="reveal">
       <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--navy);letter-spacing:-0.02em;margin-bottom:8px;">What Our Students Are Saying</h2>
-      <p style="font-size:0.95rem;color:var(--gray);line-height:1.7;">All reviews sourced directly from <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" style="color:var(--tp);font-weight:600;text-decoration:none;">Trustpilot</a></p>
+      <!-- TrustBox widget - Micro Combo -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6ffb0d04a076446a9af" data-businessunit-id="5e2fabc40f7e88000156dc9f" data-style-height="20px" data-style-width="100%" data-token="154b899d-4db2-4993-95e4-16ce21056f4f">
+        <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
     </div>
 
     <div class="reviews-grid">
 
       <!-- 1. Nina Bracciano -->
       <div class="review-card featured-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">The ONLY Step 1 Prep Course You Need</div>
@@ -525,10 +493,6 @@
 
       <!-- 2. Sydney Reed -->
       <div class="review-card featured-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Dr. Roy: A Passionate Teacher Who Guarantees Success</div>
@@ -545,10 +509,6 @@
 
       <!-- 3. Huestina Bista -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Changed My Life</div>
@@ -565,10 +525,6 @@
 
       <!-- 4. SB -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">The Delphi USMLE Course Made a Significant Difference</div>
@@ -585,10 +541,6 @@
 
       <!-- 5. Bansari Patel -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">A Gem and Worth Every Penny — 10/10</div>
@@ -605,10 +557,6 @@
 
       <!-- 6. RWehbe -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">1000% Recommend Delphi</div>
@@ -625,10 +573,6 @@
 
       <!-- 7. Aarya M -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">My USMLE Journey With Delphi</div>
@@ -645,10 +589,6 @@
 
       <!-- 8. Madiha Fathima -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Dr. Roy Is Not Just an Amazing Teacher — He's a Mentor</div>
@@ -665,10 +605,6 @@
 
       <!-- 9. Caroline Apreku -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">OMG!! This Class Is a True Blessing!</div>
@@ -685,10 +621,6 @@
 
       <!-- 10. Bianca G -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">USMLE Step 1 Review Course</div>
@@ -705,10 +637,6 @@
 
       <!-- 11. Mabel Arthur -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Very Very Helpful Course</div>
@@ -725,10 +653,6 @@
 
       <!-- 12. Moyinoluwa Femi-Gege -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">The Right Way to Learn for Step 1</div>
@@ -745,10 +669,6 @@
 
       <!-- 13. Ricky Singh -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">True Mentorship From Day One to Exam Day</div>
@@ -765,10 +685,6 @@
 
       <!-- 14. Caitlin -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Useful Course for Getting a Strong USMLE Base</div>
@@ -785,10 +701,6 @@
 
       <!-- 15. Nelson Okobia -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Scores Increased 89% — I Recommend to Family</div>
@@ -805,10 +717,6 @@
 
       <!-- 16. M. Hanna -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Must Take if You Can!</div>
@@ -825,10 +733,6 @@
 
       <!-- 17. Melina -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Still Learning and Growing With Delphi</div>
@@ -845,10 +749,6 @@
 
       <!-- 18. Anudeep Dharkar -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Excellent!!</div>
@@ -865,10 +765,6 @@
 
       <!-- 19. Richard Boakye -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Excellent Step 1 Program!</div>
@@ -885,10 +781,6 @@
 
       <!-- 20. Amara Cheema -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Thank You — Significant Score Improvements</div>
@@ -905,10 +797,6 @@
 
       <!-- 21. Steffi Nainan -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Best USMLE Program — Far Exceeded Expectations</div>
@@ -925,10 +813,6 @@
 
       <!-- 22. Gurpinder Dhillon -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Hands-Down the Best USMLE Prep Course</div>
@@ -945,10 +829,6 @@
 
       <!-- 23. Manveer Singh -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">I'm Very Grateful for Delphi USMLE</div>
@@ -965,10 +845,6 @@
 
       <!-- 24. Ndilon -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Delphi Has Been the Best Thing for My USMLE Journey</div>
@@ -985,10 +861,6 @@
 
       <!-- 25. Gabriela Sokolowska -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Great Course for Medical Students</div>
@@ -1005,10 +877,6 @@
 
       <!-- 26. Gurchetan Singh -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Concept Understanding and Personal Attention</div>
@@ -1025,10 +893,6 @@
 
       <!-- 27. Martin Twumampofo -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">The Best USMLE Prep Course!!!</div>
@@ -1045,10 +909,6 @@
 
       <!-- 28. Chicago -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Quality Learning, Not Unnecessary Quantity</div>
@@ -1065,10 +925,6 @@
 
       <!-- 29. Cheryl F -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Dr. Roy Will Have You Falling in Love With Medicine</div>
@@ -1085,10 +941,6 @@
 
       <!-- 30. John (IMG) -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">As an IMG Student — Exactly What I Needed</div>
@@ -1105,10 +957,6 @@
 
       <!-- 31. Gustavo Dela Sancha -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Excellent Prep Course — Great Structure</div>
@@ -1125,10 +973,6 @@
 
       <!-- 32. Edward Richardson -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">The Best USMLE Experience</div>
@@ -1145,10 +989,6 @@
 
       <!-- 33. Harini Lingamgunta -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Highly Recommend Delphi USMLE Step 2 CK Review!</div>
@@ -1165,10 +1005,6 @@
 
       <!-- 34. Gabriela Naronowicz -->
       <div class="review-card reveal">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Exceptional Teacher Who Builds Real Confidence</div>
@@ -1185,10 +1021,6 @@
 
       <!-- 35. Clemea Donaldson -->
       <div class="review-card reveal reveal-d1">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">A Teaching Style That Simplifies Everything</div>
@@ -1205,10 +1037,6 @@
 
       <!-- 36. Dmitry -->
       <div class="review-card reveal reveal-d2">
-        <div class="tp-card-logo">
-          <svg width="16" height="16" viewBox="0 0 512 512"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;color:var(--gray);">Trustpilot</span>
-        </div>
         <span class="review-quote-mark">"</span>
         <div class="review-stars">★★★★★</div>
         <div class="review-title">Great Classes — Quality That Justifies the Investment</div>
@@ -1237,7 +1065,6 @@
       <div class="cta-group">
         <a href="enroll.html" class="btn-primary">Start Your Journey →</a>
         <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="btn-tp">
-          <svg width="18" height="18" viewBox="0 0 512 512" style="flex-shrink:0;border-radius:3px;"><rect width="512" height="512" fill="#00b67a"/><polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#fff"/></svg>
           Read All Reviews on Trustpilot →
         </a>
       </div>

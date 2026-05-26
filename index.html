@@ -452,19 +452,6 @@
 
   .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  .hero-tp-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 10px 18px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 40px;
-    text-decoration: none;
-    transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  }
-  .hero-tp-badge:hover { background: rgba(255,255,255,0.12); border-color: rgba(0,182,122,0.5); transform: translateY(-1px); }
 
   /* Hero image side */
   .hero-visual {
@@ -1442,43 +1429,6 @@
   .cohorts-note a { color: var(--gold); text-decoration: none; }
   .cohorts-note a:hover { text-decoration: underline; }
 
-  /* ── TRUSTPILOT ── */
-  .tp-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #f9fafb;
-    border: 1.5px solid #d1fae5;
-    border-radius: 40px;
-    padding: 10px 20px 10px 14px;
-    text-decoration: none;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  }
-  .tp-badge:hover { border-color: #00b67a; box-shadow: 0 4px 16px rgba(0,182,122,0.15); transform: translateY(-1px); }
-  .tp-star-icon { width: 32px; height: 32px; border-radius: 4px; flex-shrink: 0; }
-  .tp-text { display: flex; align-items: center; gap: 8px; }
-  .tp-excellent { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; color: #111; }
-  .tp-stars { color: #00b67a; font-size: 0.95rem; letter-spacing: 1px; }
-  .tp-source { font-size: 0.78rem; color: var(--gray); }
-  .tp-source strong { color: #111; }
-  .tp-arrow { width: 18px; height: 18px; flex-shrink: 0; }
-  .tp-cta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.88rem;
-    color: #00b67a;
-    text-decoration: none;
-    border: 2px solid #00b67a;
-    padding: 11px 26px;
-    border-radius: 30px;
-    transition: background 0.2s, color 0.2s, transform 0.2s;
-  }
-  .tp-cta-link:hover { background: #00b67a; color: #fff; transform: translateY(-1px); }
 
   /* ── TESTIMONIALS ── */
   #testimonials { background: var(--light); }
@@ -1887,6 +1837,7 @@
     .flow-step:last-child { border-bottom: none; }
   }
 </style>
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </head>
 <body>
 
@@ -1990,19 +1941,13 @@
         <a href="#who-we-are" class="btn-outline">Our Story</a>
       </div>
 
-      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="hero-tp-badge reveal reveal-d4">
-        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:26px;border-radius:3px;flex-shrink:0;">
-          <rect width="512" height="512" fill="#00b67a"/>
-          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
-        </svg>
-        <div>
-          <div style="display:flex;align-items:center;gap:6px;">
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;color:#fff;">Excellent</span>
-            <span style="color:#00b67a;font-size:0.9rem;letter-spacing:1px;">★★★★★</span>
-          </div>
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.55);">Rated on <strong style="color:rgba(255,255,255,0.8);">Trustpilot</strong></div>
+      <div class="reveal reveal-d4" style="margin-top:20px;">
+        <!-- TrustBox widget - Micro Combo -->
+        <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6ffb0d04a076446a9af" data-businessunit-id="5e2fabc40f7e88000156dc9f" data-style-height="20px" data-style-width="100%" data-token="154b899d-4db2-4993-95e4-16ce21056f4f" data-theme="dark">
+          <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener">Trustpilot</a>
         </div>
-      </a>
+        <!-- End TrustBox widget -->
+      </div>
     </div>
 
     <div class="hero-visual reveal reveal-d2">
@@ -2533,21 +2478,11 @@
       <h2 class="section-title">Real Students. <span>Real Results.</span></h2>
       <p class="section-intro" style="margin:0 auto 16px;">Don't take our word for it — hear from students whose lives Dr. Roy has transformed.</p>
 
-      <!-- Trustpilot badge -->
-      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="tp-badge">
-        <svg class="tp-star-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-          <rect width="512" height="512" rx="0" fill="#00b67a"/>
-          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
-        </svg>
-        <div class="tp-text">
-          <span class="tp-excellent">Excellent</span>
-          <span class="tp-stars">★★★★★</span>
-          <span class="tp-source">on <strong>Trustpilot</strong></span>
-        </div>
-        <svg class="tp-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 10h12M11 5l5 5-5 5" stroke="#00b67a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <!-- TrustBox widget - Micro Combo -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6ffb0d04a076446a9af" data-businessunit-id="5e2fabc40f7e88000156dc9f" data-style-height="20px" data-style-width="100%" data-token="154b899d-4db2-4993-95e4-16ce21056f4f">
+        <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
     </div>
 
     <!-- Featured result callout -->
@@ -2644,11 +2579,7 @@
 
     <!-- Trustpilot CTA -->
     <div class="reveal" style="text-align:center; margin-top:44px;">
-      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="tp-cta-link">
-        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;flex-shrink:0;">
-          <rect width="512" height="512" rx="0" fill="#00b67a"/>
-          <polygon points="256,64 314,198 460,210 352,306 388,450 256,372 124,450 160,306 52,210 198,198" fill="#ffffff"/>
-        </svg>
+      <a href="https://www.trustpilot.com/review/delphiusmle.com" target="_blank" rel="noopener" class="btn-outline">
         Read all reviews on Trustpilot →
       </a>
     </div>
