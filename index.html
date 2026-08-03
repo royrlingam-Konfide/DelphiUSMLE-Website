@@ -1903,6 +1903,33 @@
     </button>
   </div>
 </nav>
+
+<!-- ══ COHORT ANNOUNCEMENT BAR ══ -->
+<style>
+  #cohortBar{display:block;text-decoration:none;background:linear-gradient(135deg,#F5A623 0%,#f0a52e 50%,#e6941a 100%);box-shadow:0 6px 18px rgba(13,43,85,0.20);animation:cohortBarIn .5s cubic-bezier(0.34,1.2,0.64,1) both;}
+  .cohortBar-inner{max-width:1200px;margin:0 auto;padding:9px 40px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-family:'Montserrat',sans-serif;}
+  .cohortBar-pill{display:inline-flex;align-items:center;gap:7px;background:#0D2B55;color:#fff;font-size:0.62rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap;}
+  .cohortBar-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse 2s infinite;flex-shrink:0;}
+  .cohortBar-msg{color:#0D2B55;font-size:0.9rem;font-weight:600;letter-spacing:.1px;}
+  .cohortBar-msg strong{font-weight:800;}
+  .cohortBar-cta{display:inline-flex;align-items:center;gap:6px;background:#0D2B55;color:#fff;font-size:0.8rem;font-weight:800;letter-spacing:.4px;padding:8px 18px;border-radius:22px;white-space:nowrap;box-shadow:0 3px 10px rgba(13,43,85,0.25);transition:transform .18s ease,background .2s ease,box-shadow .2s ease;}
+  #cohortBar:hover .cohortBar-cta{background:#0a1f3d;transform:translateY(-1px);box-shadow:0 5px 16px rgba(13,43,85,0.35);}
+  @keyframes cohortBarIn{from{opacity:0;transform:translateY(-100%);}to{opacity:1;transform:translateY(0);}}
+  @media(max-width:768px){
+    .cohortBar-inner{padding:8px 16px;gap:10px;}
+    .cohortBar-pill{display:none;}
+    .cohortBar-msg{font-size:0.78rem;text-align:center;}
+    .cohortBar-cta{font-size:0.72rem;padding:7px 14px;}
+  }
+  @media(max-width:480px){ .cohortBar-msg{font-size:0.72rem;} }
+</style>
+<a id="cohortBar" href="enroll.html">
+  <div class="cohortBar-inner">
+    <span class="cohortBar-pill"><span class="cohortBar-dot"></span>Now Enrolling</span>
+    <span class="cohortBar-msg">Next <strong>Delphi Core Program</strong> cohort starts <strong>August&nbsp;31,&nbsp;2026</strong> &nbsp;·&nbsp; limited seats</span>
+    <span class="cohortBar-cta">Reserve Your Spot →</span>
+  </div>
+</a>
 </div><!-- /sticky wrapper -->
 
 <!-- Mobile menu -->
@@ -2945,81 +2972,6 @@
     <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.648 4.8 1.778 6.823L2 30l7.38-1.752A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.607l-.422-.25-4.38 1.04 1.073-4.27-.276-.44A11.56 11.56 0 0 1 4.4 16C4.4 9.593 9.593 4.4 16 4.4S27.6 9.593 27.6 16 22.407 27.6 16 27.6zm6.343-8.67c-.347-.174-2.055-1.014-2.374-1.13-.32-.115-.552-.173-.784.174-.232.347-.9 1.13-1.103 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.72-1.03-.918-1.725-2.052-1.928-2.399-.203-.347-.022-.535.153-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.434-.029-.608-.087-.174-.784-1.89-1.074-2.588-.283-.68-.57-.587-.784-.598l-.667-.012c-.232 0-.608.087-.926.434-.32.347-1.218 1.19-1.218 2.9 0 1.71 1.247 3.362 1.42 3.594.174.232 2.453 3.745 5.944 5.252.831.358 1.48.572 1.985.733.834.265 1.594.228 2.194.138.669-.1 2.055-.84 2.346-1.652.29-.81.29-1.505.203-1.65-.086-.145-.318-.232-.665-.405z"/>
   </svg>
 </a>
-
-<!-- COHORT FLOATING BANNER -->
-<div id="cohortBanner" style="
-  position: fixed;
-  bottom: 32px;
-  right: 24px;
-  z-index: 9999;
-  width: 290px;
-  background: linear-gradient(160deg, #0a1f3d 0%, #0D2B55 60%, #1a3f7a 100%);
-  border: 2px solid #F5A623;
-  border-radius: 20px;
-  box-shadow: 0 12px 50px rgba(13,43,85,0.55), 0 0 0 4px rgba(245,166,35,0.12);
-  padding: 20px 18px 16px;
-  font-family: 'Montserrat', sans-serif;
-  animation: bannerSlideIn 0.65s cubic-bezier(0.34,1.56,0.64,1) both;
-">
-  <!-- Dismiss -->
-  <button onclick="document.getElementById('cohortBanner').style.display='none'" style="
-    position:absolute;top:11px;right:13px;
-    background:none;border:none;color:rgba(255,255,255,0.35);
-    font-size:17px;cursor:pointer;line-height:1;padding:0;transition:color 0.2s;
-  " onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">✕</button>
-
-  <!-- Badge row -->
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-    <span style="background:#F5A623;color:#0D2B55;font-size:0.58rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Now Enrolling</span>
-    <span style="width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;animation:pulse 2s infinite;flex-shrink:0;box-shadow:0 0 6px #4ade80;"></span>
-  </div>
-
-  <!-- Single Program Card -->
-  <div style="background:rgba(245,166,35,0.08);border:1.5px solid rgba(245,166,35,0.4);border-radius:14px;padding:14px 14px 12px;margin-bottom:14px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-      <div style="font-size:0.6rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#F5A623;">6 &amp; 8 Week Cohort</div>
-    </div>
-    <div style="font-size:1.05rem;font-weight:800;color:#fff;line-height:1.25;margin-bottom:12px;">Delphi Core Program</div>
-
-    <!-- Date highlight -->
-    <div style="background:linear-gradient(135deg,#F5A623,#e6941a);border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;">
-      <span style="font-size:1.3rem;line-height:1;">📅</span>
-      <div>
-        <div style="font-size:0.58rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(13,43,85,0.7);margin-bottom:1px;">Cohort Starts</div>
-        <div style="font-size:1.1rem;font-weight:900;color:#0D2B55;letter-spacing:-0.3px;line-height:1.1;">August 31, 2026</div>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:5px;">
-      <div style="display:flex;align-items:center;gap:7px;">
-        <span style="font-size:0.75rem;">👥</span>
-        <span style="font-size:0.72rem;color:rgba(255,255,255,0.7);font-weight:500;">Small group setting</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:7px;">
-        <span style="font-size:0.75rem;">🎯</span>
-        <span style="font-size:0.72rem;color:rgba(255,255,255,0.7);font-weight:500;">1-on-1 guidance</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <a href="enroll.html" style="
-    display:block;text-align:center;
-    background:#F5A623;color:#0D2B55;
-    font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:800;letter-spacing:0.5px;
-    padding:12px;border-radius:11px;text-decoration:none;
-    transition:background 0.2s,transform 0.15s;
-  " onmouseover="this.style.background='#e6941a';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#F5A623';this.style.transform='translateY(0)'">
-    Reserve My Spot →
-  </a>
-</div>
-
-<style>
-@keyframes bannerSlideIn {
-  from { opacity: 0; transform: translateY(40px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-</style>
 
 </body>
 </html>
