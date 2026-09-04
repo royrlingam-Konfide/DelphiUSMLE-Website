@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Enroll Now — CBSSA & USMLE Step 1 Preparation | DelphiUSMLE</title>
+<title>No-Refund & Pass Guarantee Policy | DelphiUSMLE</title>
 <link rel="icon" type="image/jpeg" href="Brand_assets/915E7D88-A4E8-4BB7-931B-3BDB21D03D9E_1_105_c.jpeg"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -57,7 +57,7 @@
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .sub { padding-left: 56px; font-size: 0.75rem; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); }
   .mobile-menu-label { padding: 13px 40px; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.4); border-bottom: 1px solid rgba(255,255,255,0.06); display: block; text-transform: uppercase; letter-spacing: 0.5px; cursor: default; user-select: none; }
-    #hub-nav > button { border: 1.5px solid #F5A623 !important; border-radius: 20px; color: #F5A623 !important; background: rgba(245,166,35,0.08) !important; padding: 6px 14px !important; }
+  #hub-nav > button { border: 1.5px solid #F5A623 !important; border-radius: 20px; color: #F5A623 !important; background: rgba(245,166,35,0.08) !important; padding: 6px 14px !important; }
   #hub-nav > button:hover { background: rgba(245,166,35,0.18) !important; }
   #who-nav:hover .dropdown, #hub-nav:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
   @media (max-width: 860px) { .nav-links { display: none; } .nav-cta { font-size: 0.72rem; padding: 8px 16px; } .hamburger { display: flex; } }
@@ -76,53 +76,41 @@
     background: radial-gradient(ellipse 60% 70% at 50% 120%, rgba(245,166,35,0.1) 0%, transparent 65%);
     pointer-events: none;
   }
-  .page-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .page-hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
   .hero-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25); border-radius: 100px; padding: 6px 16px; margin-bottom: 20px; }
   .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,4.5vw,3rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em; }
   .page-hero h1 span { color: var(--gold); }
   .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
 
-  /* ── PROGRAM SELECTOR ── */
-  .selector-section { background: var(--light); padding: 64px 0 0; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
-  .selector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
 
-  .prog-card {
-    background: var(--white);
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    padding: 36px 32px;
-    cursor: pointer;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  .prog-card:hover { border-color: var(--blue); box-shadow: 0 8px 32px rgba(13,43,85,0.12); transform: translateY(-2px); }
-  .prog-card.active { border-color: var(--gold); box-shadow: 0 8px 40px rgba(245,166,35,0.18); }
-  .prog-card .badge { position: absolute; top: -12px; left: 28px; background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; }
-  .prog-icon { font-size: 2rem; margin-bottom: 14px; }
-  .prog-label { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
-  .prog-title { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; line-height: 1.25; }
-  .prog-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
-  .prog-price { font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--navy); }
-  .prog-price span { font-size: 0.8rem; font-weight: 500; color: var(--gray); }
-  .prog-features { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
-  .prog-features li { font-size: 0.83rem; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
-  .prog-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .enroll-btn { display: block; text-align: center; margin-top: 24px; background: var(--navy); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 13px 24px; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
-  .enroll-btn:hover { background: var(--blue); transform: translateY(-1px); }
-  .enroll-btn.gold { background: var(--gold); color: var(--navy); }
-  .enroll-btn.gold:hover { background: var(--gold-dk); }
+  /* ── POLICY BODY ── */
+  .policy-section { padding: 64px 0; }
+  .policy-section.alt { background: var(--light); }
+  .policy-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 44px 48px; box-shadow: 0 4px 32px rgba(13,43,85,0.06); }
+  .policy-card + .policy-card { margin-top: 24px; }
+  .policy-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .policy-card h2 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--navy); line-height: 1.25; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .policy-card p { color: var(--text); font-size: 0.98rem; line-height: 1.8; margin-bottom: 14px; }
+  .policy-card p:last-child { margin-bottom: 0; }
+  .policy-card ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .policy-card ul li { font-size: 0.95rem; color: var(--text); line-height: 1.7; display: flex; align-items: flex-start; gap: 10px; }
+  .policy-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
-  /* ── FORM SECTION ── */
-  .form-section { background: var(--light); padding: 64px 0 80px; }
-  .form-section-inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
-  .form-header { text-align: center; margin-bottom: 36px; }
-  .form-header h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem,3vw,2rem); font-weight: 800; color: var(--navy); margin-bottom: 10px; }
-  .form-header p { color: var(--gray); font-size: 0.95rem; }
-  .form-box { background: var(--white); border-radius: 20px; padding: 48px; box-shadow: 0 4px 32px rgba(13,43,85,0.08); border: 1px solid var(--border); }
+  .icon-badge { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; }
+  .icon-badge.gold { background: linear-gradient(135deg, rgba(245,166,35,0.16), rgba(245,166,35,0.05)); border: 1px solid rgba(245,166,35,0.3); }
+  .icon-badge.blue { background: linear-gradient(135deg, rgba(21,101,192,0.14), rgba(21,101,192,0.04)); border: 1px solid rgba(21,101,192,0.25); }
+
+  .agree-note { display: flex; gap: 16px; align-items: flex-start; background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.28); border-radius: 16px; padding: 24px 28px; margin-top: 8px; }
+  .agree-note .mark { font-size: 1.4rem; flex-shrink: 0; }
+  .agree-note p { font-size: 0.92rem; color: var(--navy); line-height: 1.7; margin: 0; }
+  .agree-note strong { font-weight: 700; }
+
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  .btn-gold { background: var(--gold); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; padding: 14px 30px; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+  .btn-gold:hover { background: var(--gold-dk); transform: translateY(-1px); }
+  .btn-outline-navy { border: 1.5px solid rgba(13,43,85,0.25); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; padding: 13px 28px; border-radius: 50px; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+  .btn-outline-navy:hover { background: rgba(13,43,85,0.05); border-color: var(--navy); }
 
   /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -138,10 +126,10 @@
   footer a:hover { color: var(--gold); }
 
   @media (max-width: 700px) {
-    .selector-grid { grid-template-columns: 1fr; }
-    .form-box { padding: 28px 20px; }
-    .container, .form-section-inner { padding: 0 20px; }
+    .container { padding: 0 20px; }
+    .policy-card { padding: 30px 24px; }
     .page-hero { padding: 56px 24px 64px; }
+    .agree-note { flex-direction: column; }
   }
 </style>
 </head>
@@ -217,99 +205,59 @@
 <!-- HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="hero-tag">Enrollment Open</div>
-    <h1>Pass Comp <span>on Your First Try.</span></h1>
-    <p>Fill out the form below and Dr. Roy will personally reach out to confirm your spot and next steps.</p>
+    <div class="hero-tag">Policies</div>
+    <h1>Our Pass Guarantee <span>& Refund Policy</span></h1>
+    <p>What happens if you don't pass on your first attempt — and why we don't offer cash refunds.</p>
   </div>
 </div>
 
-<!-- ── GUARANTEE ── -->
-<section style="background:#f7f9fc;padding:56px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(21,101,192,0.05) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(245,166,35,0.05) 0%,transparent 60%);pointer-events:none;"></div>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="reveal" style="max-width:820px;margin:0 auto;">
-      <div style="display:flex;gap:40px;align-items:center;background:#fff;border:1px solid rgba(245,166,35,0.25);border-radius:24px;padding:40px 48px;box-shadow:0 4px 32px rgba(13,43,85,0.08);">
+<!-- POLICY BODY -->
+<section class="policy-section">
+  <div class="container">
 
-        <!-- Shield icon -->
-        <div style="flex-shrink:0;width:72px;height:72px;background:linear-gradient(135deg,rgba(245,166,35,0.15),rgba(245,166,35,0.05));border:1px solid rgba(245,166,35,0.3);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;">🛡️</div>
-
-        <!-- Text -->
-        <div style="flex:1;">
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px;">Our Promise to You</div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.2rem,2.5vw,1.65rem);font-weight:800;color:var(--navy);line-height:1.2;letter-spacing:-0.02em;margin-bottom:12px;">We Stand By You Until You Pass Step 1.</h2>
-          <p style="font-size:0.95rem;color:var(--gray);line-height:1.8;margin:0;">If for any reason you don't pass the exam, your AceComp tuition can be <strong style="color:var(--navy);font-weight:700;">credited toward the Delphi Core or Premium program</strong> — no questions asked. Our goal is to stand by every student until they cross the finish line.</p>
-        </div>
-
-      </div>
-
-      <!-- Reassurance pills -->
-      <div class="reveal reveal-d1" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(13,43,85,0.1);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(13,43,85,0.05);">
-          <span style="color:var(--gold-dk);font-size:0.85rem;">✓</span>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--navy);">Tuition Credit Guarantee</span>
-        </div>
-        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(13,43,85,0.1);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(13,43,85,0.05);">
-          <span style="color:var(--gold-dk);font-size:0.85rem;">✓</span>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--navy);">No Questions Asked</span>
-        </div>
-        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(13,43,85,0.1);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(13,43,85,0.05);">
-          <span style="color:var(--gold-dk);font-size:0.85rem;">✓</span>
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;color:var(--navy);">MD-Led Support Every Step</span>
-        </div>
-      </div>
-
-      <p class="reveal reveal-d1" style="text-align:center;font-size:0.82rem;color:var(--gray);margin-top:18px;">Tuition payments are final and non-refundable. <a href="no-refund-policy.html" style="color:var(--blue);font-weight:600;text-decoration:underline;">Read our full Pass Guarantee & Refund Policy →</a></p>
-
+    <div class="policy-card reveal">
+      <div class="icon-badge gold">🛡️</div>
+      <div class="policy-eyebrow">Our Commitment</div>
+      <h2>If You Don't Pass, We Don't Walk Away.</h2>
+      <p>Enrollment in a Delphi program is a commitment from us as much as it is from you. If you complete the coursework and put in the work but don't pass your Comp exam or USMLE Step 1 on your first attempt, we stay with you and continue to guide, teach, and support you until you pass.</p>
+      <ul>
+        <li>Continued 1:1 guidance and mentorship from Dr. Roy Lingam and the Delphi team at no additional charge.</li>
+        <li>Ongoing access to our teaching sessions, study plans, and course materials while you prepare to retake the exam.</li>
+        <li>For Delphi AceComp students specifically, your tuition can be credited toward the Delphi Core or Premium program — no questions asked.</li>
+      </ul>
     </div>
-  </div>
-</section>
 
-<!-- FORM SECTION -->
-<section class="form-section" id="enroll-form">
-  <div class="form-section-inner">
-    <div class="form-header reveal">
-      <div style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);background:#e8f0fe;padding:5px 14px;border-radius:20px;margin-bottom:14px;">Step 1 of 2</div>
-      <h2>Complete Your Registration</h2>
-      <p>Fill out the form below — Dr. Roy will personally reach out within 24–48 hours to confirm your spot and walk you through next steps.</p>
+    <div class="policy-card reveal reveal-d1">
+      <div class="icon-badge blue">💳</div>
+      <div class="policy-eyebrow">Refund Policy</div>
+      <h2>All Tuition Payments Are Final.</h2>
+      <p>Because our programs involve immediate, personalized investment — one-on-one instruction, custom study plans, live teaching sessions, and materials made available to you as soon as you enroll — <strong>DelphiUSMLE does not issue refunds for any reason once you have enrolled</strong>, including if you do not pass the exam, decide not to complete the program, or change your mind after registering.</p>
+      <p>Instead of a refund, our Pass Guarantee above is how we stand behind our program: continued support until you pass, not your money back.</p>
     </div>
-    <div class="form-box reveal reveal-d1">
-      <script type="text/javascript" src="https://form.jotform.com/jsform/260814540364050"></script>
-    </div>
-  </div>
-</section>
 
-<!-- STEP 2 -->
-<section style="background:var(--navy);padding:72px 0;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,0.1) 0%,transparent 60%);pointer-events:none;"></div>
-  <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px;">
-    <div style="display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.25);border-radius:100px;padding:5px 16px;margin-bottom:20px;">Step 2 of 2</div>
-    <div style="font-size:2.8rem;margin-bottom:16px;">🎓</div>
-    <h2 class="reveal" style="font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;color:var(--white);line-height:1.2;letter-spacing:-0.02em;margin-bottom:16px;">What Happens <span style="color:var(--gold);">After You Submit</span></h2>
-    <p class="reveal" style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:40px;">Dr. Roy Lingam or a member of the Delphi team will personally reach out to you within <strong style="color:var(--white);">24 to 48 hours</strong> to confirm your enrollment, answer any questions, and walk you through your next steps.</p>
-    <div class="reveal" style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 28px;text-align:center;min-width:150px;">
-        <div style="font-size:1.5rem;margin-bottom:8px;">📧</div>
-        <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Email</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">info@delphiusmle.com</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 28px;text-align:center;min-width:150px;">
-        <div style="font-size:1.5rem;margin-bottom:8px;">📞</div>
-        <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Call or WhatsApp</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">+1 (630) 864-6269</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 28px;text-align:center;min-width:150px;">
-        <div style="font-size:1.5rem;margin-bottom:8px;">⏱️</div>
-        <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Response Time</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">Within 24–48 Hours</div>
+    <div class="policy-card reveal reveal-d2">
+      <div class="icon-badge blue">✍️</div>
+      <div class="policy-eyebrow">Acknowledgment</div>
+      <h2>What You're Agreeing To When You Register</h2>
+      <p>By submitting the Registration Request form on our Enroll page, you confirm that you have read and understood this policy, and that you agree to it as a condition of enrollment:</p>
+      <div class="agree-note">
+        <span class="mark">✓</span>
+        <p><strong>I understand that DelphiUSMLE does not offer refunds under any circumstances.</strong> If I do not pass my exam, DelphiUSMLE will continue to guide, teach, and support me until I pass, at no additional cost — but no money paid will be refunded.</p>
       </div>
     </div>
+
+    <div class="cta-row reveal">
+      <a href="enroll.html" class="btn-gold">Enroll Now</a>
+      <a href="mailto:info@delphiusmle.com" class="btn-outline-navy">Questions? Email Us</a>
+    </div>
+
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Delphi<span>USMLE</span></div>
-  <p>© 2026 DelphiUSMLE &nbsp;·&nbsp; <a href="index.html#connect-with-us">Contact Us</a> &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="cohorts.html">Cohorts</a></p>
+  <p>© 2026 DelphiUSMLE &nbsp;·&nbsp; <a href="index.html#connect-with-us">Contact Us</a> &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="cohorts.html">Cohorts</a> &nbsp;·&nbsp; <a href="no-refund-policy.html">Refund Policy</a></p>
   <p style="margin-top:8px; font-size:0.78rem;">Helping Medical Students Succeed Since 2014 · Aurora, IL</p>
   <p style="margin-top:16px; font-size:0.7rem; color:rgba(255,255,255,0.3); max-width:640px; margin-left:auto; margin-right:auto;">DelphiUSMLE Inc is not affiliated with or endorsed by USMLE™, NBME®, FSMB®, First Aid®, or UWorld®.</p>
 </footer>
@@ -333,30 +281,11 @@
     document.getElementById('hamburger').classList.remove('open');
   }
 
-  function selectProgram(type) {
-    // Highlight selected card
-    document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-
-    // Update form heading
-    if (type === 'core') {
-      document.getElementById('form-heading').textContent = 'Enroll in Delphi Core Program';
-      document.getElementById('form-subheading').textContent = 'Complete the form below to reserve your spot in the Core or Premium track starting May 4, 2025.';
-    } else {
-      document.getElementById('form-heading').textContent = 'Enroll in Delphi AceComp';
-      document.getElementById('form-subheading').textContent = 'Complete the form below to reserve your spot in AceComp — April 6 to April 17, 2025.';
-    }
-
-    // Smooth scroll to form
-    document.getElementById('enroll-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
 </script>
 
 <!-- ── WHATSAPP FLOAT ── -->
